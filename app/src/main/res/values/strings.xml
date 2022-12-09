@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">Asthma Application</string>
+
+    <!--Main Page-->
+    <string name="main_page_title">Welcome to PNW\'s Asthma Application!</string>
+    <string name="main_page_instruction">Please Select an Option to Continue</string>
+    <string name="main_page_login_title">Log In</string>
+    <string name="main_page_registration_title">Registration</string>
+    <string name="main_page_action_login">Login</string>
+    <string name="main_page_action_register">Register</string>
+
+    <!-- Registration/Login Page -->
+    <string name="registration_first_name_hint">First Name</string>
+    <string name="registration_last_name_hint">Last Name</string>
+    <string name="registration_username_hint">Username</string>
+    <string name="registration_page_title">Registration page</string>
+    <string name="unregistered_description">Not yet registered? Sign up here!</string>
+    <string name="registered_description">Already Registered? Log In Here!</string>
+    <string name="login_page_title">Log In Page</string>
+    <string name="login_email_hint">Email Address</string>
+    <string name="login_password_hint">Password</string>
+    <string name="register">Register</string>
+    <string name="login">Log In</string>
+    <string name="continue_as_guest">Or, Continue as Guest</string>
+
+</resources>

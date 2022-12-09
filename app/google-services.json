@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "586935512879",
+    "project_id": "asthma-application-remastered",
+    "storage_bucket": "asthma-application-remastered.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:586935512879:android:9baf96ee32dd6fb38afbda",
+        "android_client_info": {
+          "package_name": "com.example.asthmaapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "586935512879-t6s1gc00iarfl92soq0qv27e8g221tun.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCKIYYRdzS0jC9fV7JJlfxLiYGCdFfZns4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "586935512879-t6s1gc00iarfl92soq0qv27e8g221tun.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
