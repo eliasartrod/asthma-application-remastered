@@ -1,4 +1,4 @@
-package com.example.asthmaapplication.main.main;
+package com.example.asthmaapplication.main.homepage;
 
 import android.app.Application;
 
@@ -8,20 +8,21 @@ import androidx.lifecycle.MutableLiveData;
 import com.example.asthmaapplication.main.repository.AuthenticationRepository;
 import com.google.firebase.auth.FirebaseUser;
 
-
 import dagger.hilt.android.lifecycle.HiltViewModel;
 import io.reactivex.annotations.NonNull;
 
 @HiltViewModel
-public class UserViewModel extends AndroidViewModel {
+public class HomePageViewModel extends AndroidViewModel {
+
     private AuthenticationRepository authenticationRepository;
     private MutableLiveData<FirebaseUser> userLiveData;
     private MutableLiveData<Boolean> loggedOutLiveData;
 
-    public UserViewModel(@NonNull Application application) {
+    public HomePageViewModel(@NonNull Application application) {
         super(application);
         authenticationRepository = new AuthenticationRepository(application);
         userLiveData = authenticationRepository.getUserLiveData();
+        loggedOutLiveData = authenticationRepository.getLoggedOutLiveData();
     }
 
     public void login(String emailAddress, String password) {
@@ -29,6 +30,8 @@ public class UserViewModel extends AndroidViewModel {
     }
 
     public void logOut() {
+        userLiveData.setValue(null);
+        loggedOutLiveData.setValue(true);
         authenticationRepository.logOut();
     }
 
@@ -43,4 +46,5 @@ public class UserViewModel extends AndroidViewModel {
     public MutableLiveData<Boolean> getLoggedOutLiveData() {
         return loggedOutLiveData;
     }
+
 }
