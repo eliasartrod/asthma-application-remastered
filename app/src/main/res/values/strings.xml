@@ -23,4 +23,8 @@
     <string name="login">Log In</string>
     <string name="continue_as_guest">Or, Continue as Guest</string>
 
+    <!-- Home Page -->
+    <string name="signed_in_user">Signed In User: %s</string>
+    <string name="welcome">Asthma Application App</string>
+
 </resources>
