@@ -1,44 +1,30 @@
 package com.example.asthmaapplication.main.homepage;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Toast;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.ViewModelProviders;
+import com.example.asthmaapplication.R;
+import com.example.asthmaapplication.main.common.BaseActivity;
+import com.example.asthmaapplication.main.utils.ActivityUtils;
 
-import com.example.asthmaapplication.databinding.FragmentHomePageBinding;
-import com.example.asthmaapplication.main.main.MainActivity;
-import com.example.asthmaapplication.main.main.UserViewModel;
+import javax.annotation.Nullable;
 
-public class HomePageActivity extends AppCompatActivity {
+import dagger.hilt.android.AndroidEntryPoint;
 
-    FragmentHomePageBinding binding;
-    UserViewModel viewModel;
+@AndroidEntryPoint
+public class HomePageActivity extends BaseActivity {
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = FragmentHomePageBinding.inflate(getLayoutInflater());
-        setContentView(binding.getRoot());
+        getSupportActionBar().setDisplayHomeAsUpEnabled(false);
 
-        viewModel = ViewModelProviders.of(this).get(UserViewModel.class);
-        viewModel.getUserLiveData().observe(this, firebaseUser -> {
-            if (firebaseUser != null) {
-                binding.fragmentLoggedinLoggedInUser.setText("Logged In User: " + firebaseUser.getEmail());
-                binding.fragmentLoggedinLogOut.setEnabled(true);
-            } else {
-                binding.fragmentLoggedinLogOut.setEnabled(false);
-                binding.fragmentLoggedinLogOut.setVisibility(View.INVISIBLE);
-            }
-        });
+        HomePageFragment fragment = new HomePageFragment();
+        ActivityUtils.addFragment(getSupportFragmentManager(), fragment, R.id.fragment_container);
 
-        binding.fragmentLoggedinLogOut.setOnClickListener(logOut -> {
-            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-            startActivity(intent);
-            viewModel.logOut();
-        });
+    }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
     }
 }
