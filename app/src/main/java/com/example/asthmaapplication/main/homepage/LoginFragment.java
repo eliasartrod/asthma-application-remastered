@@ -1,5 +1,6 @@
 package com.example.asthmaapplication.main.homepage;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextUtils;
@@ -16,9 +17,13 @@ import com.example.asthmaapplication.R;
 import com.example.asthmaapplication.databinding.FragmentLoginBinding;
 import com.example.asthmaapplication.main.common.BaseFragment;
 import com.example.asthmaapplication.main.common.SnackBarMessage;
+import com.example.asthmaapplication.main.mainpage.MainActivity;
+import com.example.asthmaapplication.main.mainpage.MainFragment;
 import com.example.asthmaapplication.main.utils.UIUtils;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.FirebaseUser;
+
+import java.util.Objects;
 
 import javax.annotation.Nullable;
 import javax.inject.Inject;
@@ -92,6 +97,16 @@ public class LoginFragment extends BaseFragment {
                                 binding.passwordLogin.getText().toString()));
             }
         };
+
+        viewModel.getUserLiveData().observe(getViewLifecycleOwner(), value -> {
+            if (value != null) {
+                Intent intent = new Intent(getContext(), MainActivity.class);
+                startActivity(intent);
+                getActivity().finish();
+            } else {
+                binding.actionLogin.setEnabled(false);
+            }
+        });
 
         binding.emailLogin.addTextChangedListener(watcher);
         binding.passwordLogin.addTextChangedListener(watcher);

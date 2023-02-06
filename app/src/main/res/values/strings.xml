@@ -27,4 +27,15 @@
     <string name="signed_in_user">Signed In User: %s</string>
     <string name="welcome">Asthma Application App</string>
 
+    <!-- Main Page -->
+    <string name="welcome_user">Welcome, %s</string>
+    <string name="log_out">Log Out</string>
+    <string name="learning_card">Learn Here!</string>
+    <string name="patient_card">Patients</string>
+    <string name="student_card">Students</string>
+    <string name="resources_card">Resources</string>
+    <string name="returned_user">Returned User!</string>
+    <string name="quiz_card">Quizzes/Exams</string>
+    <string name="review_card">Review</string>
+
 </resources>
