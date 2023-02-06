@@ -1,5 +1,6 @@
 package com.example.asthmaapplication.main.homepage;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,8 +11,12 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.asthmaapplication.R;
-import com.example.asthmaapplication.databinding.FragmentMainBinding;
+import com.example.asthmaapplication.databinding.FragmentHomeBinding;
 import com.example.asthmaapplication.main.common.BaseFragment;
+import com.example.asthmaapplication.main.common.SnackBarMessage;
+import com.example.asthmaapplication.main.mainpage.MainActivity;
+import com.example.asthmaapplication.main.utils.UIUtils;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.FirebaseUser;
 
 import javax.annotation.Nullable;
@@ -22,7 +27,7 @@ import io.reactivex.annotations.NonNull;
 
 @AndroidEntryPoint
 public class HomePageFragment extends BaseFragment {
-    FragmentMainBinding binding;
+    FragmentHomeBinding binding;
     HomePageViewModel viewModel;
     FragmentManager manager;
     FragmentTransaction transaction;
@@ -41,7 +46,7 @@ public class HomePageFragment extends BaseFragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        binding = FragmentMainBinding.inflate(inflater, container, false);
+        binding = FragmentHomeBinding.inflate(inflater, container, false);
         return binding.getRoot();
     }
 
@@ -53,18 +58,33 @@ public class HomePageFragment extends BaseFragment {
         manager = getFragmentManager();
         transaction = manager.beginTransaction();
 
-        viewModel.getUserLiveData().observe(getViewLifecycleOwner(), this::checkUserSignedIn);
+        UIUtils.addUnderlineFlag(binding.actionGuestRedirect);
 
         binding.actionLogin.setOnClickListener(v -> launchLoginPage());
         binding.actionRegister.setOnClickListener(v -> launchRegistrationPage());
+        binding.actionGuestRedirect.setOnClickListener(v -> launchGuestRedirect());
+
+        viewModel.getUserLiveData().observe(getViewLifecycleOwner(), this::checkUserSignedIn);
+    }
+
+    private void launchGuestRedirect() {
+        Intent intent = new Intent(getContext(), MainActivity.class);
+        startActivity(intent);
     }
 
     private void checkUserSignedIn(FirebaseUser firebaseUser) {
-        if (viewModel.getUserLiveData() == null) {
-            binding.actionGuestRedirect.setEnabled(true);
-        } else {
-            // Direct User to Home Page of the App
-        }
+        viewModel.getUserLiveData().observe(getViewLifecycleOwner(), value -> {
+            if (value == null) {
+                binding.actionGuestRedirect.setEnabled(true);
+                binding.actionGuestRedirect.setOnClickListener(v -> {
+                    Intent intent = new Intent(getContext(), MainActivity.class);
+                    startActivity(intent);
+                });
+            } else {
+                launchLoginPage();
+            }
+        });
+
     }
 
     private void launchLoginPage() {

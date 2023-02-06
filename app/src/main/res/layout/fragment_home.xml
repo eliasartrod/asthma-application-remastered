@@ -7,13 +7,6 @@
     android:layout_height="match_parent"
     android:background="@color/main_theme_color">
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/vertical_guideline"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.5" />
-
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="match_parent"
@@ -55,62 +48,36 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/main_title" />
 
-    <LinearLayout
-        android:id="@+id/first_layer"
-        android:layout_width="wrap_content"
+    <Button
+        style="@style/Widget.AppCompat.Button"
+        android:id="@+id/action_login"
+        android:layout_width="120dp"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:orientation="horizontal"
-        app:layout_constraintTop_toBottomOf="@id/main_title_description"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        android:layout_marginTop="50dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="50dp"
+        android:text="@string/main_page_action_login"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/main_title_description" />
 
-        <include
-            android:id="@+id/learning_card"
-            layout="@layout/card_item"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="64dp"/>
-
-        <include
-            android:id="@+id/patients_card"
-            layout="@layout/card_item"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/second_layer"
-        android:layout_width="wrap_content"
+    <Button
+        style="@style/Widget.AppCompat.Button"
+        android:id="@+id/action_register"
+        android:layout_width="120dp"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:orientation="horizontal"
-        app:layout_constraintTop_toBottomOf="@id/first_layer"
+        android:layout_marginTop="50dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginEnd="40dp"
+        android:text="@string/main_page_action_register"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
-
-        <include
-            android:id="@+id/review_card"
-            layout="@layout/card_item"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="64dp"/>
-
-        <include
-            android:id="@+id/quiz_card"
-            layout="@layout/card_item"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-
-    </LinearLayout>
+        app:layout_constraintTop_toBottomOf="@+id/main_title_description" />
 
     <TextView
-        android:id="@+id/action_logout"
+        android:id="@+id/action_guest_redirect"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="50dp"
-        android:text="@string/log_out"
+        android:text="@string/continue_as_guest"
         android:textAlignment="center"
         android:textSize="18sp"
         android:textStyle="bold"

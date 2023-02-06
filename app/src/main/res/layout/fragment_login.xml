@@ -81,7 +81,7 @@
         android:id="@+id/action_register"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="100dp"
+        android:layout_margin="50dp"
         android:text="@string/unregistered_description"
         android:textAlignment="center"
         android:textSize="18sp"
