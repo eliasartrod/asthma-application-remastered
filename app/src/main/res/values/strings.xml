@@ -19,6 +19,7 @@
     <string name="login_page_title">Log In Page</string>
     <string name="login_email_hint">Email Address</string>
     <string name="login_password_hint">Password</string>
+    <string name="login_name_hint">First Name</string>
     <string name="register">Register</string>
     <string name="login">Log In</string>
     <string name="continue_as_guest">Or, Continue as Guest</string>
@@ -35,6 +36,7 @@
     <string name="student_card">Students</string>
     <string name="resources_card">Resources</string>
     <string name="returned_user">Returned User!</string>
+    <string name="guest_user">Guest User!</string>
     <string name="quiz_card">Quizzes/Exams</string>
     <string name="review_card">Review</string>
 

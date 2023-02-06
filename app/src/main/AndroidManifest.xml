@@ -26,6 +26,7 @@
         </activity>
         <activity android:name=".main.mainpage.MainActivity"
             android:exported="false"
+            android:launchMode="singleTask"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
 

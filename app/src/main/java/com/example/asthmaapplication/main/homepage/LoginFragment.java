@@ -90,7 +90,8 @@ public class LoginFragment extends BaseFragment {
             @Override
             public void afterTextChanged(Editable s) {
                 boolean allowLogin = (!TextUtils.isEmpty(binding.emailLogin.getText().toString()) &&
-                        !TextUtils.isEmpty(binding.passwordLogin.getText().toString()));
+                        !TextUtils.isEmpty(binding.passwordLogin.getText().toString()) &&
+                        !TextUtils.isEmpty(binding.nameLogin.getText().toString()));
                 binding.actionLogin.setEnabled(allowLogin);
                 binding.actionLogin.setOnClickListener(v ->
                         viewModel.login(binding.emailLogin.getText().toString(),
@@ -100,9 +101,14 @@ public class LoginFragment extends BaseFragment {
 
         viewModel.getUserLiveData().observe(getViewLifecycleOwner(), value -> {
             if (value != null) {
+                /*Intent intent = MainActivity.getIntent(getContext(), binding.nameLogin.getText().toString());
+                startActivity(intent);*/
                 Intent intent = new Intent(getContext(), MainActivity.class);
                 startActivity(intent);
-                getActivity().finish();
+                binding.emailLogin.setText(null);
+                binding.passwordLogin.setText(null);
+                binding.nameLogin.setText(null);
+                binding.emailLogin.requestFocus();
             } else {
                 binding.actionLogin.setEnabled(false);
             }
@@ -110,6 +116,7 @@ public class LoginFragment extends BaseFragment {
 
         binding.emailLogin.addTextChangedListener(watcher);
         binding.passwordLogin.addTextChangedListener(watcher);
+        binding.nameLogin.addTextChangedListener(watcher);
 
     }
 

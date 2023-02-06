@@ -1,5 +1,7 @@
 package com.example.asthmaapplication.main.mainpage;
 
+import static com.example.asthmaapplication.main.mainpage.MainActivity.USER_EMAIL;
+
 import androidx.lifecycle.ViewModelProvider;
 
 import android.content.Intent;
@@ -29,8 +31,8 @@ public class MainFragment extends BaseFragment {
     MainViewModel viewModel;
     FragmentMainBinding binding;
 
-    @Inject
     String currentUser;
+    String userTrimmed;
 
     @Inject
     public MainFragment() {
@@ -50,7 +52,6 @@ public class MainFragment extends BaseFragment {
         return binding.getRoot();
     }
 
-
     @Override
     public void onViewCreated(@javax.annotation.Nullable View view, @javax.annotation.Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
@@ -64,7 +65,7 @@ public class MainFragment extends BaseFragment {
         binding.patientsCard.cardTitle.setText(R.string.patient_card);
 
         binding.quizCard.cardImage.setImageResource(R.drawable.ic_quiz_icon);
-        binding.patientsCard.cardTitle.setText(R.string.quiz_card);
+        binding.quizCard.cardTitle.setText(R.string.quiz_card);
 
         binding.reviewCard.cardImage.setImageResource(R.drawable.ic_review_icon);
         binding.reviewCard.cardTitle.setText(R.string.review_card);
