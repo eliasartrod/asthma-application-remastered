@@ -1,10 +1,12 @@
 package com.example.asthmaapplication.main.mainpage;
 
-import static com.example.asthmaapplication.main.mainpage.MainActivity.USER_EMAIL;
-
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProvider;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
@@ -18,6 +20,11 @@ import com.example.asthmaapplication.databinding.FragmentMainBinding;
 import com.example.asthmaapplication.main.common.BaseActivity;
 import com.example.asthmaapplication.main.common.BaseFragment;
 import com.example.asthmaapplication.main.homepage.HomePageActivity;
+import com.example.asthmaapplication.main.homepage.HomePageFragment;
+import com.example.asthmaapplication.main.mainpage.subpages.LearningFragment;
+import com.example.asthmaapplication.main.mainpage.subpages.PatientsFragment;
+import com.example.asthmaapplication.main.mainpage.subpages.QuizzesExamsFragment;
+import com.example.asthmaapplication.main.mainpage.subpages.ReviewsFragment;
 import com.example.asthmaapplication.main.utils.UIUtils;
 
 import javax.inject.Inject;
@@ -27,12 +34,11 @@ import io.reactivex.annotations.NonNull;
 
 @AndroidEntryPoint
 public class MainFragment extends BaseFragment {
-
     MainViewModel viewModel;
     FragmentMainBinding binding;
-
-    String currentUser;
-    String userTrimmed;
+    FragmentManager manager;
+    FragmentTransaction transaction;
+    SharedPreferences preferences;
 
     @Inject
     public MainFragment() {
@@ -53,29 +59,37 @@ public class MainFragment extends BaseFragment {
     }
 
     @Override
-    public void onViewCreated(@javax.annotation.Nullable View view, @javax.annotation.Nullable Bundle savedInstanceState) {
+    public void onViewCreated(@Nullable View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        setActionBarTitle(getString(R.string.welcome_user, getString(R.string.returned_user)));
+        getPreferences();
+        setActionBarTitle();
+
+        manager = getFragmentManager();
+        transaction = manager.beginTransaction();
 
         binding.learningCard.cardImage.setImageResource(R.drawable.ic_lung_icon);
         binding.learningCard.cardTitle.setText(R.string.learning_card);
+        binding.learningCard.getRoot().setOnClickListener(v -> launchLearningPage());
 
         binding.patientsCard.cardImage.setImageResource(R.drawable.ic_patient_icon);
         binding.patientsCard.cardTitle.setText(R.string.patient_card);
+        binding.patientsCard.getRoot().setOnClickListener(v -> launchPatientsCard());
 
         binding.quizCard.cardImage.setImageResource(R.drawable.ic_quiz_icon);
         binding.quizCard.cardTitle.setText(R.string.quiz_card);
+        binding.quizCard.getRoot().setOnClickListener(v -> launchQuizPage());
 
         binding.reviewCard.cardImage.setImageResource(R.drawable.ic_review_icon);
         binding.reviewCard.cardTitle.setText(R.string.review_card);
+        binding.reviewCard.getRoot().setOnClickListener(v -> launchReviewsPage());
 
         UIUtils.addUnderlineFlag(binding.actionLogout);
 
         binding.actionLogout.setOnClickListener(userLogout -> {
             viewModel.logOut();
-            Intent intent = new Intent(getContext(), HomePageActivity.class);
-            startActivity(intent);
+            setUserNamePreferences();
+            launchHomePage();
         });
 
     }
@@ -85,6 +99,66 @@ public class MainFragment extends BaseFragment {
         super.onResume();
     }
 
+    public void getPreferences() {
+        if (getContext() != null) {
+            preferences = getContext().getSharedPreferences("user.prefs", Context.MODE_PRIVATE);
+        }
+    }
+
+    public void setActionBarTitle() {
+        if (preferences.getString("user.name", "").isEmpty()) {
+            binding.actionLogout.setText(getString(R.string.redirect_home));
+            setActionBarTitle(getString(R.string.welcome_user, getString(R.string.guest_user)));
+        } else {
+            binding.actionLogout.setText(getString(R.string.log_out));
+            setActionBarTitle(getString(R.string.welcome_user, preferences.getString("user.name", "")));
+        }
+    }
+
+    public void setUserNamePreferences() {
+        preferences.edit().putString("user.name", "").apply();
+    }
+
+    public void launchLearningPage() {
+        LearningFragment fragment = new LearningFragment();
+        transaction
+                .addToBackStack(null)
+                .replace(R.id.fragment_container, fragment)
+                .commit();
+
+    }
+
+    public void launchPatientsCard() {
+        PatientsFragment fragment = new PatientsFragment();
+        transaction
+                .addToBackStack(null)
+                .replace(R.id.fragment_container, fragment)
+                .commit();
+    }
+
+    public void launchReviewsPage() {
+        ReviewsFragment fragment = new ReviewsFragment();
+        transaction
+                .addToBackStack(null)
+                .replace(R.id.fragment_container, fragment)
+                .commit();
+    }
+
+    public void launchQuizPage() {
+        QuizzesExamsFragment fragment = new QuizzesExamsFragment();
+        transaction
+                .addToBackStack(null)
+                .replace(R.id.fragment_container, fragment)
+                .commit();
+    }
+
+    public void launchHomePage() {
+        HomePageFragment fragment = new HomePageFragment();
+        transaction
+                .addToBackStack(null)
+                .replace(R.id.fragment_container, fragment)
+                .commit();
+    }
 
     @Override
     public View getRoot() {

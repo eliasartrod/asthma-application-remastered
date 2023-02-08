@@ -13,7 +13,7 @@
     <string name="registration_first_name_hint">First Name</string>
     <string name="registration_last_name_hint">Last Name</string>
     <string name="registration_username_hint">Username</string>
-    <string name="registration_page_title">Registration page</string>
+    <string name="registration_page_title">Registration Page</string>
     <string name="unregistered_description">Not yet registered? Sign up here!</string>
     <string name="registered_description">Already Registered? Log In Here!</string>
     <string name="login_page_title">Log In Page</string>
@@ -23,6 +23,7 @@
     <string name="register">Register</string>
     <string name="login">Log In</string>
     <string name="continue_as_guest">Or, Continue as Guest</string>
+    <string name="clear_cache">Clear Local Cache</string>
 
     <!-- Home Page -->
     <string name="signed_in_user">Signed In User: %s</string>
@@ -39,5 +40,12 @@
     <string name="guest_user">Guest User!</string>
     <string name="quiz_card">Quizzes/Exams</string>
     <string name="review_card">Review</string>
+    <string name="redirect_home">Home</string>
+
+    <!-- Subpages -->
+    <string name="learning_page_title">Let\'s Learn!</string>
+    <string name="patients_page_title">Welcome, Patient: %s</string>
+    <string name="quizzes_exam_page_title">Think You\'re Ready?</string>
+    <string name="reviews_page_title">Let\'s Review!</string>
 
 </resources>

@@ -13,10 +13,8 @@ import androidx.lifecycle.ViewModelProvider;
 import com.example.asthmaapplication.R;
 import com.example.asthmaapplication.databinding.FragmentHomeBinding;
 import com.example.asthmaapplication.main.common.BaseFragment;
-import com.example.asthmaapplication.main.common.SnackBarMessage;
 import com.example.asthmaapplication.main.mainpage.MainActivity;
 import com.example.asthmaapplication.main.utils.UIUtils;
-import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.FirebaseUser;
 
 import javax.annotation.Nullable;
@@ -53,38 +51,30 @@ public class HomePageFragment extends BaseFragment {
     @Override
     public void onViewCreated(@Nullable View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        setActionBarTitle(getString(R.string.welcome));
+        binding.actionGuestRedirect.setEnabled(false);
+
+        setActionBarTitle();
 
         manager = getFragmentManager();
         transaction = manager.beginTransaction();
 
         UIUtils.addUnderlineFlag(binding.actionGuestRedirect);
+        UIUtils.addUnderlineFlag(binding.actionClearCache);
 
         binding.actionLogin.setOnClickListener(v -> launchLoginPage());
         binding.actionRegister.setOnClickListener(v -> launchRegistrationPage());
-        binding.actionGuestRedirect.setOnClickListener(v -> launchGuestRedirect());
 
-        viewModel.getUserLiveData().observe(getViewLifecycleOwner(), this::checkUserSignedIn);
+        binding.actionClearCache.setOnClickListener(v -> {
+            viewModel.clearCache();
+            binding.actionGuestRedirect.setEnabled(true);
+            binding.actionGuestRedirect.setOnClickListener(x -> launchGuestRedirect());
+        });
+
     }
 
     private void launchGuestRedirect() {
         Intent intent = new Intent(getContext(), MainActivity.class);
         startActivity(intent);
-    }
-
-    private void checkUserSignedIn(FirebaseUser firebaseUser) {
-        viewModel.getUserLiveData().observe(getViewLifecycleOwner(), value -> {
-            if (value == null) {
-                binding.actionGuestRedirect.setEnabled(true);
-                binding.actionGuestRedirect.setOnClickListener(v -> {
-                    Intent intent = new Intent(getContext(), MainActivity.class);
-                    startActivity(intent);
-                });
-            } else {
-                launchLoginPage();
-            }
-        });
-
     }
 
     private void launchLoginPage() {
@@ -101,6 +91,10 @@ public class HomePageFragment extends BaseFragment {
                 .addToBackStack(null)
                 .replace(R.id.fragment_container, fragment)
                 .commit();
+    }
+
+    public void setActionBarTitle() {
+        setActionBarTitle(getString(R.string.welcome));
     }
 
     @Override

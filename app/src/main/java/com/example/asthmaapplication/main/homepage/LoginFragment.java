@@ -1,6 +1,8 @@
 package com.example.asthmaapplication.main.homepage;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextUtils;
@@ -16,14 +18,9 @@ import androidx.lifecycle.ViewModelProvider;
 import com.example.asthmaapplication.R;
 import com.example.asthmaapplication.databinding.FragmentLoginBinding;
 import com.example.asthmaapplication.main.common.BaseFragment;
-import com.example.asthmaapplication.main.common.SnackBarMessage;
 import com.example.asthmaapplication.main.mainpage.MainActivity;
-import com.example.asthmaapplication.main.mainpage.MainFragment;
 import com.example.asthmaapplication.main.utils.UIUtils;
-import com.google.android.material.snackbar.Snackbar;
-import com.google.firebase.auth.FirebaseUser;
 
-import java.util.Objects;
 
 import javax.annotation.Nullable;
 import javax.inject.Inject;
@@ -38,6 +35,7 @@ public class LoginFragment extends BaseFragment {
     FragmentManager manager;
     FragmentTransaction transaction;
     TextWatcher watcher;
+    SharedPreferences preferences;
 
     @Inject
     public LoginFragment() {
@@ -60,7 +58,9 @@ public class LoginFragment extends BaseFragment {
     @Override
     public void onViewCreated(@Nullable View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        setActionBarTitle(getString(R.string.welcome));
+
+        getPreferences();
+        setActionBarTitle();
 
         binding.actionLogin.setEnabled(false);
         UIUtils.addUnderlineFlag(binding.actionRegister);
@@ -69,11 +69,7 @@ public class LoginFragment extends BaseFragment {
         transaction = manager.beginTransaction();
 
         binding.actionRegister.setOnClickListener(v -> {
-            RegistrationFragment fragment = new RegistrationFragment();
-            transaction
-                    .addToBackStack(null)
-                    .replace(R.id.fragment_container, fragment)
-                    .commit();
+            launchRegistrationPage();
         });
 
         watcher = new TextWatcher() {
@@ -93,22 +89,19 @@ public class LoginFragment extends BaseFragment {
                         !TextUtils.isEmpty(binding.passwordLogin.getText().toString()) &&
                         !TextUtils.isEmpty(binding.nameLogin.getText().toString()));
                 binding.actionLogin.setEnabled(allowLogin);
-                binding.actionLogin.setOnClickListener(v ->
-                        viewModel.login(binding.emailLogin.getText().toString(),
-                                binding.passwordLogin.getText().toString()));
+                binding.actionLogin.setOnClickListener(v -> {
+                    viewModel.login(binding.emailLogin.getText().toString(),
+                            binding.passwordLogin.getText().toString());
+                    setUserNamePreferences();
+                });
             }
         };
 
         viewModel.getUserLiveData().observe(getViewLifecycleOwner(), value -> {
             if (value != null) {
-                /*Intent intent = MainActivity.getIntent(getContext(), binding.nameLogin.getText().toString());
-                startActivity(intent);*/
                 Intent intent = new Intent(getContext(), MainActivity.class);
                 startActivity(intent);
-                binding.emailLogin.setText(null);
-                binding.passwordLogin.setText(null);
-                binding.nameLogin.setText(null);
-                binding.emailLogin.requestFocus();
+                resetLoginPage();
             } else {
                 binding.actionLogin.setEnabled(false);
             }
@@ -120,10 +113,38 @@ public class LoginFragment extends BaseFragment {
 
     }
 
+    @Override
     public void onResume() {
         super.onResume();
     }
 
+    public void getPreferences() {
+        if (getContext() != null) {
+            preferences = getContext().getSharedPreferences("user.prefs", Context.MODE_PRIVATE);
+        }
+    }
+
+    public void setUserNamePreferences() {
+        preferences.edit().putString("user.name", binding.nameLogin.getText().toString()).apply();
+    }
+
+    public void resetLoginPage() {
+        binding.emailLogin.setText(null);
+        binding.passwordLogin.setText(null);
+        binding.nameLogin.setText(null);
+    }
+
+    public void launchRegistrationPage() {
+        RegistrationFragment fragment = new RegistrationFragment();
+        transaction
+                .addToBackStack(null)
+                .replace(R.id.fragment_container, fragment)
+                .commit();
+    }
+
+    public void setActionBarTitle() {
+        setActionBarTitle(getString(R.string.login_page_title));
+    }
 
     @Override
     public View getRoot() {

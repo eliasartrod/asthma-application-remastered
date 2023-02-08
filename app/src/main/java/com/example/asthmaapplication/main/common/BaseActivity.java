@@ -1,5 +1,6 @@
 package com.example.asthmaapplication.main.common;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MenuItem;
 
@@ -16,6 +17,7 @@ import io.reactivex.disposables.CompositeDisposable;
 
 @AndroidEntryPoint
 public class BaseActivity extends AppCompatActivity {
+    SharedPreferences preferences;
 
     CompositeDisposable compositeDisposable = new CompositeDisposable();
 
@@ -26,6 +28,8 @@ public class BaseActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityToolbarBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
+        getPreferences();
 
         Toolbar toolbar = binding.toolbar;
         setSupportActionBar(toolbar);
@@ -47,6 +51,10 @@ public class BaseActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
+    }
+
+    public void getPreferences() {
+        preferences = getApplicationContext().getSharedPreferences("my.prefs", MODE_PRIVATE);
     }
 
     public void setActionBarTitle(String title) {

@@ -1,9 +1,6 @@
 package com.example.asthmaapplication.main.homepage;
 
 import android.app.Application;
-import android.content.Context;
-import android.content.SharedPreferences;
-
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.MutableLiveData;
 
@@ -33,6 +30,12 @@ public class HomePageViewModel extends AndroidViewModel {
 
     public void register(String emailAddress, String password) {
         authenticationRepository.register(emailAddress, password);
+    }
+
+    public void clearCache() {
+        loggedOutLiveData.setValue(true);
+        userLiveData.setValue(null);
+        authenticationRepository.logOut();
     }
 
     public MutableLiveData<FirebaseUser> getUserLiveData() {

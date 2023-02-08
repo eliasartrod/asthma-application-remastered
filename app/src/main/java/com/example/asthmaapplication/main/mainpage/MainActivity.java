@@ -1,7 +1,5 @@
 package com.example.asthmaapplication.main.mainpage;
 
-import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 
 import com.example.asthmaapplication.R;

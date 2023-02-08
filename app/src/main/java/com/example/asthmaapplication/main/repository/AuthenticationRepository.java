@@ -13,20 +13,18 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-public class AuthenticationRepository {
+public class AuthenticationRepository extends Application{
     private Application application;
 
     private FirebaseAuth firebaseAuth;
     private MutableLiveData<FirebaseUser> userLiveData;
     private MutableLiveData<Boolean> loggedOutLiveData;
-    private String userEmail;
 
     public AuthenticationRepository(Application application) {
         this.application = application;
         this.firebaseAuth = FirebaseAuth.getInstance();
         this.userLiveData = new MutableLiveData<>();
         this.loggedOutLiveData = new MutableLiveData<>();
-        this.userEmail = getUserEmail();
 
         if (firebaseAuth.getCurrentUser() != null) {
             userLiveData.postValue(firebaseAuth.getCurrentUser());
@@ -42,7 +40,6 @@ public class AuthenticationRepository {
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if (task.isSuccessful()) {
                                 userLiveData.postValue(firebaseAuth.getCurrentUser());
-                                userEmail = email;
                             } else {
                                 Toast.makeText(application.getApplicationContext(), "Login Failure: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                             }
@@ -70,7 +67,6 @@ public class AuthenticationRepository {
     public void logOut() {
         firebaseAuth.signOut();
         loggedOutLiveData.postValue(true);
-        userEmail = null;
     }
 
     public MutableLiveData<FirebaseUser> getUserLiveData() {
@@ -79,9 +75,5 @@ public class AuthenticationRepository {
 
     public MutableLiveData<Boolean> getLoggedOutLiveData() {
         return loggedOutLiveData;
-    }
-
-    public String getUserEmail() {
-        return userEmail;
     }
 }
