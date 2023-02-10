@@ -5,7 +5,7 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content">
 
-    <com.google.android.material.card.MaterialCardView
+    <androidx.cardview.widget.CardView
         android:id="@+id/materialCardView"
         android:layout_width="100dp"
         android:layout_height="100dp"
@@ -13,20 +13,21 @@
         android:layout_marginBottom="5dp"
         android:adjustViewBounds="true"
         android:scaleType="fitCenter"
-        app:cardCornerRadius="15dp"
+        app:cardCornerRadius="20dp"
         app:cardElevation="5dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:strokeWidth="2dp">
+        app:strokeWidth="@dimen/spacing" >
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_margin="0dp"
             android:elevation="30dp"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:background="@color/button_color">
 
             <FrameLayout
                 android:layout_width="match_parent"
@@ -53,6 +54,7 @@
                 android:minLines="2"
                 android:padding="5dp"
                 android:text="@string/learning_card"
+                android:fontFamily="sans-serif-black"
                 android:textAlignment="center"
                 android:textColor="@color/black"
                 android:textSize="12sp"
@@ -60,6 +62,6 @@
 
         </LinearLayout>
 
-    </com.google.android.material.card.MaterialCardView>
+    </androidx.cardview.widget.CardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

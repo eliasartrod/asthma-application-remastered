@@ -44,8 +44,19 @@
 
     <!-- Subpages -->
     <string name="learning_page_title">Let\'s Learn!</string>
-    <string name="patients_page_title">Welcome, Patient: %s</string>
+    <string name="patients_page_title">Welcome, Patient %s</string>
     <string name="quizzes_exam_page_title">Think You\'re Ready?</string>
     <string name="reviews_page_title">Let\'s Review!</string>
+
+    <!-- Learning page -->
+    <string name="section_one">Section 1:\nBasic Information</string>
+    <string name="section_two">Section 2:\nDiagnosis</string>
+    <string name="section_three">Section 3:\nPatho</string>
+    <string name="section_four">Section 4:\Studies</string>
+    <string name="section_five">Section 5:\nAvoidance</string>
+    <string name="section_one_part_one">Common symptoms are coughing, shortness of breath, wheezing, and chest tightness (or pain). Asthma may lead to a medical emergency. It is important to know the signs of a severe asthma episode (or asthma attack).</string>
+
+    <!-- Patients Page -->
+    <string name="guest_user_warning">You are a guest user!</string>
 
 </resources>

@@ -24,7 +24,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/toolbar_divider"
-        app:srcCompat="@drawable/pnwlogo" />
+        app:srcCompat="@drawable/ic_pnw_logo" />
 
     <TextView
         android:id="@+id/main_title"
@@ -59,7 +59,7 @@
         app:layout_constraintTop_toBottomOf="@+id/main_title" />
 
     <Button
-        style="@style/Widget.AppCompat.Button"
+        style="@style/Theme.Button"
         android:id="@+id/action_login"
         android:layout_width="120dp"
         android:layout_height="wrap_content"
@@ -71,7 +71,7 @@
         app:layout_constraintTop_toBottomOf="@+id/main_title_description" />
 
     <Button
-        style="@style/Widget.AppCompat.Button"
+        style="@style/Theme.Button"
         android:id="@+id/action_register"
         android:layout_width="120dp"
         android:layout_height="wrap_content"
@@ -88,20 +88,6 @@
         android:layout_height="wrap_content"
         android:layout_margin="50dp"
         android:text="@string/continue_as_guest"
-        android:textAlignment="center"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        android:textColor="@color/black"
-        app:layout_constraintBottom_toTopOf="@id/action_clear_cache"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"/>
-
-    <TextView
-        android:id="@+id/action_clear_cache"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="50dp"
-        android:text="@string/clear_cache"
         android:textAlignment="center"
         android:textSize="18sp"
         android:textStyle="bold"

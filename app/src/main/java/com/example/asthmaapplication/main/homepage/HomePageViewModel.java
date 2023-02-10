@@ -25,7 +25,6 @@ public class HomePageViewModel extends AndroidViewModel {
 
     public void login(String emailAddress, String password) {
         authenticationRepository.login(emailAddress, password);
-        loggedOutLiveData.setValue(false);
     }
 
     public void register(String emailAddress, String password) {

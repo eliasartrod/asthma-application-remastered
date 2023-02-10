@@ -93,19 +93,12 @@ public class LoginFragment extends BaseFragment {
                     viewModel.login(binding.emailLogin.getText().toString(),
                             binding.passwordLogin.getText().toString());
                     setUserNamePreferences();
+                    resetLoginPage();
+                    Intent intent = new Intent(getContext(), MainActivity.class);
+                    startActivity(intent);
                 });
             }
         };
-
-        viewModel.getUserLiveData().observe(getViewLifecycleOwner(), value -> {
-            if (value != null) {
-                Intent intent = new Intent(getContext(), MainActivity.class);
-                startActivity(intent);
-                resetLoginPage();
-            } else {
-                binding.actionLogin.setEnabled(false);
-            }
-        });
 
         binding.emailLogin.addTextChangedListener(watcher);
         binding.passwordLogin.addTextChangedListener(watcher);
@@ -124,14 +117,14 @@ public class LoginFragment extends BaseFragment {
         }
     }
 
-    public void setUserNamePreferences() {
-        preferences.edit().putString("user.name", binding.nameLogin.getText().toString()).apply();
-    }
-
     public void resetLoginPage() {
         binding.emailLogin.setText(null);
         binding.passwordLogin.setText(null);
         binding.nameLogin.setText(null);
+    }
+
+    public void setUserNamePreferences() {
+        preferences.edit().putString("user.name", binding.nameLogin.getText().toString()).apply();
     }
 
     public void launchRegistrationPage() {

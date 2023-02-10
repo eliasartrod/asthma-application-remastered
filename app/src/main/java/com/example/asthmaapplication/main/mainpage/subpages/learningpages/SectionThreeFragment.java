@@ -1,4 +1,4 @@
-package com.example.asthmaapplication.main.mainpage.subpages;
+package com.example.asthmaapplication.main.mainpage.subpages.learningpages;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -11,21 +11,23 @@ import androidx.annotation.Nullable;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.asthmaapplication.R;
-import com.example.asthmaapplication.databinding.FragmentPatientsBinding;
+import com.example.asthmaapplication.databinding.FragmentSectionThreeBinding;
 import com.example.asthmaapplication.main.common.BaseFragment;
 import com.example.asthmaapplication.main.mainpage.MainViewModel;
 
 import javax.inject.Inject;
 
+import dagger.hilt.android.AndroidEntryPoint;
 import io.reactivex.annotations.NonNull;
 
-public class PatientsFragment extends BaseFragment {
+@AndroidEntryPoint
+public class SectionThreeFragment extends BaseFragment {
+    FragmentSectionThreeBinding binding;
     MainViewModel viewModel;
-    FragmentPatientsBinding binding;
     SharedPreferences preferences;
 
     @Inject
-    public PatientsFragment() {
+    public SectionThreeFragment() {
 
     }
 
@@ -38,7 +40,7 @@ public class PatientsFragment extends BaseFragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @javax.annotation.Nullable ViewGroup container, @javax.annotation.Nullable Bundle savedInstanceState) {
-        binding = FragmentPatientsBinding.inflate(inflater, container, false);
+        binding = FragmentSectionThreeBinding.inflate(inflater, container, false);
         return binding.getRoot();
     }
 
@@ -48,6 +50,9 @@ public class PatientsFragment extends BaseFragment {
 
         getPreferences();
         setActionBarTitle();
+
+        binding.sectionTitle.setText(getString(R.string.section_three));
+
     }
 
     @Override
@@ -62,12 +67,7 @@ public class PatientsFragment extends BaseFragment {
     }
 
     public void setActionBarTitle() {
-        if (preferences.getString("user.name", "").isEmpty()) {
-            setActionBarTitle(getString(R.string.guest_user_warning));
-        } else {
-            setActionBarTitle(getString(R.string.patients_page_title, preferences.getString("user.name", "")));
-
-        }
+        setActionBarTitle(getString(R.string.learning_page_title));
     }
 
     @Override

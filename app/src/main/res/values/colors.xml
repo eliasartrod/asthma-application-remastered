@@ -10,4 +10,5 @@
     <color name="gray">#808080</color>
 
     <color name="main_theme_color">#CCA873</color>
+    <color name="button_color">#C29900</color>
 </resources>

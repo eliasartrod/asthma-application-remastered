@@ -5,7 +5,6 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProvider;
 
 import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
@@ -17,11 +16,9 @@ import android.view.ViewGroup;
 
 import com.example.asthmaapplication.R;
 import com.example.asthmaapplication.databinding.FragmentMainBinding;
-import com.example.asthmaapplication.main.common.BaseActivity;
 import com.example.asthmaapplication.main.common.BaseFragment;
-import com.example.asthmaapplication.main.homepage.HomePageActivity;
 import com.example.asthmaapplication.main.homepage.HomePageFragment;
-import com.example.asthmaapplication.main.mainpage.subpages.LearningFragment;
+import com.example.asthmaapplication.main.mainpage.subpages.LearningBaseFragment;
 import com.example.asthmaapplication.main.mainpage.subpages.PatientsFragment;
 import com.example.asthmaapplication.main.mainpage.subpages.QuizzesExamsFragment;
 import com.example.asthmaapplication.main.mainpage.subpages.ReviewsFragment;
@@ -88,6 +85,7 @@ public class MainFragment extends BaseFragment {
 
         binding.actionLogout.setOnClickListener(userLogout -> {
             viewModel.logOut();
+            getActivity().finish();
             setUserNamePreferences();
             launchHomePage();
         });
@@ -120,7 +118,7 @@ public class MainFragment extends BaseFragment {
     }
 
     public void launchLearningPage() {
-        LearningFragment fragment = new LearningFragment();
+        LearningBaseFragment fragment = new LearningBaseFragment();
         transaction
                 .addToBackStack(null)
                 .replace(R.id.fragment_container, fragment)

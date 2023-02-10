@@ -51,7 +51,6 @@ public class HomePageFragment extends BaseFragment {
     @Override
     public void onViewCreated(@Nullable View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        binding.actionGuestRedirect.setEnabled(false);
 
         setActionBarTitle();
 
@@ -59,15 +58,13 @@ public class HomePageFragment extends BaseFragment {
         transaction = manager.beginTransaction();
 
         UIUtils.addUnderlineFlag(binding.actionGuestRedirect);
-        UIUtils.addUnderlineFlag(binding.actionClearCache);
 
         binding.actionLogin.setOnClickListener(v -> launchLoginPage());
         binding.actionRegister.setOnClickListener(v -> launchRegistrationPage());
 
-        binding.actionClearCache.setOnClickListener(v -> {
-            viewModel.clearCache();
-            binding.actionGuestRedirect.setEnabled(true);
-            binding.actionGuestRedirect.setOnClickListener(x -> launchGuestRedirect());
+        binding.actionGuestRedirect.setOnClickListener(v -> {
+                viewModel.clearCache();
+                launchGuestRedirect();
         });
 
     }

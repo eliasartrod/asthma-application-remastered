@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#CCA873">
+    android:background="@color/main_theme_color">
 
     <View
         android:id="@+id/toolbar_divider"
@@ -20,7 +20,7 @@
         android:layout_width="fill_parent"
         android:layout_height="100dp"
         android:background="@color/white"
-        app:srcCompat="@drawable/pnwlogo"
+        app:srcCompat="@drawable/ic_pnw_logo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -73,7 +73,7 @@
         app:layout_constraintTop_toBottomOf="@id/email_login"/>
 
     <Button
-        style="@style/Widget.AppCompat.Button"
+        style="@style/Theme.Button"
         android:id="@+id/action_register"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

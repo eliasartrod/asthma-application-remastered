@@ -28,4 +28,9 @@
         <item name="android:textStyle">bold</item>
     </style>
 
+    <style name="Theme.Button" parent="ThemeOverlay.Material3.Button">
+        <item name="android:background">@color/button_color</item>
+        <item name="fontFamily">sans-serif-black</item>
+    </style>
+
 </resources>

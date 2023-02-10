@@ -28,7 +28,10 @@ public class MainViewModel extends AndroidViewModel {
         userLiveData.setValue(null);
         loggedOutLiveData.setValue(true);
         authenticationRepository.logOut();
-        loggedOutLiveData.setValue(true);
+    }
+
+    public MutableLiveData<FirebaseUser> getUserLiveData() {
+        return userLiveData;
     }
 
     public MutableLiveData<Boolean> getLoggedOutLiveData() {

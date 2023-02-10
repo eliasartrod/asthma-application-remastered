@@ -12,8 +12,6 @@ import dagger.hilt.android.AndroidEntryPoint;
 
 @AndroidEntryPoint
 public class MainActivity extends BaseActivity {
-    public static final String USER_EMAIL = "user.email";
-
     /*public static Intent getIntent(Context context, String userEmail) {
         Intent intent = new Intent(context, MainActivity.class);
         intent.putExtra(USER_EMAIL, userEmail);
