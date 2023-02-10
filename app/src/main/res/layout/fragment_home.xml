@@ -28,12 +28,11 @@
 
     <TextView
         android:id="@+id/main_title"
+        style="@style/Theme.PageTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="550dp"
-        android:background="@color/main_theme_color"
-        android:backgroundTint="#FFFFFF"
-        android:fontFamily="sans-serif-black"
+        android:background="@color/white"
         android:text="@string/main_page_title"
         android:textAlignment="center"
         android:textSize="30sp"
@@ -44,11 +43,11 @@
 
     <TextView
         android:id="@+id/main_title_description"
+        style="@style/Theme.PageTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="100dp"
         android:padding="20dp"
-        android:fontFamily="sans-serif-black"
         android:text="@string/main_page_instruction"
         android:textAlignment="center"
         android:textAllCaps="false"

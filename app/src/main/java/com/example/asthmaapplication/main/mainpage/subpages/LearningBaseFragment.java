@@ -17,6 +17,7 @@ import com.example.asthmaapplication.R;
 import com.example.asthmaapplication.databinding.FragmentLearningBaseBinding;
 import com.example.asthmaapplication.main.common.BaseFragment;
 import com.example.asthmaapplication.main.mainpage.MainViewModel;
+import com.example.asthmaapplication.main.mainpage.subpages.learningpages.LearningFragment;
 import com.example.asthmaapplication.main.mainpage.subpages.learningpages.LearningFragmentActivity;
 
 import javax.inject.Inject;

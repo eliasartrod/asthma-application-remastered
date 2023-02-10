@@ -52,7 +52,7 @@
                 android:gravity="top|center_horizontal"
                 android:maxLines="2"
                 android:minLines="2"
-                android:padding="5dp"
+                android:padding="4dp"
                 android:text="@string/learning_card"
                 android:fontFamily="sans-serif-black"
                 android:textAlignment="center"

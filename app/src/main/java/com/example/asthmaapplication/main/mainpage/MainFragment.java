@@ -17,12 +17,14 @@ import android.view.ViewGroup;
 import com.example.asthmaapplication.R;
 import com.example.asthmaapplication.databinding.FragmentMainBinding;
 import com.example.asthmaapplication.main.common.BaseFragment;
+import com.example.asthmaapplication.main.common.SnackBarMessage;
 import com.example.asthmaapplication.main.homepage.HomePageFragment;
 import com.example.asthmaapplication.main.mainpage.subpages.LearningBaseFragment;
 import com.example.asthmaapplication.main.mainpage.subpages.PatientsFragment;
 import com.example.asthmaapplication.main.mainpage.subpages.QuizzesExamsFragment;
 import com.example.asthmaapplication.main.mainpage.subpages.ReviewsFragment;
 import com.example.asthmaapplication.main.utils.UIUtils;
+import com.google.android.material.snackbar.Snackbar;
 
 import javax.inject.Inject;
 
@@ -61,6 +63,7 @@ public class MainFragment extends BaseFragment {
 
         getPreferences();
         setActionBarTitle();
+        validateUserAccess();
 
         manager = getFragmentManager();
         transaction = manager.beginTransaction();
@@ -71,15 +74,12 @@ public class MainFragment extends BaseFragment {
 
         binding.patientsCard.cardImage.setImageResource(R.drawable.ic_patient_icon);
         binding.patientsCard.cardTitle.setText(R.string.patient_card);
-        binding.patientsCard.getRoot().setOnClickListener(v -> launchPatientsCard());
 
         binding.quizCard.cardImage.setImageResource(R.drawable.ic_quiz_icon);
         binding.quizCard.cardTitle.setText(R.string.quiz_card);
-        binding.quizCard.getRoot().setOnClickListener(v -> launchQuizPage());
 
         binding.reviewCard.cardImage.setImageResource(R.drawable.ic_review_icon);
         binding.reviewCard.cardTitle.setText(R.string.review_card);
-        binding.reviewCard.getRoot().setOnClickListener(v -> launchReviewsPage());
 
         UIUtils.addUnderlineFlag(binding.actionLogout);
 
@@ -110,6 +110,26 @@ public class MainFragment extends BaseFragment {
         } else {
             binding.actionLogout.setText(getString(R.string.log_out));
             setActionBarTitle(getString(R.string.welcome_user, preferences.getString("user.name", "")));
+        }
+    }
+
+
+    public void validateUserAccess() {
+        if (preferences.getString("user.name", "").isEmpty()) {
+            binding.patientsCard.getRoot().setOnClickListener(v -> {
+                showSnackBar(new SnackBarMessage(getString(R.string.guest_user_access_warning)));
+            });
+            binding.quizCard.getRoot().setOnClickListener(v -> {
+                showSnackBar(new SnackBarMessage(getString(R.string.guest_user_access_warning)));
+
+            });
+            binding.reviewCard.getRoot().setOnClickListener(v -> {
+                showSnackBar(new SnackBarMessage(getString(R.string.guest_user_access_warning)));
+            });
+        } else {
+            binding.patientsCard.getRoot().setOnClickListener(v -> launchPatientsCard());
+            binding.quizCard.getRoot().setOnClickListener(v -> launchQuizPage());
+            binding.reviewCard.getRoot().setOnClickListener(v -> launchReviewsPage());
         }
     }
 

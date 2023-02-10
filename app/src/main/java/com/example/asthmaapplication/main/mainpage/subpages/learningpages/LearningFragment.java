@@ -1,4 +1,4 @@
-package com.example.asthmaapplication.main.mainpage.subpages;
+package com.example.asthmaapplication.main.mainpage.subpages.learningpages;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -16,11 +16,6 @@ import com.example.asthmaapplication.R;
 import com.example.asthmaapplication.databinding.FragmentLearningBinding;
 import com.example.asthmaapplication.main.common.BaseFragment;
 import com.example.asthmaapplication.main.mainpage.MainViewModel;
-import com.example.asthmaapplication.main.mainpage.subpages.learningpages.SectionFiveFragment;
-import com.example.asthmaapplication.main.mainpage.subpages.learningpages.SectionFourFragment;
-import com.example.asthmaapplication.main.mainpage.subpages.learningpages.SectionOneFragment;
-import com.example.asthmaapplication.main.mainpage.subpages.learningpages.SectionThreeFragment;
-import com.example.asthmaapplication.main.mainpage.subpages.learningpages.SectionTwoFragment;
 import com.google.android.material.tabs.TabLayoutMediator;
 
 import org.jetbrains.annotations.NotNull;
