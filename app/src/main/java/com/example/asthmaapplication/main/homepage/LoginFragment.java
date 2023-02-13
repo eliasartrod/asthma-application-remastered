@@ -1,8 +1,6 @@
 package com.example.asthmaapplication.main.homepage;
 
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextUtils;
@@ -35,7 +33,6 @@ public class LoginFragment extends BaseFragment {
     FragmentManager manager;
     FragmentTransaction transaction;
     TextWatcher watcher;
-    SharedPreferences preferences;
 
     @Inject
     public LoginFragment() {
@@ -92,10 +89,9 @@ public class LoginFragment extends BaseFragment {
                 binding.actionLogin.setOnClickListener(v -> {
                     viewModel.login(binding.emailLogin.getText().toString(),
                             binding.passwordLogin.getText().toString());
-                    setUserNamePreferences();
+                    setUserNamePreferences(binding.nameLogin.getText().toString());
                     resetLoginPage();
-                    Intent intent = new Intent(getContext(), MainActivity.class);
-                    startActivity(intent);
+                    launchUserLoginSuccessful();
                 });
             }
         };
@@ -111,20 +107,15 @@ public class LoginFragment extends BaseFragment {
         super.onResume();
     }
 
-    public void getPreferences() {
-        if (getContext() != null) {
-            preferences = getContext().getSharedPreferences("user.prefs", Context.MODE_PRIVATE);
-        }
-    }
-
     public void resetLoginPage() {
         binding.emailLogin.setText(null);
         binding.passwordLogin.setText(null);
         binding.nameLogin.setText(null);
     }
 
-    public void setUserNamePreferences() {
-        preferences.edit().putString("user.name", binding.nameLogin.getText().toString()).apply();
+    public void launchUserLoginSuccessful() {
+        Intent intent = new Intent(getContext(), MainActivity.class);
+        startActivity(intent);
     }
 
     public void launchRegistrationPage() {

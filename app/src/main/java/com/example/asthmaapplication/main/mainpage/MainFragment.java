@@ -4,8 +4,6 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProvider;
 
-import android.content.Context;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
@@ -24,7 +22,6 @@ import com.example.asthmaapplication.main.mainpage.subpages.PatientsFragment;
 import com.example.asthmaapplication.main.mainpage.subpages.QuizzesExamsFragment;
 import com.example.asthmaapplication.main.mainpage.subpages.ReviewsFragment;
 import com.example.asthmaapplication.main.utils.UIUtils;
-import com.google.android.material.snackbar.Snackbar;
 
 import javax.inject.Inject;
 
@@ -37,7 +34,6 @@ public class MainFragment extends BaseFragment {
     FragmentMainBinding binding;
     FragmentManager manager;
     FragmentTransaction transaction;
-    SharedPreferences preferences;
 
     @Inject
     public MainFragment() {
@@ -86,7 +82,7 @@ public class MainFragment extends BaseFragment {
         binding.actionLogout.setOnClickListener(userLogout -> {
             viewModel.logOut();
             getActivity().finish();
-            setUserNamePreferences();
+            clearUserName();
             launchHomePage();
         });
 
@@ -97,25 +93,19 @@ public class MainFragment extends BaseFragment {
         super.onResume();
     }
 
-    public void getPreferences() {
-        if (getContext() != null) {
-            preferences = getContext().getSharedPreferences("user.prefs", Context.MODE_PRIVATE);
-        }
-    }
-
     public void setActionBarTitle() {
-        if (preferences.getString("user.name", "").isEmpty()) {
+        if (getUserName().isEmpty()) {
             binding.actionLogout.setText(getString(R.string.redirect_home));
             setActionBarTitle(getString(R.string.welcome_user, getString(R.string.guest_user)));
         } else {
             binding.actionLogout.setText(getString(R.string.log_out));
-            setActionBarTitle(getString(R.string.welcome_user, preferences.getString("user.name", "")));
+            setActionBarTitle(getString(R.string.welcome_user, getUserName()));
         }
     }
 
 
     public void validateUserAccess() {
-        if (preferences.getString("user.name", "").isEmpty()) {
+        if (getUserName().isEmpty()) {
             binding.patientsCard.getRoot().setOnClickListener(v -> {
                 showSnackBar(new SnackBarMessage(getString(R.string.guest_user_access_warning)));
             });
@@ -131,10 +121,6 @@ public class MainFragment extends BaseFragment {
             binding.quizCard.getRoot().setOnClickListener(v -> launchQuizPage());
             binding.reviewCard.getRoot().setOnClickListener(v -> launchReviewsPage());
         }
-    }
-
-    public void setUserNamePreferences() {
-        preferences.edit().putString("user.name", "").apply();
     }
 
     public void launchLearningPage() {

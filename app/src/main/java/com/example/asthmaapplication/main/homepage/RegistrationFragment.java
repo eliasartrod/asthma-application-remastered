@@ -108,12 +108,6 @@ public class RegistrationFragment extends BaseFragment {
         super.onResume();
     }
 
-    public void getPreferences() {
-        if (getContext() != null) {
-            preferences = getContext().getSharedPreferences("user.prefs", Context.MODE_PRIVATE);
-        }
-    }
-
     public void resetRegistrationPage() {
         binding.emailLogin.setText(null);
         binding.passwordLogin.setText(null);

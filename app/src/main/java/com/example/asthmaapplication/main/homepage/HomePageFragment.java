@@ -63,6 +63,7 @@ public class HomePageFragment extends BaseFragment {
         binding.actionRegister.setOnClickListener(v -> launchRegistrationPage());
 
         binding.actionGuestRedirect.setOnClickListener(v -> {
+                //Just to make sure we do not have user data locally cached.
                 viewModel.clearCache();
                 launchGuestRedirect();
         });

@@ -1,5 +1,7 @@
 package com.example.asthmaapplication.main.common;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.view.View;
 
 import androidx.fragment.app.Fragment;
@@ -9,6 +11,11 @@ import com.google.android.material.snackbar.Snackbar;
 import io.reactivex.disposables.CompositeDisposable;
 
 public abstract class BaseFragment extends Fragment {
+    public static final String USER_PREFS = "user.prefs";
+    public static final String USER_NAME = "user.name";
+
+    SharedPreferences preferences;
+
     protected CompositeDisposable fragmentDisposable = new CompositeDisposable();
 
     public void setActionBarTitle(int resId){
@@ -36,6 +43,28 @@ public abstract class BaseFragment extends Fragment {
         }
         Snackbar snackbar = Snackbar.make(getRoot(), snkMessage, Snackbar.LENGTH_LONG);
         snackbar.show();
+    }
+
+    public void getPreferences() {
+        if (getContext() != null) {
+            preferences = getContext().getSharedPreferences(USER_PREFS, Context.MODE_PRIVATE);
+        }
+    }
+
+    public void setUserNamePreferences(String userName) {
+        preferences.edit().putString(USER_NAME, userName).apply();
+    }
+
+    public void clearUserName() {
+        preferences.edit().putString(USER_NAME, "").apply();
+    }
+
+    public String getUserName() {
+        return preferences.getString(USER_NAME, "");
+    }
+
+    public String getUserPrefs() {
+        return preferences.getString(USER_PREFS, "");
     }
 
     public abstract View getRoot();

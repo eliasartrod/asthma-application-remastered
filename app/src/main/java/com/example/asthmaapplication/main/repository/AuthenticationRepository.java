@@ -13,7 +13,7 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-public class AuthenticationRepository extends Application{
+public class AuthenticationRepository extends Application {
     private Application application;
 
     private FirebaseAuth firebaseAuth;

@@ -1,6 +1,5 @@
 package com.example.asthmaapplication.main.mainpage.subpages;
 
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -29,7 +28,6 @@ public class LearningBaseFragment extends BaseFragment {
     FragmentLearningBaseBinding binding;
     FragmentManager manager;
     FragmentTransaction transaction;
-    SharedPreferences preferences;
 
     @Inject
     public LearningBaseFragment() {
@@ -88,12 +86,6 @@ public class LearningBaseFragment extends BaseFragment {
     @Override
     public void onResume() {
         super.onResume();
-    }
-
-    public void getPreferences() {
-        if (getContext() != null) {
-            preferences = getContext().getSharedPreferences("user.prefs", Context.MODE_PRIVATE);
-        }
     }
 
     public void setActionBarTitle() {

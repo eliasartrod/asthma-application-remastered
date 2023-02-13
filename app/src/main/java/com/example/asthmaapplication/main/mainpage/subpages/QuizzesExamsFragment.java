@@ -1,6 +1,5 @@
 package com.example.asthmaapplication.main.mainpage.subpages;
 
-import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -22,7 +21,6 @@ import io.reactivex.annotations.NonNull;
 public class QuizzesExamsFragment extends BaseFragment {
     MainViewModel viewModel;
     FragmentQuizzesExamsBinding binding;
-    SharedPreferences preferences;
 
     @Inject
     public QuizzesExamsFragment() {
@@ -53,12 +51,6 @@ public class QuizzesExamsFragment extends BaseFragment {
     @Override
     public void onResume() {
         super.onResume();
-    }
-
-    public void getPreferences() {
-        if (getContext() != null) {
-            preferences = getContext().getSharedPreferences("user.prefs", Context.MODE_PRIVATE);
-        }
     }
 
     public void setActionBarTitle() {

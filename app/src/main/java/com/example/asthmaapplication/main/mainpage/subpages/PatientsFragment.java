@@ -1,6 +1,5 @@
 package com.example.asthmaapplication.main.mainpage.subpages;
 
-import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -22,7 +21,6 @@ import io.reactivex.annotations.NonNull;
 public class PatientsFragment extends BaseFragment {
     MainViewModel viewModel;
     FragmentPatientsBinding binding;
-    SharedPreferences preferences;
 
     @Inject
     public PatientsFragment() {
@@ -55,19 +53,8 @@ public class PatientsFragment extends BaseFragment {
         super.onResume();
     }
 
-    public void getPreferences() {
-        if (getContext() != null) {
-            preferences = getContext().getSharedPreferences("user.prefs", Context.MODE_PRIVATE);
-        }
-    }
-
     public void setActionBarTitle() {
-        if (preferences.getString("user.name", "").isEmpty()) {
-            setActionBarTitle(getString(R.string.guest_user_warning));
-        } else {
-            setActionBarTitle(getString(R.string.patients_page_title, preferences.getString("user.name", "")));
-
-        }
+        setActionBarTitle(getString(R.string.patients_page_title, getUserName()));
     }
 
     @Override
