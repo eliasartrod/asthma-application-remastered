@@ -16,7 +16,6 @@ import com.example.asthmaapplication.R;
 import com.example.asthmaapplication.databinding.FragmentMainBinding;
 import com.example.asthmaapplication.main.common.BaseFragment;
 import com.example.asthmaapplication.main.common.SnackBarMessage;
-import com.example.asthmaapplication.main.homepage.HomePageFragment;
 import com.example.asthmaapplication.main.mainpage.subpages.LearningBaseFragment;
 import com.example.asthmaapplication.main.mainpage.subpages.PatientsFragment;
 import com.example.asthmaapplication.main.mainpage.subpages.QuizzesExamsFragment;
@@ -59,7 +58,6 @@ public class MainFragment extends BaseFragment {
 
         getPreferences();
         setActionBarTitle();
-        validateUserAccess();
 
         manager = getFragmentManager();
         transaction = manager.beginTransaction();
@@ -81,9 +79,8 @@ public class MainFragment extends BaseFragment {
 
         binding.actionLogout.setOnClickListener(userLogout -> {
             viewModel.logOut();
-            getActivity().finish();
             clearUserName();
-            launchHomePage();
+            getActivity().finish();
         });
 
     }
@@ -91,25 +88,29 @@ public class MainFragment extends BaseFragment {
     @Override
     public void onResume() {
         super.onResume();
+        validateUserAccess();
     }
 
     public void setActionBarTitle() {
         if (getUserName().isEmpty()) {
-            setReadingPreferences(false);
             binding.actionLogout.setText(getString(R.string.redirect_home));
+            binding.mainTitleDescription.setText(getString(R.string.guest_user_tip));
             setActionBarTitle(getString(R.string.welcome_user, getString(R.string.guest_user)));
         } else {
+            binding.mainTitleDescription.setText(getText(R.string.main_page_title));
             binding.actionLogout.setText(getString(R.string.log_out));
             setActionBarTitle(getString(R.string.welcome_user, getUserName()));
         }
     }
 
-
     public void validateUserAccess() {
-        if (getUserName().isEmpty() && !getHasUserRead()) {
+        if (getUserName().isEmpty()) {
+            binding.patientsCard.cardHolder.setBackgroundColor(getResources().getColor(R.color.gray));
+            binding.quizCard.cardHolder.setBackgroundColor(getResources().getColor(R.color.gray));
+            binding.reviewCard.cardHolder.setBackgroundColor(getResources().getColor(R.color.gray));
             binding.patientsCard.getRoot().setOnClickListener(v -> showSnackBar(new SnackBarMessage(getString(R.string.guest_user_access_warning))));
             binding.quizCard.getRoot().setOnClickListener(v -> showSnackBar(new SnackBarMessage(getString(R.string.guest_user_access_warning))));
-            binding.reviewCard.getRoot().setOnClickListener(v -> showSnackBar(new SnackBarMessage(getString(R.string.guest_user_access_warning))));
+            binding.reviewCard.getRoot().setOnClickListener(v -> showSnackBar(new SnackBarMessage(getString(R.string.review_validation_warning))));
         } else {
             binding.patientsCard.getRoot().setOnClickListener(v -> launchPatientsCard());
             binding.quizCard.getRoot().setOnClickListener(v -> launchQuizPage());
@@ -144,14 +145,6 @@ public class MainFragment extends BaseFragment {
 
     public void launchQuizPage() {
         QuizzesExamsFragment fragment = new QuizzesExamsFragment();
-        transaction
-                .addToBackStack(null)
-                .replace(R.id.fragment_container, fragment)
-                .commit();
-    }
-
-    public void launchHomePage() {
-        HomePageFragment fragment = new HomePageFragment();
         transaction
                 .addToBackStack(null)
                 .replace(R.id.fragment_container, fragment)

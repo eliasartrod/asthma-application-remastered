@@ -54,6 +54,19 @@ public class AsthmaInfoAdapter extends RecyclerView.Adapter<AsthmaInfoAdapter.Vi
             }
         });
 
+        holder.binding.title.setOnClickListener(v -> {
+            if (position == previousPosition) {
+                notifyItemChanged(position);
+                previousPosition = -1;
+            } else {
+                if (previousPosition != -1) {
+                    notifyItemChanged(previousPosition);
+                }
+                previousPosition = position;
+                notifyItemChanged(position);
+            }
+        });
+
         if (position == previousPosition) {
             holder.binding.actionExpand.setImageResource(R.drawable.ic_retract);
             holder.binding.description.setVisibility(View.VISIBLE);

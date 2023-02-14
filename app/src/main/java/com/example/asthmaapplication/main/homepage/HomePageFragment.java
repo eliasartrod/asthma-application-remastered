@@ -15,7 +15,6 @@ import com.example.asthmaapplication.databinding.FragmentHomeBinding;
 import com.example.asthmaapplication.main.common.BaseFragment;
 import com.example.asthmaapplication.main.mainpage.MainActivity;
 import com.example.asthmaapplication.main.utils.UIUtils;
-import com.google.firebase.auth.FirebaseUser;
 
 import javax.annotation.Nullable;
 import javax.inject.Inject;
@@ -51,26 +50,40 @@ public class HomePageFragment extends BaseFragment {
     @Override
     public void onViewCreated(@Nullable View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        binding.actionLogin.setEnabled(false);
+        binding.actionRegister.setEnabled(false);
 
+        getPreferences();
         setActionBarTitle();
 
         manager = getFragmentManager();
         transaction = manager.beginTransaction();
 
-        UIUtils.addUnderlineFlag(binding.actionGuestRedirect);
+        UIUtils.addUnderlineFlag(binding.actionHomePageRedirect);
 
         binding.actionLogin.setOnClickListener(v -> launchLoginPage());
         binding.actionRegister.setOnClickListener(v -> launchRegistrationPage());
-
-        binding.actionGuestRedirect.setOnClickListener(v -> {
-                //Just to make sure we do not have user data locally cached.
-                viewModel.clearCache();
-                launchGuestRedirect();
-        });
+        binding.actionHomePageRedirect.setOnClickListener(v -> launchHomePage());
 
     }
 
-    private void launchGuestRedirect() {
+    @Override
+    public void onResume() {
+        super.onResume();
+        validateUser();
+    }
+
+    private void validateUser() {
+        if (!getUserName().isEmpty()) {
+            binding.actionHomePageRedirect.setText(getString(R.string.you_are_signed_in));
+        } else {
+            binding.actionLogin.setEnabled(true);
+            binding.actionRegister.setEnabled(true);
+            binding.actionHomePageRedirect.setText(getString(R.string.continue_as_guest));
+        }
+    }
+
+    private void launchHomePage() {
         Intent intent = new Intent(getContext(), MainActivity.class);
         startActivity(intent);
     }

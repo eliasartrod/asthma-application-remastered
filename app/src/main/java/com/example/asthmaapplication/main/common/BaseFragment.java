@@ -58,7 +58,7 @@ public abstract class BaseFragment extends Fragment {
     }
 
     public void clearUserName() {
-        preferences.edit().putString(USER_NAME, "").apply();
+        preferences.edit().putString(USER_NAME, null).apply();
     }
 
     public String getUserName() {

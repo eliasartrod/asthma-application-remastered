@@ -23,6 +23,7 @@
     <string name="register">Register</string>
     <string name="login">Log In</string>
     <string name="continue_as_guest">Or, Continue as Guest</string>
+    <string name="you_are_signed_in">You are Logged in, Continue!</string>
     <string name="clear_cache">Clear Local Cache</string>
 
     <!-- Home Page -->
@@ -41,6 +42,7 @@
     <string name="quiz_card">Quizzes/Exams</string>
     <string name="review_card">Review</string>
     <string name="redirect_home">Home</string>
+    <string name="guest_user_tip">Select an Option to Continue. For the Best Experience, Log in to Access All Available Features!</string>
 
     <!-- Subpages -->
     <string name="learning_page_title">Let\'s Learn!</string>
@@ -62,7 +64,7 @@
 
     <!-- Warning Messages -->
     <string name="guest_user_access_warning">You Need to be Signed in to Access this Feature!</string>
-    <string name="review_validation_warning">You Must Finish Reading Before Gaining Access!</string>
+    <string name="review_validation_warning">You Must Finish Reading/Must be Signed In to Gain Access!</string>
 
     <!-- Section One -->
     <string name="section_one_introduction">Asthma Information</string>

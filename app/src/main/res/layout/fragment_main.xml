@@ -50,9 +50,10 @@
 
     <TextView
         android:id="@+id/main_title_description"
+        style="@style/Theme.PageTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="60dp"
         android:padding="20dp"
         android:fontFamily="sans-serif-black"
         android:text="@string/main_page_instruction"
@@ -85,7 +86,7 @@
             android:id="@+id/patients_card"
             layout="@layout/card_item"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content" />
 
     </LinearLayout>
 

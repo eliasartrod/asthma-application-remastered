@@ -1,8 +1,5 @@
 package com.example.asthmaapplication.main.mainpage.subpages.learningpages;
 
-import android.content.Context;
-import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -25,7 +22,6 @@ import io.reactivex.annotations.NonNull;
 public class SectionFiveFragment extends BaseFragment {
     FragmentSectionFiveBinding binding;
     MainViewModel viewModel;
-    SharedPreferences preferences;
 
     @Inject
     public SectionFiveFragment() {
@@ -55,7 +51,6 @@ public class SectionFiveFragment extends BaseFragment {
         binding.sectionTitle.setText(getString(R.string.section_five));
 
         binding.actionFinish.setOnClickListener(v -> {
-            setFinishedReadingPreferences(true);
             getActivity().finish();
         });
 
@@ -64,10 +59,6 @@ public class SectionFiveFragment extends BaseFragment {
     @Override
     public void onResume() {
         super.onResume();
-    }
-
-    public void setFinishedReadingPreferences(boolean finishedReadingPreferences) {
-        setReadingPreferences(finishedReadingPreferences);
     }
 
     public void setActionBarTitle() {

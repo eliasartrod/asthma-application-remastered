@@ -28,7 +28,6 @@ public class LearningBaseFragment extends BaseFragment {
     FragmentLearningBaseBinding binding;
     FragmentManager manager;
     FragmentTransaction transaction;
-    Boolean hasUserRead;
 
     @Inject
     public LearningBaseFragment() {
@@ -64,7 +63,6 @@ public class LearningBaseFragment extends BaseFragment {
     @Override
     public void onResume() {
         super.onResume();
-        hasUserRead = getHasUserRead();
         getReadingPreferences();
     }
 
@@ -98,9 +96,11 @@ public class LearningBaseFragment extends BaseFragment {
     }
 
     public void getReadingPreferences() {
-        if (hasUserRead) {
+        if (!getUserName().isEmpty()) {
+            binding.reviewCard.cardHolder.setBackgroundColor(getResources().getColor(R.color.button_color));
             binding.reviewCard.getRoot().setOnClickListener(v -> launchReviewsPage());
         } else {
+            binding.reviewCard.cardHolder.setBackgroundColor(getResources().getColor(R.color.gray));
             binding.reviewCard.getRoot().setOnClickListener(v ->
                     showSnackBar(new SnackBarMessage(getString(R.string.review_validation_warning))));
         }
