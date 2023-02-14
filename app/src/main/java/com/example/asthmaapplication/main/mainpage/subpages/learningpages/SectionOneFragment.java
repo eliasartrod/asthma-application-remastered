@@ -1,6 +1,7 @@
 package com.example.asthmaapplication.main.mainpage.subpages.learningpages;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -8,6 +9,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.Nullable;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
@@ -15,6 +18,8 @@ import com.example.asthmaapplication.R;
 import com.example.asthmaapplication.databinding.FragmentSectionOneBinding;
 import com.example.asthmaapplication.main.common.BaseFragment;
 import com.example.asthmaapplication.main.mainpage.MainViewModel;
+import com.example.asthmaapplication.main.adapter.AsthmaInfoAdapter;
+import com.example.asthmaapplication.main.model.AsthmaInfoModel;
 
 import java.util.ArrayList;
 
@@ -27,7 +32,6 @@ import io.reactivex.annotations.NonNull;
 public class SectionOneFragment extends BaseFragment {
     FragmentSectionOneBinding binding;
     MainViewModel viewModel;
-    SharedPreferences preferences;
     AsthmaInfoAdapter adapter;
     ArrayList<AsthmaInfoModel> asthmaInfoModels = new ArrayList<>();
 
@@ -65,17 +69,12 @@ public class SectionOneFragment extends BaseFragment {
         super.onResume();
     }
 
-    public void getPreferences() {
-        if (getContext() != null) {
-            preferences = getContext().getSharedPreferences("user.prefs", Context.MODE_PRIVATE);
-        }
-    }
-
     public void setActionBarTitle() {
         setActionBarTitle(getString(R.string.learning_page_title));
     }
 
     public void createSectionOneInfo() {
+        asthmaInfoModels.add(new AsthmaInfoModel(getString(R.string.section_one_introduction), getString(R.string.section_one_introduction_description), R.drawable.ic_section_one));
         asthmaInfoModels.add(new AsthmaInfoModel(getString(R.string.section_one_title_pOne), getString(R.string.section_one_description_pOne), R.drawable.ic_lung_icon));
         asthmaInfoModels.add(new AsthmaInfoModel(getString(R.string.section_one_title_pTwo), getString(R.string.section_one_description_pTwo), R.drawable.ic_section_two));
         asthmaInfoModels.add(new AsthmaInfoModel(getString(R.string.section_one_title_pThree), getString(R.string.section_one_description_pThree), R.drawable.ic_section_three));

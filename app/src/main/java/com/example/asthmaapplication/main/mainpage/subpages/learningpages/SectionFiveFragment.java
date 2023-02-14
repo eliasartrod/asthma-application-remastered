@@ -1,6 +1,7 @@
 package com.example.asthmaapplication.main.mainpage.subpages.learningpages;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -53,6 +54,11 @@ public class SectionFiveFragment extends BaseFragment {
 
         binding.sectionTitle.setText(getString(R.string.section_five));
 
+        binding.actionFinish.setOnClickListener(v -> {
+            setFinishedReadingPreferences(true);
+            getActivity().finish();
+        });
+
     }
 
     @Override
@@ -60,10 +66,8 @@ public class SectionFiveFragment extends BaseFragment {
         super.onResume();
     }
 
-    public void getPreferences() {
-        if (getContext() != null) {
-            preferences = getContext().getSharedPreferences("user.prefs", Context.MODE_PRIVATE);
-        }
+    public void setFinishedReadingPreferences(boolean finishedReadingPreferences) {
+        setReadingPreferences(finishedReadingPreferences);
     }
 
     public void setActionBarTitle() {

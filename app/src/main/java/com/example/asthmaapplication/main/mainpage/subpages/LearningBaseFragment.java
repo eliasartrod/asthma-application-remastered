@@ -14,6 +14,7 @@ import androidx.lifecycle.ViewModelProvider;
 import com.example.asthmaapplication.R;
 import com.example.asthmaapplication.databinding.FragmentLearningBaseBinding;
 import com.example.asthmaapplication.main.common.BaseFragment;
+import com.example.asthmaapplication.main.common.SnackBarMessage;
 import com.example.asthmaapplication.main.mainpage.MainViewModel;
 import com.example.asthmaapplication.main.mainpage.subpages.learningpages.LearningFragment;
 import com.example.asthmaapplication.main.mainpage.subpages.learningpages.LearningFragmentActivity;
@@ -27,6 +28,7 @@ public class LearningBaseFragment extends BaseFragment {
     FragmentLearningBaseBinding binding;
     FragmentManager manager;
     FragmentTransaction transaction;
+    Boolean hasUserRead;
 
     @Inject
     public LearningBaseFragment() {
@@ -62,6 +64,8 @@ public class LearningBaseFragment extends BaseFragment {
     @Override
     public void onResume() {
         super.onResume();
+        hasUserRead = getHasUserRead();
+        getReadingPreferences();
     }
 
     public void setActionBarTitle() {
@@ -91,7 +95,15 @@ public class LearningBaseFragment extends BaseFragment {
 
         binding.reviewCard.cardImage.setImageResource(R.drawable.ic_review_icon);
         binding.reviewCard.cardTitle.setText(R.string.review_card);
-        binding.reviewCard.getRoot().setOnClickListener(v -> launchReviewsPage());
+    }
+
+    public void getReadingPreferences() {
+        if (hasUserRead) {
+            binding.reviewCard.getRoot().setOnClickListener(v -> launchReviewsPage());
+        } else {
+            binding.reviewCard.getRoot().setOnClickListener(v ->
+                    showSnackBar(new SnackBarMessage(getString(R.string.review_validation_warning))));
+        }
     }
 
     public void launchSectionOnePage() {

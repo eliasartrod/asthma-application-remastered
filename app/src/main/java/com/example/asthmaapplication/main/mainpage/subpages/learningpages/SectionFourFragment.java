@@ -24,7 +24,6 @@ import io.reactivex.annotations.NonNull;
 public class SectionFourFragment extends BaseFragment {
     FragmentSectionFourBinding binding;
     MainViewModel viewModel;
-    SharedPreferences preferences;
 
     @Inject
     public SectionFourFragment() {
@@ -58,12 +57,6 @@ public class SectionFourFragment extends BaseFragment {
     @Override
     public void onResume() {
         super.onResume();
-    }
-
-    public void getPreferences() {
-        if (getContext() != null) {
-            preferences = getContext().getSharedPreferences("user.prefs", Context.MODE_PRIVATE);
-        }
     }
 
     public void setActionBarTitle() {

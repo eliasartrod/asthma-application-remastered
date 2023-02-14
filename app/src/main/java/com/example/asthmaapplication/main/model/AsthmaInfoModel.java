@@ -1,6 +1,5 @@
-package com.example.asthmaapplication.main.mainpage.subpages.learningpages;
+package com.example.asthmaapplication.main.model;
 
-import android.widget.ImageView;
 
 public class AsthmaInfoModel {
     public String title;

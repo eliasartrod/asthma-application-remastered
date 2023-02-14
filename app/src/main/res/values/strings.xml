@@ -62,14 +62,27 @@
 
     <!-- Warning Messages -->
     <string name="guest_user_access_warning">You Need to be Signed in to Access this Feature!</string>
+    <string name="review_validation_warning">You Must Finish Reading Before Gaining Access!</string>
 
     <!-- Section One -->
+    <string name="section_one_introduction">Asthma Information</string>
+    <string name="section_one_introduction_description">More than 25 million people in the U.S. have asthma. 1 It is a long-term disease that causes your airways to become swollen and inflamed, making it hard to breathe. There is no cure for asthma, but it can be managed and controlled.
+    The best way to manage asthma is to avoid triggers, take medications to prevent symptoms, and prepare to treat asthma episodes if they occur. AAFA has a lot of information on our site to help you learn more about asthma. Also consider joining AAFA’s online asthma support community, a local support group, or a regional AAFA chapter if one is in your area.</string>
     <string name="section_one_title_pOne">What is Asthma?</string>
     <string name="section_one_description_pOne">A condition in which a person\'s airways become inflamed, narrow and swell, and produce extra mucus, which makes it difficult to breathe.</string>
     <string name="section_one_title_pTwo">What are the Symptoms of Asthma?</string>
     <string name="section_one_description_pTwo">Common symptoms are coughing, shortness of breath, wheezing, and chest tightness (or pain). Asthma may lead to a medical emergency. It is important to know the signs of a severe asthma episode (or asthma attack).</string>
     <string name="section_one_title_pThree">How do Doctors Diagnose Asthma?</string>
-    <string name="section_one_description_pThree">The doctor will look at the results from these tests. They will then decide what type of asthma you have. They will develop a treatment plan based on the type and severity of your symptoms. If you have moderate to severe persistent asthma, AAFA recommends you see an allergist or pulmonologist if possible. Allergists treat allergies, asthma, and immune disorders. Pulmonologists treat asthma and other lung or respiratory diseases.</string>
+    <string name="section_one_description_pThree">A doctor may use a few different ways to look for asthma. These include:\n\n\u2022Taking a detailed medical history\n
+        \u2022A physical exam\n
+        \u2022Lung function tests\n
+        \u2022Chest or sinus X-ray\n
+        \u2022Blood tests to look for certain markers\n
+        \nAllergy testsThe doctor will look at the results from these tests. They will then decide what type of asthma you have. They will develop a treatment plan based on the type and severity of your symptoms. If you have moderate to severe persistent asthma, AAFA recommends you see an allergist or pulmonologist if possible. Allergists treat allergies, asthma, and immune disorders. Pulmonologists treat asthma and other lung or respiratory diseases.
+    </string>
 
+    <!-- Section Page Actions -->
+    <string name="action_next_section">Swipe Left/Right to Navigate</string>
+    <string name="action_finish">Finish Learning!</string>
 
 </resources>

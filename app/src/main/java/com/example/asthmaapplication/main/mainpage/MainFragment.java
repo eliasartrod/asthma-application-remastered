@@ -95,6 +95,7 @@ public class MainFragment extends BaseFragment {
 
     public void setActionBarTitle() {
         if (getUserName().isEmpty()) {
+            setReadingPreferences(false);
             binding.actionLogout.setText(getString(R.string.redirect_home));
             setActionBarTitle(getString(R.string.welcome_user, getString(R.string.guest_user)));
         } else {
@@ -105,7 +106,7 @@ public class MainFragment extends BaseFragment {
 
 
     public void validateUserAccess() {
-        if (getUserName().isEmpty()) {
+        if (getUserName().isEmpty() && !getHasUserRead()) {
             binding.patientsCard.getRoot().setOnClickListener(v -> showSnackBar(new SnackBarMessage(getString(R.string.guest_user_access_warning))));
             binding.quizCard.getRoot().setOnClickListener(v -> showSnackBar(new SnackBarMessage(getString(R.string.guest_user_access_warning))));
             binding.reviewCard.getRoot().setOnClickListener(v -> showSnackBar(new SnackBarMessage(getString(R.string.guest_user_access_warning))));

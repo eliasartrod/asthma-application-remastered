@@ -14,6 +14,7 @@ public abstract class BaseFragment extends Fragment {
     public static final String USER_PREFS = "user.prefs";
     public static final String USER_NAME = "user.name";
     public static final String USER_RESULTS = "user.results";
+    public static final String USER_READ = "user.read";
 
     SharedPreferences preferences;
 
@@ -62,6 +63,14 @@ public abstract class BaseFragment extends Fragment {
 
     public String getUserName() {
         return preferences.getString(USER_NAME, "");
+    }
+
+    public boolean getHasUserRead() {
+        return preferences.getBoolean(USER_READ, false);
+    }
+
+    public void setReadingPreferences(boolean hasFinished) {
+        preferences.edit().putBoolean(USER_READ, hasFinished).apply();
     }
 
     public void setQuizResults(String quizResults) {

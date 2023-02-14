@@ -62,12 +62,6 @@ public class LearningFragment extends BaseFragment {
         super.onResume();
     }
 
-    public void getPreferences() {
-        if (getContext() != null) {
-            preferences = getContext().getSharedPreferences("user.prefs", Context.MODE_PRIVATE);
-        }
-    }
-
     public void setTabLayouts() {
         int startingPosition = this.getActivity().getIntent().getIntExtra(FRAGMENT_POSITION, 0);
 

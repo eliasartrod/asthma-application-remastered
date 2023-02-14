@@ -24,6 +24,11 @@ public class MainViewModel extends AndroidViewModel {
         loggedOutLiveData = authenticationRepository.getLoggedOutLiveData();
     }
 
+    // For future network calling
+    public void getInformation(String sectionNumber) {
+
+    }
+
     public void logOut() {
         userLiveData.setValue(null);
         loggedOutLiveData.setValue(true);

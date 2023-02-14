@@ -1,23 +1,23 @@
-package com.example.asthmaapplication.main.mainpage.subpages.learningpages;
+package com.example.asthmaapplication.main.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.asthmaapplication.databinding.CardItemLearningBinding;
+import com.example.asthmaapplication.main.model.AsthmaInfoModel;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class AsthmaInfoAdapter extends RecyclerView.Adapter<AsthmaInfoAdapter.ViewHolder> {
     private final Context context;
-    private ArrayList<AsthmaInfoModel> asthmaInfoModels = new ArrayList<>();
+    private Boolean expanded = false;
+    private Integer previousPosition = -1;
+    private ArrayList<AsthmaInfoModel> asthmaInfoModels;
 
     public AsthmaInfoAdapter(Context context, ArrayList<AsthmaInfoModel> asthmaInfoModels) {
         this.context = context;
@@ -36,23 +36,30 @@ public class AsthmaInfoAdapter extends RecyclerView.Adapter<AsthmaInfoAdapter.Vi
     public void onBindViewHolder(@NonNull AsthmaInfoAdapter.ViewHolder holder, int position) {
         AsthmaInfoModel model = asthmaInfoModels.get(position);
 
-        holder.description.setVisibility(View.GONE);
-        holder.imageView.setVisibility(View.GONE);
+        holder.binding.title.setText(model.getTitle());
+        holder.binding.description.setText(model.getDescription());
+        holder.binding.imageView.setImageResource(model.getImageview());
 
-        holder.title.setText(model.getTitle());
-        holder.description.setText(model.getDescription());
-        holder.imageView.setImageResource(model.getImageview());
-
-        holder.title.setOnClickListener(v -> {
-            holder.description.setVisibility(View.VISIBLE);
-            holder.imageView.setVisibility(View.VISIBLE);
+        holder.binding.title.setOnClickListener(v -> {
+            if (position == previousPosition) {
+                notifyItemChanged(position);
+                previousPosition = -1;
+            } else {
+                if (previousPosition != -1) {
+                    notifyItemChanged(previousPosition);
+                }
+                previousPosition = position;
+                notifyItemChanged(position);
+            }
         });
 
-        holder.description.setOnClickListener(v -> {
-            holder.description.setVisibility(View.GONE);
-            holder.imageView.setVisibility(View.GONE);
-        });
-
+        if (position == previousPosition) {
+            holder.binding.description.setVisibility(View.VISIBLE);
+            holder.binding.imageView.setVisibility(View.VISIBLE);
+        } else {
+            holder.binding.description.setVisibility(View.GONE);
+            holder.binding.imageView.setVisibility(View.GONE);
+        }
     }
 
     @Override
@@ -61,15 +68,12 @@ public class AsthmaInfoAdapter extends RecyclerView.Adapter<AsthmaInfoAdapter.Vi
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
-        TextView title, description;
-        ImageView imageView;
+        CardItemLearningBinding binding;
 
 
         public ViewHolder(CardItemLearningBinding binding) {
             super(binding.getRoot());
-            title = binding.title;
-            description = binding.description;
-            imageView = binding.imageView;
+            this.binding = binding;
         }
     }
 }
