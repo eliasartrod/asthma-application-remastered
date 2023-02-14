@@ -37,7 +37,7 @@
             app:tabMode="scrollable"
             app:tabPaddingEnd="8dp"
             app:tabPaddingStart="8dp"
-            app:tabSelectedTextColor="@color/cardview_dark_background"
+            app:tabSelectedTextColor="@color/white"
             app:tabTextColor="@color/black"
             android:background="@drawable/ic_rectangle_stroke"/>
 

@@ -63,4 +63,13 @@
     <!-- Warning Messages -->
     <string name="guest_user_access_warning">You Need to be Signed in to Access this Feature!</string>
 
+    <!-- Section One -->
+    <string name="section_one_title_pOne">What is Asthma?</string>
+    <string name="section_one_description_pOne">A condition in which a person\'s airways become inflamed, narrow and swell, and produce extra mucus, which makes it difficult to breathe.</string>
+    <string name="section_one_title_pTwo">What are the Symptoms of Asthma?</string>
+    <string name="section_one_description_pTwo">Common symptoms are coughing, shortness of breath, wheezing, and chest tightness (or pain). Asthma may lead to a medical emergency. It is important to know the signs of a severe asthma episode (or asthma attack).</string>
+    <string name="section_one_title_pThree">How do Doctors Diagnose Asthma?</string>
+    <string name="section_one_description_pThree">The doctor will look at the results from these tests. They will then decide what type of asthma you have. They will develop a treatment plan based on the type and severity of your symptoms. If you have moderate to severe persistent asthma, AAFA recommends you see an allergist or pulmonologist if possible. Allergists treat allergies, asthma, and immune disorders. Pulmonologists treat asthma and other lung or respiratory diseases.</string>
+
+
 </resources>

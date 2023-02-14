@@ -1,7 +1,6 @@
 package com.example.asthmaapplication.main.mainpage.subpages;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -53,10 +52,23 @@ public class LearningBaseFragment extends BaseFragment {
 
         getPreferences();
         setActionBarTitle();
+        setupUI();
 
         manager = getFragmentManager();
         transaction = manager.beginTransaction();
 
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+    }
+
+    public void setActionBarTitle() {
+        setActionBarTitle(getString(R.string.learning_page_title));
+    }
+
+    public void setupUI() {
         binding.sectionOneCard.cardImage.setImageResource(R.drawable.ic_section_one);
         binding.sectionOneCard.cardTitle.setText(R.string.section_one);
         binding.sectionOneCard.getRoot().setOnClickListener(v -> launchSectionOnePage());
@@ -80,16 +92,6 @@ public class LearningBaseFragment extends BaseFragment {
         binding.reviewCard.cardImage.setImageResource(R.drawable.ic_review_icon);
         binding.reviewCard.cardTitle.setText(R.string.review_card);
         binding.reviewCard.getRoot().setOnClickListener(v -> launchReviewsPage());
-
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-    }
-
-    public void setActionBarTitle() {
-        setActionBarTitle(getString(R.string.learning_page_title));
     }
 
     public void launchSectionOnePage() {

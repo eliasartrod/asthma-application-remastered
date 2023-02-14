@@ -106,16 +106,9 @@ public class MainFragment extends BaseFragment {
 
     public void validateUserAccess() {
         if (getUserName().isEmpty()) {
-            binding.patientsCard.getRoot().setOnClickListener(v -> {
-                showSnackBar(new SnackBarMessage(getString(R.string.guest_user_access_warning)));
-            });
-            binding.quizCard.getRoot().setOnClickListener(v -> {
-                showSnackBar(new SnackBarMessage(getString(R.string.guest_user_access_warning)));
-
-            });
-            binding.reviewCard.getRoot().setOnClickListener(v -> {
-                showSnackBar(new SnackBarMessage(getString(R.string.guest_user_access_warning)));
-            });
+            binding.patientsCard.getRoot().setOnClickListener(v -> showSnackBar(new SnackBarMessage(getString(R.string.guest_user_access_warning))));
+            binding.quizCard.getRoot().setOnClickListener(v -> showSnackBar(new SnackBarMessage(getString(R.string.guest_user_access_warning))));
+            binding.reviewCard.getRoot().setOnClickListener(v -> showSnackBar(new SnackBarMessage(getString(R.string.guest_user_access_warning))));
         } else {
             binding.patientsCard.getRoot().setOnClickListener(v -> launchPatientsCard());
             binding.quizCard.getRoot().setOnClickListener(v -> launchQuizPage());

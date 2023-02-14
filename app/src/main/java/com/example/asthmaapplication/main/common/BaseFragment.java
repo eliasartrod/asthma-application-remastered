@@ -13,6 +13,7 @@ import io.reactivex.disposables.CompositeDisposable;
 public abstract class BaseFragment extends Fragment {
     public static final String USER_PREFS = "user.prefs";
     public static final String USER_NAME = "user.name";
+    public static final String USER_RESULTS = "user.results";
 
     SharedPreferences preferences;
 
@@ -63,8 +64,12 @@ public abstract class BaseFragment extends Fragment {
         return preferences.getString(USER_NAME, "");
     }
 
-    public String getUserPrefs() {
-        return preferences.getString(USER_PREFS, "");
+    public void setQuizResults(String quizResults) {
+        preferences.edit().putString(USER_RESULTS, quizResults).apply();
+    }
+
+    public String getQuizResults() {
+        return preferences.getString(USER_RESULTS, "");
     }
 
     public abstract View getRoot();

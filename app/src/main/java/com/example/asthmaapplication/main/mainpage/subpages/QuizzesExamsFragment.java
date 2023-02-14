@@ -1,6 +1,5 @@
 package com.example.asthmaapplication.main.mainpage.subpages;
 
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;

@@ -9,11 +9,14 @@ import android.view.ViewGroup;
 
 import androidx.annotation.Nullable;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.example.asthmaapplication.R;
 import com.example.asthmaapplication.databinding.FragmentSectionOneBinding;
 import com.example.asthmaapplication.main.common.BaseFragment;
 import com.example.asthmaapplication.main.mainpage.MainViewModel;
+
+import java.util.ArrayList;
 
 import javax.inject.Inject;
 
@@ -25,6 +28,8 @@ public class SectionOneFragment extends BaseFragment {
     FragmentSectionOneBinding binding;
     MainViewModel viewModel;
     SharedPreferences preferences;
+    AsthmaInfoAdapter adapter;
+    ArrayList<AsthmaInfoModel> asthmaInfoModels = new ArrayList<>();
 
     @Inject
     public SectionOneFragment() {
@@ -50,8 +55,9 @@ public class SectionOneFragment extends BaseFragment {
 
         getPreferences();
         setActionBarTitle();
+        createSectionOneInfo();
+        setUpAdapter();
 
-        binding.sectionTitle.setText(getString(R.string.section_one));
     }
 
     @Override
@@ -67,6 +73,20 @@ public class SectionOneFragment extends BaseFragment {
 
     public void setActionBarTitle() {
         setActionBarTitle(getString(R.string.learning_page_title));
+    }
+
+    public void createSectionOneInfo() {
+        asthmaInfoModels.add(new AsthmaInfoModel(getString(R.string.section_one_title_pOne), getString(R.string.section_one_description_pOne), R.drawable.ic_lung_icon));
+        asthmaInfoModels.add(new AsthmaInfoModel(getString(R.string.section_one_title_pTwo), getString(R.string.section_one_description_pTwo), R.drawable.ic_section_two));
+        asthmaInfoModels.add(new AsthmaInfoModel(getString(R.string.section_one_title_pThree), getString(R.string.section_one_description_pThree), R.drawable.ic_section_three));
+
+    }
+
+    public void setUpAdapter() {
+        binding.sectionTitle.setText(getString(R.string.section_one));
+        adapter = new AsthmaInfoAdapter(getContext(), asthmaInfoModels);
+        binding.recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        binding.recyclerView.setAdapter(adapter);
     }
 
     @Override
