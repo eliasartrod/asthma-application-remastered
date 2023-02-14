@@ -1,16 +1,11 @@
 package com.example.asthmaapplication.main.mainpage.subpages.learningpages;
 
-import android.content.Context;
-import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.Nullable;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
@@ -48,7 +43,7 @@ public class SectionOneFragment extends BaseFragment {
 
     @Nullable
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @javax.annotation.Nullable ViewGroup container, @javax.annotation.Nullable Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         binding = FragmentSectionOneBinding.inflate(inflater, container, false);
         return binding.getRoot();
     }
@@ -74,11 +69,14 @@ public class SectionOneFragment extends BaseFragment {
     }
 
     public void createSectionOneInfo() {
-        asthmaInfoModels.add(new AsthmaInfoModel(getString(R.string.section_one_introduction), getString(R.string.section_one_introduction_description), R.drawable.ic_section_one));
-        asthmaInfoModels.add(new AsthmaInfoModel(getString(R.string.section_one_title_pOne), getString(R.string.section_one_description_pOne), R.drawable.ic_lung_icon));
-        asthmaInfoModels.add(new AsthmaInfoModel(getString(R.string.section_one_title_pTwo), getString(R.string.section_one_description_pTwo), R.drawable.ic_section_two));
-        asthmaInfoModels.add(new AsthmaInfoModel(getString(R.string.section_one_title_pThree), getString(R.string.section_one_description_pThree), R.drawable.ic_section_three));
-
+        asthmaInfoModels.add(new AsthmaInfoModel(getString(R.string.section_one_introduction), getString(R.string.section_one_introduction_description), R.drawable.ic_lung_normal));
+        asthmaInfoModels.add(new AsthmaInfoModel(getString(R.string.section_one_title_pOne), getString(R.string.section_one_description_pOne), R.drawable.ic_lung_abnormal));
+        asthmaInfoModels.add(new AsthmaInfoModel(getString(R.string.section_one_title_pTwo), getString(R.string.section_one_description_pTwo), R.drawable.ic_cough));
+        asthmaInfoModels.add(new AsthmaInfoModel(getString(R.string.section_one_title_pThree), getString(R.string.section_one_description_pThree), R.drawable.ic_pathology));
+        asthmaInfoModels.add(new AsthmaInfoModel(getString(R.string.section_one_title_pFive), getString(R.string.section_one_description_pFive), R.drawable.ic_asthma_trigger));
+        asthmaInfoModels.add(new AsthmaInfoModel(getString(R.string.section_one_title_pSix), getString(R.string.section_one_description_pSix), R.drawable.ic_clinical_studies));
+        asthmaInfoModels.add(new AsthmaInfoModel(getString(R.string.section_one_title_pSeven), getString(R.string.section_one_description_pSeven), R.drawable.ic_facts));
+        asthmaInfoModels.add(new AsthmaInfoModel(getString(R.string.section_one_references), getString(R.string.section_one_references_description), R.drawable.ic_references));
     }
 
     public void setUpAdapter() {

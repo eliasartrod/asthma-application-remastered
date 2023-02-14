@@ -43,7 +43,7 @@ public class LearningBaseFragment extends BaseFragment {
 
     @Nullable
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @javax.annotation.Nullable ViewGroup container, @javax.annotation.Nullable Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         binding = FragmentLearningBaseBinding.inflate(inflater, container, false);
         return binding.getRoot();
     }
@@ -73,23 +73,23 @@ public class LearningBaseFragment extends BaseFragment {
     }
 
     public void setupUI() {
-        binding.sectionOneCard.cardImage.setImageResource(R.drawable.ic_section_one);
+        binding.sectionOneCard.cardImage.setImageResource(R.drawable.ic_inhaler);
         binding.sectionOneCard.cardTitle.setText(R.string.section_one);
         binding.sectionOneCard.getRoot().setOnClickListener(v -> launchSectionOnePage());
 
-        binding.sectionTwoCard.cardImage.setImageResource(R.drawable.ic_section_two);
+        binding.sectionTwoCard.cardImage.setImageResource(R.drawable.ic_lung_abnormal);
         binding.sectionTwoCard.cardTitle.setText(R.string.section_two);
         binding.sectionTwoCard.getRoot().setOnClickListener(v -> launchSectionTwoPage());
 
-        binding.sectionThreeCard.cardImage.setImageResource(R.drawable.ic_section_three);
+        binding.sectionThreeCard.cardImage.setImageResource(R.drawable.ic_board_charts);
         binding.sectionThreeCard.cardTitle.setText(R.string.section_three);
         binding.sectionThreeCard.getRoot().setOnClickListener(v -> launchSectionThreePage());
 
-        binding.sectionFourCard.cardImage.setImageResource(R.drawable.ic_section_four);
+        binding.sectionFourCard.cardImage.setImageResource(R.drawable.ic_clinical_studies);
         binding.sectionFourCard.cardTitle.setText(R.string.section_four);
         binding.sectionFourCard.getRoot().setOnClickListener(v -> launchSectionFourPage());
 
-        binding.sectionFiveCard.cardImage.setImageResource(R.drawable.ic_section_five);
+        binding.sectionFiveCard.cardImage.setImageResource(R.drawable.ic_guidance);
         binding.sectionFiveCard.cardTitle.setText(R.string.section_five);
         binding.sectionFiveCard.getRoot().setOnClickListener(v -> launchSectionFivePage());
 

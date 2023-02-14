@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.asthmaapplication.R;
 import com.example.asthmaapplication.databinding.CardItemLearningBinding;
 import com.example.asthmaapplication.main.model.AsthmaInfoModel;
 
@@ -40,7 +41,7 @@ public class AsthmaInfoAdapter extends RecyclerView.Adapter<AsthmaInfoAdapter.Vi
         holder.binding.description.setText(model.getDescription());
         holder.binding.imageView.setImageResource(model.getImageview());
 
-        holder.binding.title.setOnClickListener(v -> {
+        holder.binding.actionExpand.setOnClickListener(v -> {
             if (position == previousPosition) {
                 notifyItemChanged(position);
                 previousPosition = -1;
@@ -54,9 +55,11 @@ public class AsthmaInfoAdapter extends RecyclerView.Adapter<AsthmaInfoAdapter.Vi
         });
 
         if (position == previousPosition) {
+            holder.binding.actionExpand.setImageResource(R.drawable.ic_retract);
             holder.binding.description.setVisibility(View.VISIBLE);
             holder.binding.imageView.setVisibility(View.VISIBLE);
         } else {
+            holder.binding.actionExpand.setImageResource(R.drawable.ic_expand);
             holder.binding.description.setVisibility(View.GONE);
             holder.binding.imageView.setVisibility(View.GONE);
         }

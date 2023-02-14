@@ -48,7 +48,7 @@ public class MainFragment extends BaseFragment {
 
     @Nullable
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @javax.annotation.Nullable ViewGroup container, @javax.annotation.Nullable Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         binding = FragmentMainBinding.inflate(inflater, container, false);
         return binding.getRoot();
     }
@@ -64,7 +64,7 @@ public class MainFragment extends BaseFragment {
         manager = getFragmentManager();
         transaction = manager.beginTransaction();
 
-        binding.learningCard.cardImage.setImageResource(R.drawable.ic_lung_icon);
+        binding.learningCard.cardImage.setImageResource(R.drawable.ic_lung_normal);
         binding.learningCard.cardTitle.setText(R.string.learning_card);
         binding.learningCard.getRoot().setOnClickListener(v -> launchLearningPage());
 

@@ -40,7 +40,7 @@
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:layout_gravity="bottom|center_horizontal"
-                    android:src="@drawable/ic_lung_icon"/>
+                    android:src="@drawable/ic_lung_normal"/>
             </FrameLayout>
 
             <TextView

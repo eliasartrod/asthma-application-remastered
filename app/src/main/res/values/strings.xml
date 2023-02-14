@@ -80,7 +80,17 @@
         \u2022Blood tests to look for certain markers\n
         \nAllergy testsThe doctor will look at the results from these tests. They will then decide what type of asthma you have. They will develop a treatment plan based on the type and severity of your symptoms. If you have moderate to severe persistent asthma, AAFA recommends you see an allergist or pulmonologist if possible. Allergists treat allergies, asthma, and immune disorders. Pulmonologists treat asthma and other lung or respiratory diseases.
     </string>
-
+    <string name="section_one_title_pFour">What is the Treatment for Asthma?</string>
+    <string name="section_one_description_pFour">You and your doctor will come up with a plan to treat your asthma. It often involves a blend of medication and avoiding your asthma triggers. An asthma action plan is an important tool to help you know when and how to treat your asthma symptoms.</string>
+    <string name="section_one_title_pFive">What Triggers Asthma?</string>
+    <string name="section_one_description_pFive">Asthma symptoms can appear when you are exposed to a trigger. A trigger is something you are sensitive to that makes your airways become inflamed. This causes swelling, mucus production, and narrowing in your airways. Common asthma triggers are pollen, air pollution, animal allergens, scents/fragrances, certain gases, extreme weather changes, smoke, dust mites, stress, and exercise.</string>
+    <string name="section_one_title_pSix">How do I prevent Asthma Episodes?</string>
+    <string name="section_one_description_pSix">The best way to prevent an asthma episode, or attack, is to follow your treatment plan. Learn your triggers and avoid or reduce your exposure to them. Take your allergy and asthma medicines when you should. Use your quick-acting medicine as soon as you start to notice symptoms.\n
+        \nMany people live healthy lives with asthma if it’s managed well. With a good treatment plan and guidance from your doctor, you can still do much of what you enjoy. For example, many professional athletes have asthma.</string>
+    <string name="section_one_title_pSeven">Asthma Facts and Figures</string>
+    <string name="section_one_description_pSeven">More people than ever before have asthma — about 25 million people in the U.S. have asthma1. It is one of the most common and costly diseases. AAFA tracks other important data such as who is most at risk of asthma, how many asthma emergency room visits happen, how many deaths from asthma happen, and how many missed school days are due to asthma.</string>
+    <string name="section_one_references">References</string>
+    <string name="section_one_references_description">Centers for Disease Control: \nhttp://www.cdc.gov/asthma/default.htm. \n(Retrieved June 13, 2019)</string>
     <!-- Section Page Actions -->
     <string name="action_next_section">Swipe Left/Right to Navigate</string>
     <string name="action_finish">Finish Learning!</string>
