@@ -30,11 +30,12 @@
         app:layout_constraintTop_toBottomOf="@id/section_title"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/section_hint"/>
+        app:layout_constraintBottom_toTopOf="@id/action_finish"/>
 
     <Button
         android:id="@+id/action_finish"
-        style="@style/Theme.Button"
+        style="@style/Theme.Hint.Title"
+        android:background="@color/main_theme_color"
         android:textSize="24sp"
         android:gravity="center"
         android:layout_width="0dp"
