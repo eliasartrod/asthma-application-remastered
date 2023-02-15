@@ -54,7 +54,7 @@
     <string name="learning_base_page_title">Select an Option to Continue.\nAlthough, it is best to go in Order!</string>
     <string name="section_one">Section 1:\nBasic Information</string>
     <string name="section_two">Section 2:\nDiagnosis</string>
-    <string name="section_three">Section 3:\nPatho</string>
+    <string name="section_three">Section 3:\nPathophysiology</string>
     <string name="section_four">Section 4:\nStudies</string>
     <string name="section_five">Section 5:\nAvoidance</string>
     <string name="section_one_part_one">Common symptoms are coughing, shortness of breath, wheezing, and chest tightness (or pain). Asthma may lead to a medical emergency. It is important to know the signs of a severe asthma episode (or asthma attack).</string>
@@ -117,7 +117,7 @@
     <string name="section_two_title_five">Allergy Test Diagnosis</string>
     <string name="section_two_description_five">A visit with an allergy specialist may be beneficial. Most people with asthma have allergies that trigger or worsen their asthma.\n\n
         Blood tests: Your doctor may order blood tests to check your immune system. They will check the levels of a white blood cell called eosinophils and an antibody called immunoglobulin E (IgE). If your levels are high, this may be a sign of severe asthma.</string>
-    <string name="section_two_title_six">Checking Other Conditions (Besides Asthma)</string>
+    <string name="section_two_title_six">Checking Other Conditions</string>
     <string name="section_two_description_six">If your doctor thinks you have something other than asthma or related to asthma, they may run other tests. These might include a chest X-ray, acid reflux test, sinus X-rays, or other specialized tests. Your doctor may also perform allergy tests (blood or skin tests). Allergy tests are not used to find out if you have asthma. But if you have allergies, they may be triggering your asthma.\n\n
         There are other conditions that have similar symptoms to asthma.\n\n
         Your health care provider may also assess you for conditions such as:\n\n
@@ -129,7 +129,7 @@
         \u2022Pneumonia or bronchitis\n
         \u2022Immune disorders\n
         \u2022Nasal polyps</string>
-    <string name="section_two_title_seven">What Are the Different Types of Asthma?</string>
+    <string name="section_two_title_seven">Different Types of Asthma</string>
     <string name="section_two_description_seven">There are four levels of asthma, based on the severity of your asthma. How often you have symptoms, and your lung function determines your asthma level. Your doctor will ask you questions such as:\n\n
         \u2022How often do you have symptoms?\n
         \u2022How often do you wake up at night from coughing?\n
@@ -154,10 +154,38 @@
         \u2022With type 2 inflammation, your immune system responds to a trigger by releasing substances like IgE antibodies. Too much IgE can trigger inflammation (swelling) of the airways in your lungs, making it harder to breathe. This is allergic asthma.\n\n
         \u2022People with type 2 inflammation may also have a lot of white blood cells called eosinophils. These cells can cause swelling and inflammation in the airways too. This is eosinophilic asthma.\n\n
         \u2022Type 2 inflammation also plays a role in eczema (atopic dermatitis) and nasal polyps.</string>
-    <string name="section_two_title_eight">How Do Doctors Diagnose Asthma in Children?</string>
+    <string name="section_two_title_eight">Diagnosing Asthma in Children</string>
     <string name="section_two_description_eight">Diagnosing asthma in children under age 5 is a little different. It involves a careful process of history taking, physical exam, and diagnostic studies. Children this age usually are not given a breathing test. Instead, the doctor asks about certain signs and symptoms of asthma (especially cough, wheezing, disruption of school activities and exercise, symptoms at night and common triggers). The doctor may prescribe a bronchodilator if they think your child might have asthma. If the bronchodilator helps reduce your child’s symptoms, that is a sign that your child may have asthma.</string>
     <string name="section_two_reference">Section 2 References</string>
     <string name="section_two_reference_description">AAFA ORG:\n https://aafa.org/asthma/asthma-diagnosis/</string>
+
+    <!-- Section Three -->
+    <string name="section_three_title_one">Pathophysiology</string>
+    <string name="section_three_description_one">The 2007 Expert Panel Report 3 (EPR-3) of the National Asthma Education and Prevention Program (NAEPP) noted several key changes in the understanding of the pathophysiology of asthma:\n\n
+        \u2022The critical role of inflammation has been further substantiated, but evidence is emerging for considerable variability in the pattern of inflammation, thus indicating phenotypic differences that may influence treatment responses\n\n
+        \u2022Of the environmental factors, allergic reactions remain important. Evidence also suggests a key and expanding role for viral respiratory infections in these processes\n\n
+        \u2022The onset of asthma for most patients begins early in life, with the pattern of disease persistence determined by early, recognizable risk factors including atopic disease, recurrent wheezing, and a parental history of asthma\n\n
+        \u2022Current asthma treatment with anti-inflammatory therapy does not appear to prevent progression of the underlying disease severity\n\n
+        \u2022The pathophysiology of asthma is complex and involves the following components:\n\n
+        \u2022Airway inflammation\n\n
+        \u2022Intermittent airflow obstruction\n\n
+        \u2022Bronchial hyperresponsiveness</string>
+    <string name="section_three_title_two">Airway Inflammation</string>
+    <string name="section_three_description_two">The mechanism of inflammation in asthma may be acute, subacute, or chronic, and the presence of airway edema and mucus secretion also contributes to airflow obstruction and bronchial reactivity. Varying degrees of mononuclear cell and eosinophil infiltration, mucus hypersecretion, desquamation of the epithelium, smooth muscle hyperplasia, and airway remodeling are present.
+        \n\nSome of the principal cells identified in airway inflammation include mast cells, eosinophils, epithelial cells, macrophages, and activated T lymphocytes. T lymphocytes play an important role in the regulation of airway inflammation through the release of numerous cytokines. Other constituent airway cells, such as fibroblasts, endothelial cells, and epithelial cells, contribute to the chronicity of the disease. Other factors, such as adhesion molecules (eg, selectins, integrins), are critical in directing the inflammatory changes in the airway. Finally, cell-derived mediators influence smooth muscle tone and produce structural changes and remodeling of the airway.
+        \n\nThe presence of airway hyperresponsiveness or bronchial hyperreactivity in asthma is an exaggerated response to numerous exogenous and endogenous stimuli. The mechanisms involved include direct stimulation of airway smooth muscle and indirect stimulation by pharmacologically active substances from mediator-secreting cells such as mast cells or nonmyelinated sensory neurons. The degree of airway hyperresponsiveness generally correlates with the clinical severity of asthma.
+        \n\nA study by Balzar et al reported changes in airway resident mast cell populations from a large group of subjects with asthma and normal control subjects. [5] A greater proportion of chymase-positive mast cells in the airways and increased prostaglandin D2 levels were identified as important predictors of severe asthma as compared with other steroid-treated subjects with asthma.
+        \n\nChronic inflammation of the airways is associated with increased bronchial hyperresponsiveness, which leads to bronchospasm and typical symptoms of wheezing, shortness of breath, and coughing after exposure to allergens, environmental irritants, viruses, cold air, or exercise. In some patients with chronic asthma, airflow limitation may be only partially reversible because of airway remodeling (hypertrophy and hyperplasia of smooth muscle, angiogenesis, and subepithelial fibrosis) that occurs with chronic untreated disease.
+        \n\nAirway inflammation in asthma may represent a loss of normal balance between two "opposing" populations of Th lymphocytes. Two types of Th lymphocytes have been characterized: Th1 and Th2. Th1 cells produce interleukin (IL)-2 and IFN-α, which are critical in cellular defense mechanisms in response to infection. Th2, in contrast, generates a family of cytokines (IL-4, IL-5, IL-6, IL-9, and IL-13) that can mediate allergic inflammation. A study by Gauvreau et al found that IL-13 has a role in allergen-induced airway responses. [6]
+        \n\nThe current "hygiene hypothesis" of asthma illustrates how this cytokine imbalance may explain some of the dramatic increases in asthma prevalence in westernized countries. [7] This hypothesis is based on the concept that the immune system of the newborn is skewed toward Th2 cytokine generation (mediators of allergic inflammation). Following birth, environmental stimuli such as infections activate Th1 responses and bring the Th1/Th2 relationship to an appropriate balance.  However, unequivocal support for the "hypgiene hypothesis" has not been demonstrated. [8]</string>
+    <string name="section_three_title_three">Airflow Obstruction</string>
+    <string name="section_three_description_three">Airflow obstruction can be caused by a variety of changes, including acute bronchoconstriction, airway edema, chronic mucous plug formation, and airway remodeling. Acute bronchoconstriction is the consequence of immunoglobulin E-dependent mediator release upon exposure to aeroallergens and is the primary component of the early asthmatic response. Airway edema occurs 6-24 hours following an allergen challenge and is referred to as the late asthmatic response. Chronic mucous plug formation consists of an exudate of serum proteins and cell debris that may take weeks to resolve. Airway remodeling is associated with structural changes due to long-standing inflammation and may profoundly affect the extent of reversibility of airway obstruction. [9]
+        \n\nAirway obstruction causes increased resistance to airflow and decreased expiratory flow rates. These changes lead to a decreased ability to expel air and may result in hyperinflation. The resulting overdistention helps maintain airway patency, thereby improving expiratory flow; however, it also alters pulmonary mechanics and increases the work of breathing.</string>
+    <string name="section_three_title_four">Bronchial Hyperresponsiveness</string>
+    <string name="section_three_description_four">Hyperinflation compensates for the airflow obstruction, but this compensation is limited when the tidal volume approaches the volume of the pulmonary dead space; the result is alveolar hypoventilation. Uneven changes in airflow resistance, the resulting uneven distribution of air, and alterations in circulation from increased intra-alveolar pressure due to hyperinflation all lead to ventilation-perfusion mismatch. Vasoconstriction due to alveolar hypoxia also contributes to this mismatch. Vasoconstriction is also considered an adaptive response to ventilation/perfusion mismatch.
+        \n\nIn the early stages, when ventilation-perfusion mismatch results in hypoxia, hypercarbia is prevented by the ready diffusion of carbon dioxide across alveolar capillary membranes. Thus, patients with asthma who are in the early stages of an acute episode have hypoxemia in the absence of carbon dioxide retention. Hyperventilation triggered by the hypoxic drive also causes a decrease in PaCO2. An increase in alveolar ventilation in the early stages of an acute exacerbation prevents hypercarbia. With worsening obstruction and increasing ventilation-perfusion mismatch, carbon dioxide retention occurs. In the early stages of an acute episode, respiratory alkalosis results from hyperventilation. Later, the increased work of breathing, increased oxygen consumption, and increased cardiac output result in metabolic acidosis. Respiratory failure leads to respiratory acidosis due to retention of carbon dioxide as alveolar ventilation decreases.</string>
+    <string name="section_three_reference">Section 3 Reference</string>
+    <string name="section_three_reference_description">E-Medicine (Medscape):\nhttps://emedicine.medscape.com/article/296301-overview#a4</string>
 
     <!-- Section Page Actions -->
     <string name="action_next_section">Swipe Left/Right to Navigate</string>

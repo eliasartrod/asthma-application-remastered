@@ -1,7 +1,5 @@
 package com.example.asthmaapplication.main.mainpage.subpages.learningpages;
 
-import android.content.Context;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,11 +7,16 @@ import android.view.ViewGroup;
 
 import androidx.annotation.Nullable;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.example.asthmaapplication.R;
 import com.example.asthmaapplication.databinding.FragmentSectionThreeBinding;
+import com.example.asthmaapplication.main.adapter.AsthmaInfoAdapter;
 import com.example.asthmaapplication.main.common.BaseFragment;
 import com.example.asthmaapplication.main.mainpage.MainViewModel;
+import com.example.asthmaapplication.main.model.AsthmaInfoModel;
+
+import java.util.ArrayList;
 
 import javax.inject.Inject;
 
@@ -24,6 +27,8 @@ import io.reactivex.annotations.NonNull;
 public class SectionThreeFragment extends BaseFragment {
     FragmentSectionThreeBinding binding;
     MainViewModel viewModel;
+    AsthmaInfoAdapter adapter;
+    ArrayList<AsthmaInfoModel> asthmaInfoModels = new ArrayList<>();
 
     @Inject
     public SectionThreeFragment() {
@@ -49,8 +54,8 @@ public class SectionThreeFragment extends BaseFragment {
 
         getPreferences();
         setActionBarTitle();
-
-        binding.sectionTitle.setText(getString(R.string.section_three));
+        createSectionThreeInfo();
+        setupAdapter();
 
     }
 
@@ -61,6 +66,21 @@ public class SectionThreeFragment extends BaseFragment {
 
     public void setActionBarTitle() {
         setActionBarTitle(getString(R.string.learning_page_title));
+    }
+
+    public void createSectionThreeInfo() {
+        asthmaInfoModels.add(new AsthmaInfoModel(getString(R.string.section_three_title_one), getString(R.string.section_three_description_one), R.drawable.ic_pathology_two));
+        asthmaInfoModels.add(new AsthmaInfoModel(getString(R.string.section_three_title_two), getString(R.string.section_three_description_two), R.drawable.ic_lung_abnormal));
+        asthmaInfoModels.add(new AsthmaInfoModel(getString(R.string.section_three_title_three), getString(R.string.section_three_description_three), R.drawable.ic_obstruction));
+        asthmaInfoModels.add(new AsthmaInfoModel(getString(R.string.section_three_title_four), getString(R.string.section_three_description_four), R.drawable.ic_bronchial_hyperresponsiveness));
+        asthmaInfoModels.add(new AsthmaInfoModel(getString(R.string.section_three_reference), getString(R.string.section_three_reference_description), R.drawable.ic_references));
+
+    }
+    public void setupAdapter() {
+        binding.sectionTitle.setText(getString(R.string.section_three));
+        adapter = new AsthmaInfoAdapter(getContext(), asthmaInfoModels);
+        binding.recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        binding.recyclerView.setAdapter(adapter);
     }
 
     @Override

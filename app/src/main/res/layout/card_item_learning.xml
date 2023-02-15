@@ -3,7 +3,8 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:tools="http://schemas.android.com/tools">
+    android:padding="@dimen/halfSpacing"
+    xmlns:tools="http://schemas.android.com/tools" >
 
     <androidx.cardview.widget.CardView
         android:id="@+id/card_view"
@@ -14,7 +15,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:strokeWidth="@dimen/spacing" >
+        app:strokeWidth="@dimen/spacing"
+        app:cardCornerRadius="18dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
