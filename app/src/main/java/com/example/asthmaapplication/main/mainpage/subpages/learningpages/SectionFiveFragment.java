@@ -12,6 +12,7 @@ import com.example.asthmaapplication.R;
 import com.example.asthmaapplication.databinding.FragmentSectionFiveBinding;
 import com.example.asthmaapplication.main.common.BaseFragment;
 import com.example.asthmaapplication.main.mainpage.MainViewModel;
+import com.example.asthmaapplication.main.utils.UIUtils;
 
 import javax.inject.Inject;
 
@@ -47,6 +48,7 @@ public class SectionFiveFragment extends BaseFragment {
 
         getPreferences();
         setActionBarTitle();
+        UIUtils.addUnderlineFlag(binding.actionFinish);
 
         binding.sectionTitle.setText(getString(R.string.section_five));
 

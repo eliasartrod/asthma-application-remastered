@@ -189,6 +189,6 @@
 
     <!-- Section Page Actions -->
     <string name="action_next_section">Swipe Left/Right to Navigate</string>
-    <string name="action_finish">Finish Learning!</string>
+    <string name="action_finish">Click Here Finish Reading!</string>
 
 </resources>
