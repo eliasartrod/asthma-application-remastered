@@ -18,6 +18,7 @@ import com.example.asthmaapplication.main.common.SnackBarMessage;
 import com.example.asthmaapplication.main.mainpage.MainViewModel;
 import com.example.asthmaapplication.main.mainpage.subpages.learningpages.LearningFragment;
 import com.example.asthmaapplication.main.mainpage.subpages.learningpages.LearningFragmentActivity;
+import com.example.asthmaapplication.main.utils.UIUtils;
 
 import javax.inject.Inject;
 
@@ -71,6 +72,9 @@ public class LearningBaseFragment extends BaseFragment {
     }
 
     public void setupUI() {
+        UIUtils.addUnderlineFlag(binding.actionHomePageRedirect);
+        binding.actionHomePageRedirect.setOnClickListener(v -> manager.popBackStack());
+
         binding.sectionOneCard.cardImage.setImageResource(R.drawable.ic_inhaler);
         binding.sectionOneCard.cardTitle.setText(R.string.section_one);
         binding.sectionOneCard.getRoot().setOnClickListener(v -> launchSectionOnePage());

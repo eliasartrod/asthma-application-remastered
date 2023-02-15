@@ -90,7 +90,7 @@
         android:id="@+id/action_login"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="50dp"
+        android:layout_margin="25dp"
         android:text="@string/registered_description"
         android:textAlignment="center"
         android:textSize="18sp"

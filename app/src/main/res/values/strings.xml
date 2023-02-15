@@ -70,29 +70,95 @@
     <string name="section_one_introduction">Asthma Information</string>
     <string name="section_one_introduction_description">More than 25 million people in the U.S. have asthma. 1 It is a long-term disease that causes your airways to become swollen and inflamed, making it hard to breathe. There is no cure for asthma, but it can be managed and controlled.
     The best way to manage asthma is to avoid triggers, take medications to prevent symptoms, and prepare to treat asthma episodes if they occur. AAFA has a lot of information on our site to help you learn more about asthma. Also consider joining AAFA’s online asthma support community, a local support group, or a regional AAFA chapter if one is in your area.</string>
-    <string name="section_one_title_pOne">What is Asthma?</string>
-    <string name="section_one_description_pOne">A condition in which a person\'s airways become inflamed, narrow and swell, and produce extra mucus, which makes it difficult to breathe.</string>
-    <string name="section_one_title_pTwo">What are the Symptoms of Asthma?</string>
-    <string name="section_one_description_pTwo">Common symptoms are coughing, shortness of breath, wheezing, and chest tightness (or pain). Asthma may lead to a medical emergency. It is important to know the signs of a severe asthma episode (or asthma attack).</string>
-    <string name="section_one_title_pThree">How do Doctors Diagnose Asthma?</string>
-    <string name="section_one_description_pThree">A doctor may use a few different ways to look for asthma. These include:\n\n\u2022Taking a detailed medical history\n
+    <string name="section_one_title_One">What is Asthma?</string>
+    <string name="section_one_description_One">A condition in which a person\'s airways become inflamed, narrow and swell, and produce extra mucus, which makes it difficult to breathe.</string>
+    <string name="section_one_title_Two">What are the Symptoms of Asthma?</string>
+    <string name="section_one_description_Two">Common symptoms are coughing, shortness of breath, wheezing, and chest tightness (or pain). Asthma may lead to a medical emergency. It is important to know the signs of a severe asthma episode (or asthma attack).</string>
+    <string name="section_one_title_Three">How do Doctors Diagnose Asthma?</string>
+    <string name="section_one_description_Three">A doctor may use a few different ways to look for asthma. These include:\n\n\u2022Taking a detailed medical history\n
         \u2022A physical exam\n
         \u2022Lung function tests\n
         \u2022Chest or sinus X-ray\n
         \u2022Blood tests to look for certain markers\n
         \nAllergy testsThe doctor will look at the results from these tests. They will then decide what type of asthma you have. They will develop a treatment plan based on the type and severity of your symptoms. If you have moderate to severe persistent asthma, AAFA recommends you see an allergist or pulmonologist if possible. Allergists treat allergies, asthma, and immune disorders. Pulmonologists treat asthma and other lung or respiratory diseases.
     </string>
-    <string name="section_one_title_pFour">What is the Treatment for Asthma?</string>
-    <string name="section_one_description_pFour">You and your doctor will come up with a plan to treat your asthma. It often involves a blend of medication and avoiding your asthma triggers. An asthma action plan is an important tool to help you know when and how to treat your asthma symptoms.</string>
-    <string name="section_one_title_pFive">What Triggers Asthma?</string>
-    <string name="section_one_description_pFive">Asthma symptoms can appear when you are exposed to a trigger. A trigger is something you are sensitive to that makes your airways become inflamed. This causes swelling, mucus production, and narrowing in your airways. Common asthma triggers are pollen, air pollution, animal allergens, scents/fragrances, certain gases, extreme weather changes, smoke, dust mites, stress, and exercise.</string>
-    <string name="section_one_title_pSix">How do I prevent Asthma Episodes?</string>
-    <string name="section_one_description_pSix">The best way to prevent an asthma episode, or attack, is to follow your treatment plan. Learn your triggers and avoid or reduce your exposure to them. Take your allergy and asthma medicines when you should. Use your quick-acting medicine as soon as you start to notice symptoms.\n
+    <string name="section_one_title_Four">What is the Treatment for Asthma?</string>
+    <string name="section_one_description_Four">You and your doctor will come up with a plan to treat your asthma. It often involves a blend of medication and avoiding your asthma triggers. An asthma action plan is an important tool to help you know when and how to treat your asthma symptoms.</string>
+    <string name="section_one_title_Five">What Triggers Asthma?</string>
+    <string name="section_one_description_Five">Asthma symptoms can appear when you are exposed to a trigger. A trigger is something you are sensitive to that makes your airways become inflamed. This causes swelling, mucus production, and narrowing in your airways. Common asthma triggers are pollen, air pollution, animal allergens, scents/fragrances, certain gases, extreme weather changes, smoke, dust mites, stress, and exercise.</string>
+    <string name="section_one_title_Six">How do I prevent Asthma Episodes?</string>
+    <string name="section_one_description_Six">The best way to prevent an asthma episode, or attack, is to follow your treatment plan. Learn your triggers and avoid or reduce your exposure to them. Take your allergy and asthma medicines when you should. Use your quick-acting medicine as soon as you start to notice symptoms.\n
         \nMany people live healthy lives with asthma if it’s managed well. With a good treatment plan and guidance from your doctor, you can still do much of what you enjoy. For example, many professional athletes have asthma.</string>
-    <string name="section_one_title_pSeven">Asthma Facts and Figures</string>
-    <string name="section_one_description_pSeven">More people than ever before have asthma — about 25 million people in the U.S. have asthma1. It is one of the most common and costly diseases. AAFA tracks other important data such as who is most at risk of asthma, how many asthma emergency room visits happen, how many deaths from asthma happen, and how many missed school days are due to asthma.</string>
-    <string name="section_one_references">References</string>
+    <string name="section_one_title_Seven">Asthma Facts and Figures</string>
+    <string name="section_one_description_Seven">More people than ever before have asthma — about 25 million people in the U.S. have asthma1. It is one of the most common and costly diseases. AAFA tracks other important data such as who is most at risk of asthma, how many asthma emergency room visits happen, how many deaths from asthma happen, and how many missed school days are due to asthma.</string>
+    <string name="section_one_references">Section 1 References</string>
     <string name="section_one_references_description">Centers for Disease Control: \nhttp://www.cdc.gov/asthma/default.htm. \n(Retrieved June 13, 2019)</string>
+
+    <!-- Section Two -->
+    <string name="section_two_title_one">Diagnosing Asthma</string>
+    <string name="section_two_description_one">To diagnose asthma, your doctor will discuss your personal and medical history with you. They will also perform a physical exam. You may need a lung function test (also known as a pulmonary function test), which can be done easily in the clinic. You may need other tests, such as a blood tests or chest and sinus X-ray. If you or your child are having problems breathing on a regular basis, don’t wait! Visit a doctor (or other health care provider like a nurse practitioner) immediately.</string>
+    <string name="section_two_title_two">How Do Doctors Diagnose Asthma?</string>
+    <string name="section_two_description_two">Personal and medical history: Your doctor will ask questions to understand your symptoms and their causes. Bring notes to help you answer your doctor’s questions. Be ready to answer questions about your family history of asthma and allergies, the medicines you take, and your lifestyle. Be ready to share current physical issues, conditions, and concerns. This also includes all previous medical conditions.\n\n
+        For example, if you have a history of allergies or eczema, you have a higher chance of having asthma. In addition, a family history of asthma, allergies, or eczema increases your chance of having asthma, too. This information can help your doctor make a diagnosis.\n\n
+        Tell your doctor about any home or work exposure to environmental factors that can worsen asthma. For example, these might include pet dander, pollen, dust mites, mold, cockroaches, and specific foods in some people. Environmental irritants including cleaning chemicals and tobacco smoke can cause asthma.\n\n
+        The doctor may also ask if you get chest symptoms when you:\n\n
+        \u2022Get a head cold\n
+        \u2022ExerciseUse specific medicines (such as NSAIDs)\n
+        \u2022Are under increased amounts of stress</string>
+    <string name="section_two_title_three">Physical Exam Diagnosis</string>
+    <string name="section_two_description_three">Your doctor will do a physical exam to look for signs of asthma or other related conditions. They will look at your ears, eyes, nose, throat, skin, and listen to your chest and lungs. They will measure your height and weight to assess your overall health and use it with your lung function tests.\n\nThey will also use a device called a pulse oximeter. It goes on your finger and measures the level of oxygen in your blood. You may also need an X-ray of your lungs or sinuses.</string>
+    <string name="section_two_title_four">Lung Function Test Diagnosis</string>
+    <string name="section_two_description_four">To confirm asthma, your doctor may have you take one or more breathing tests known as lung function tests. (These are also called pulmonary function tests.) Lung function tests detect how well you inhale (breathe in) and exhale (breathe out) air from your lungs. These tests measure your breathing.\n\n
+        Lung function tests are often done before and after inhaling a medicine known as a bronchodilator [brahn-ko-DIE-ah-lay-tor]. This medicine opens your airways. If your lung function improves a lot with use of a bronchodilator, you probably have asthma. Your doctor may prescribe a trial with asthma medicine to see if it helps.\n\n
+        Common lung function tests used to assess your airways include:\n\n
+        \u2022Spirometry: A type of lung function test that measures how much you breathe in and out and how fast you breathe out.\n
+        \u2022FeNO test (exhaled nitric oxide): A test that helps assess inflammation in the airways.\n
+        \u2022Bronchial provocation or “trigger” tests: Tests that measure if your lungs are sensitive to certain irritants or triggers.</string>
+    <string name="section_two_title_five">Allergy Test Diagnosis</string>
+    <string name="section_two_description_five">A visit with an allergy specialist may be beneficial. Most people with asthma have allergies that trigger or worsen their asthma.\n\n
+        Blood tests: Your doctor may order blood tests to check your immune system. They will check the levels of a white blood cell called eosinophils and an antibody called immunoglobulin E (IgE). If your levels are high, this may be a sign of severe asthma.</string>
+    <string name="section_two_title_six">Checking Other Conditions (Besides Asthma)</string>
+    <string name="section_two_description_six">If your doctor thinks you have something other than asthma or related to asthma, they may run other tests. These might include a chest X-ray, acid reflux test, sinus X-rays, or other specialized tests. Your doctor may also perform allergy tests (blood or skin tests). Allergy tests are not used to find out if you have asthma. But if you have allergies, they may be triggering your asthma.\n\n
+        There are other conditions that have similar symptoms to asthma.\n\n
+        Your health care provider may also assess you for conditions such as:\n\n
+        \u2022Abnormal airways\n
+        \u2022Acid reflux\n
+        \u2022Allergies\n
+        \u2022Cystic fibrosis (usually diagnosed at an early age)\n
+        \u2022Chronic obstructive pulmonary disease (COPD; diagnosed in adults)\n
+        \u2022Pneumonia or bronchitis\n
+        \u2022Immune disorders\n
+        \u2022Nasal polyps</string>
+    <string name="section_two_title_seven">What Are the Different Types of Asthma?</string>
+    <string name="section_two_description_seven">There are four levels of asthma, based on the severity of your asthma. How often you have symptoms, and your lung function determines your asthma level. Your doctor will ask you questions such as:\n\n
+        \u2022How often do you have symptoms?\n
+        \u2022How often do you wake up at night from coughing?\n
+        \u2022How often do you have trouble breathing?\n
+        \u2022Do you have trouble doing your daily normal activities including exercise?\n
+        \u2022How often do you use a quick-relief (rescue) inhaler?\n
+        \u2022How often have you had to go to emergency room or be admitted to the hospital for management of asthma symptoms?\n\n
+        The answers to these questions help figure out the severity of your asthma. There are different treatment options if your asthma is intermittent (occasional) or persistent (happens regularly).\n\n
+        \u2022Intermittent asthma: You have symptoms less than two times a week and wake up less than two nights a month. You use quick-relief medicine (like albuterol) two or fewer days per week. You can do all your normal activities. Your lung function is normal.\n
+        \u2022Mild persistent asthma: You have symptoms two or more days a week and wake up three to four nights a month. You do not have daily symptoms. You use quick-relief medicine more than two days out of the week. Your symptoms affect some of your daily activities. Your lung function is mostly normal.\n
+        \u2022Moderate persistent asthma: You have symptoms at least every day and wake up one or more nights a week. You need your quick-relief medicine daily. Your symptoms limit some of your daily normal activities. There is some decrease in your lung function.\n
+        \u2022Severe persistent asthma: You have symptoms during the day and wake up every night due to asthma. You need your quick-relief medicine several times a day for asthma symptoms. Your symptoms put extreme limitations on your daily activities. There are significant decreases in your lung function.\n\n
+        You may also hear about different types of asthma from your doctor or others. These names may describe what is causing the asthma. Here are some types of asthma:\n\n
+        \u2022Allergic asthma is triggered by allergens, such as pet dander, mold, dust mites, and pollen.
+        \u2022Eosinophilic [EE-oh-sin-oh-FILL-ick] asthma is caused by high levels of white blood cells called eosinophils [EE-oh-sin-oh-FILLS] in the airways. Almost 70% of severe asthma is in this category.\n
+        \u2022Exercise-induced asthma happens when the airways constrict and airflow gets obstructed (blocked) during or after exercise. Breathing in cold, dry air is a trigger for this type of asthma.\n
+        \u2022Cough variant asthma is a type of asthma where the main symptom is a chronic, recurring cough. People with this type of asthma may still have other asthma symptoms like wheezing and shortness of breath, but it happens less often.\n
+        \u2022Nighttime (nocturnal asthma) is when asthma symptoms wake you up at night, possibly due to changes in hormones that happen while you sleep. Almost 30 to 70% of people with asthma report nighttime asthma symptoms at least once a month.\n
+        \u2022Occupational (work-related) asthma is caused by inhaling allergens, chemicals, and irritants while working.\n\n
+        Type 2 (Allergic) Inflammation:\n\n
+        Type 2 inflammation is an allergic immune response involved in some types of asthma, such as allergic asthma and eosinophilic asthma.\n\n
+        \u2022With type 2 inflammation, your immune system responds to a trigger by releasing substances like IgE antibodies. Too much IgE can trigger inflammation (swelling) of the airways in your lungs, making it harder to breathe. This is allergic asthma.\n\n
+        \u2022People with type 2 inflammation may also have a lot of white blood cells called eosinophils. These cells can cause swelling and inflammation in the airways too. This is eosinophilic asthma.\n\n
+        \u2022Type 2 inflammation also plays a role in eczema (atopic dermatitis) and nasal polyps.</string>
+    <string name="section_two_title_eight">How Do Doctors Diagnose Asthma in Children?</string>
+    <string name="section_two_description_eight">Diagnosing asthma in children under age 5 is a little different. It involves a careful process of history taking, physical exam, and diagnostic studies. Children this age usually are not given a breathing test. Instead, the doctor asks about certain signs and symptoms of asthma (especially cough, wheezing, disruption of school activities and exercise, symptoms at night and common triggers). The doctor may prescribe a bronchodilator if they think your child might have asthma. If the bronchodilator helps reduce your child’s symptoms, that is a sign that your child may have asthma.</string>
+    <string name="section_two_reference">Section 2 References</string>
+    <string name="section_two_reference_description">AAFA ORG:\n https://aafa.org/asthma/asthma-diagnosis/</string>
+
     <!-- Section Page Actions -->
     <string name="action_next_section">Swipe Left/Right to Navigate</string>
     <string name="action_finish">Finish Learning!</string>
