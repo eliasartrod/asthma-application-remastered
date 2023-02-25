@@ -7,6 +7,36 @@
     android:layout_height="match_parent"
     android:background="@color/main_theme_color">
 
+    <View
+        android:id="@+id/toolbar_divider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/gray"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/vertical_guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/horizontal_guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.6" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/horizontal_guideline_two"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.4" />
+
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="match_parent"
@@ -14,30 +44,16 @@
         android:background="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/pnwlogo" />
-
-    <TextView
-        android:id="@+id/main_title"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="550dp"
-        android:background="@color/main_theme_color"
-        android:backgroundTint="#FFFFFF"
-        android:fontFamily="sans-serif-black"
-        android:text="@string/main_page_title"
-        android:textAlignment="center"
-        android:textSize="30sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        app:layout_constraintTop_toBottomOf="@id/toolbar_divider"
+        app:srcCompat="@drawable/ic_pnw_logo" />
 
     <TextView
         android:id="@+id/main_title_description"
+        style="@style/Theme.PageTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="60dp"
+        android:padding="20dp"
         android:fontFamily="sans-serif-black"
         android:text="@string/main_page_instruction"
         android:textAlignment="center"
@@ -46,38 +62,50 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/main_title" />
+        app:layout_constraintBottom_toTopOf="@id/horizontal_guideline_two" />
 
-    <Button
-        style="@style/Widget.AppCompat.Button"
-        android:id="@+id/action_login"
-        android:layout_width="120dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginEnd="50dp"
-        android:text="@string/main_page_action_login"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/main_title_description" />
-
-    <Button
-        style="@style/Widget.AppCompat.Button"
-        android:id="@+id/action_register"
-        android:layout_width="120dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:layout_marginStart="50dp"
-        android:layout_marginEnd="40dp"
-        android:text="@string/main_page_action_register"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/main_title_description" />
-
-    <TextView
-        android:id="@+id/action_guest_redirect"
+    <include
+        android:id="@+id/learning_card"
+        layout="@layout/card_item"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="50dp"
-        android:text="@string/continue_as_guest"
+        android:layout_margin="25dp"
+        app:layout_constraintEnd_toStartOf="@id/vertical_guideline"
+        app:layout_constraintBottom_toBottomOf="@id/horizontal_guideline"/>
+
+    <include
+        android:id="@+id/patients_card"
+        layout="@layout/card_item"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="25dp"
+        app:layout_constraintStart_toEndOf="@id/vertical_guideline"
+        app:layout_constraintBottom_toTopOf="@id/horizontal_guideline"/>
+
+    <include
+        android:id="@+id/review_card"
+        layout="@layout/card_item"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="25dp"
+        app:layout_constraintTop_toBottomOf="@id/horizontal_guideline"
+        app:layout_constraintEnd_toStartOf="@id/vertical_guideline"/>
+
+    <include
+        android:id="@+id/quiz_card"
+        layout="@layout/card_item"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="25dp"
+        app:layout_constraintStart_toEndOf="@id/vertical_guideline"
+        app:layout_constraintTop_toBottomOf="@id/horizontal_guideline"/>
+
+    <TextView
+        android:id="@+id/action_logout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="25dp"
+        android:text="@string/log_out"
         android:textAlignment="center"
         android:textSize="18sp"
         android:textStyle="bold"

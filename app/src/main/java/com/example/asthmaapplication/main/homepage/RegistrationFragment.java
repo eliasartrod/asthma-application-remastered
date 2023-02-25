@@ -1,10 +1,12 @@
 package com.example.asthmaapplication.main.homepage;
 
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,6 +18,7 @@ import androidx.lifecycle.ViewModelProvider;
 import com.example.asthmaapplication.R;
 import com.example.asthmaapplication.databinding.FragmentRegistrationBinding;
 import com.example.asthmaapplication.main.common.BaseFragment;
+import com.example.asthmaapplication.main.mainpage.MainActivity;
 import com.example.asthmaapplication.main.utils.UIUtils;
 
 import javax.annotation.Nullable;
@@ -31,6 +34,7 @@ public class RegistrationFragment extends BaseFragment {
     FragmentManager manager;
     FragmentTransaction transaction;
     TextWatcher watcher;
+    SharedPreferences preferences;
 
     @Inject
     public RegistrationFragment() {
@@ -53,7 +57,9 @@ public class RegistrationFragment extends BaseFragment {
     @Override
     public void onViewCreated(@Nullable View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        setActionBarTitle(getString(R.string.welcome));
+
+        getPreferences();
+        setActionBarTitle();
 
         binding.actionRegister.setEnabled(false);
 
@@ -62,11 +68,7 @@ public class RegistrationFragment extends BaseFragment {
 
         UIUtils.addUnderlineFlag(binding.actionLogin);
         binding.actionLogin.setOnClickListener(v -> {
-            LoginFragment fragment = new LoginFragment();
-            transaction
-                    .addToBackStack(null)
-                    .replace(R.id.fragment_container, fragment)
-                    .commit();
+            launchLoginPage();
         });
 
         watcher = new TextWatcher() {
@@ -87,11 +89,14 @@ public class RegistrationFragment extends BaseFragment {
                                 !TextUtils.isEmpty(binding.passwordLogin.getText().toString()));
 
                 binding.actionRegister.setEnabled(allowRegister);
-                binding.actionRegister.setOnClickListener(v ->
-                        viewModel.register(binding.emailLogin.getText().toString(),
-                                binding.passwordLogin.getText().toString()));
+                binding.actionRegister.setOnClickListener(v -> {
+                    viewModel.register(binding.emailLogin.getText().toString(),
+                            binding.passwordLogin.getText().toString());
+                    resetRegistrationPage();
+                });
             }
         };
+
 
         binding.emailLogin.addTextChangedListener(watcher);
         binding.passwordLogin.addTextChangedListener(watcher);
@@ -101,6 +106,24 @@ public class RegistrationFragment extends BaseFragment {
     @Override
     public void onResume() {
         super.onResume();
+    }
+
+    public void resetRegistrationPage() {
+        binding.emailLogin.setText(null);
+        binding.passwordLogin.setText(null);
+        getFragmentManager().popBackStackImmediate();
+    }
+
+    public void launchLoginPage() {
+        LoginFragment fragment = new LoginFragment();
+        transaction
+                .addToBackStack(null)
+                .replace(R.id.fragment_container, fragment)
+                .commit();
+    }
+
+    public void setActionBarTitle() {
+        setActionBarTitle(getString(R.string.registration_page_title));
     }
 
     @Override

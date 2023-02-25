@@ -1,7 +1,6 @@
 package com.example.asthmaapplication.main.homepage;
 
 import android.app.Application;
-
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.MutableLiveData;
 
@@ -13,7 +12,6 @@ import io.reactivex.annotations.NonNull;
 
 @HiltViewModel
 public class HomePageViewModel extends AndroidViewModel {
-
     private AuthenticationRepository authenticationRepository;
     private MutableLiveData<FirebaseUser> userLiveData;
     private MutableLiveData<Boolean> loggedOutLiveData;
@@ -29,22 +27,17 @@ public class HomePageViewModel extends AndroidViewModel {
         authenticationRepository.login(emailAddress, password);
     }
 
-    public void logOut() {
-        userLiveData.setValue(null);
-        loggedOutLiveData.setValue(true);
-        authenticationRepository.logOut();
-    }
-
     public void register(String emailAddress, String password) {
         authenticationRepository.register(emailAddress, password);
+    }
+
+    public void clearCache() {
+        loggedOutLiveData.setValue(true);
+        userLiveData.setValue(null);
+        authenticationRepository.logOut();
     }
 
     public MutableLiveData<FirebaseUser> getUserLiveData() {
         return userLiveData;
     }
-
-    public MutableLiveData<Boolean> getLoggedOutLiveData() {
-        return loggedOutLiveData;
-    }
-
 }

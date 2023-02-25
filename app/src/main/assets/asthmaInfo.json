@@ -1,0 +1,24 @@
+{
+  "sections": [
+    {
+      "section": 1,
+      "sectionDetails" : [
+        {
+          "title": "title",
+          "description": "description",
+          "imageView": "ic_lung_normal"
+        }
+      ]
+    },
+    {
+      "section": 2,
+      "sectionDetails" : [
+        {
+          "title": "title",
+          "description": "description",
+          "imageView": "ic_lung_abnormal"
+        }
+      ]
+    }
+  ]
+}

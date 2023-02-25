@@ -1,5 +1,6 @@
 package com.example.asthmaapplication.main.homepage;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,9 +11,10 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.asthmaapplication.R;
-import com.example.asthmaapplication.databinding.FragmentMainBinding;
+import com.example.asthmaapplication.databinding.FragmentHomeBinding;
 import com.example.asthmaapplication.main.common.BaseFragment;
-import com.google.firebase.auth.FirebaseUser;
+import com.example.asthmaapplication.main.mainpage.MainActivity;
+import com.example.asthmaapplication.main.utils.UIUtils;
 
 import javax.annotation.Nullable;
 import javax.inject.Inject;
@@ -22,7 +24,7 @@ import io.reactivex.annotations.NonNull;
 
 @AndroidEntryPoint
 public class HomePageFragment extends BaseFragment {
-    FragmentMainBinding binding;
+    FragmentHomeBinding binding;
     HomePageViewModel viewModel;
     FragmentManager manager;
     FragmentTransaction transaction;
@@ -41,30 +43,49 @@ public class HomePageFragment extends BaseFragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        binding = FragmentMainBinding.inflate(inflater, container, false);
+        binding = FragmentHomeBinding.inflate(inflater, container, false);
         return binding.getRoot();
     }
 
     @Override
     public void onViewCreated(@Nullable View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        setActionBarTitle(getString(R.string.welcome));
+        binding.actionLogin.setEnabled(false);
+        binding.actionRegister.setEnabled(false);
+
+        getPreferences();
+        setActionBarTitle();
 
         manager = getFragmentManager();
         transaction = manager.beginTransaction();
 
-        viewModel.getUserLiveData().observe(getViewLifecycleOwner(), this::checkUserSignedIn);
+        UIUtils.addUnderlineFlag(binding.actionHomePageRedirect);
 
         binding.actionLogin.setOnClickListener(v -> launchLoginPage());
         binding.actionRegister.setOnClickListener(v -> launchRegistrationPage());
+        binding.actionHomePageRedirect.setOnClickListener(v -> launchHomePage());
+
     }
 
-    private void checkUserSignedIn(FirebaseUser firebaseUser) {
-        if (viewModel.getUserLiveData() == null) {
-            binding.actionGuestRedirect.setEnabled(true);
+    @Override
+    public void onResume() {
+        super.onResume();
+        validateUser();
+    }
+
+    private void validateUser() {
+        if (!getUserName().isEmpty()) {
+            binding.actionHomePageRedirect.setText(getString(R.string.you_are_signed_in));
         } else {
-            // Direct User to Home Page of the App
+            binding.actionLogin.setEnabled(true);
+            binding.actionRegister.setEnabled(true);
+            binding.actionHomePageRedirect.setText(getString(R.string.continue_as_guest));
         }
+    }
+
+    private void launchHomePage() {
+        Intent intent = new Intent(getContext(), MainActivity.class);
+        startActivity(intent);
     }
 
     private void launchLoginPage() {
@@ -81,6 +102,10 @@ public class HomePageFragment extends BaseFragment {
                 .addToBackStack(null)
                 .replace(R.id.fragment_container, fragment)
                 .commit();
+    }
+
+    public void setActionBarTitle() {
+        setActionBarTitle(getString(R.string.welcome));
     }
 
     @Override

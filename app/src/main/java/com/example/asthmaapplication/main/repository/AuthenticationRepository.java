@@ -4,16 +4,12 @@ import android.app.Application;
 import android.os.Build;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
 import androidx.lifecycle.MutableLiveData;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-public class AuthenticationRepository {
+public class AuthenticationRepository extends Application {
     private Application application;
 
     private FirebaseAuth firebaseAuth;
@@ -35,14 +31,11 @@ public class AuthenticationRepository {
     public void login(String email, String password) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
             firebaseAuth.signInWithEmailAndPassword(email, password)
-                    .addOnCompleteListener(application.getMainExecutor(), new OnCompleteListener<AuthResult>() {
-                        @Override
-                        public void onComplete(@NonNull Task<AuthResult> task) {
-                            if (task.isSuccessful()) {
-                                userLiveData.postValue(firebaseAuth.getCurrentUser());
-                            } else {
-                                Toast.makeText(application.getApplicationContext(), "Login Failure: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
-                            }
+                    .addOnCompleteListener(application.getMainExecutor(), task -> {
+                        if (task.isSuccessful()) {
+                            userLiveData.postValue(firebaseAuth.getCurrentUser());
+                        } else {
+                            Toast.makeText(application.getApplicationContext(), "Login Failure: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                         }
                     });
         }
@@ -51,14 +44,11 @@ public class AuthenticationRepository {
     public void register(String emailAddress, String password) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
             firebaseAuth.createUserWithEmailAndPassword(emailAddress, password)
-                    .addOnCompleteListener(application.getMainExecutor(), new OnCompleteListener<AuthResult>() {
-                        @Override
-                        public void onComplete(@NonNull Task<AuthResult> task) {
-                            if (task.isSuccessful()) {
-                                userLiveData.postValue(firebaseAuth.getCurrentUser());
-                            } else {
-                                Toast.makeText(application.getApplicationContext(), "Registration Failure: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
-                            }
+                    .addOnCompleteListener(application.getMainExecutor(), task -> {
+                        if (task.isSuccessful()) {
+                            userLiveData.postValue(firebaseAuth.getCurrentUser());
+                        } else {
+                            Toast.makeText(application.getApplicationContext(), "Registration Failure: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                         }
                     });
         }

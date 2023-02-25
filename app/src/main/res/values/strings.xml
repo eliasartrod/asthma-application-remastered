@@ -13,18 +13,284 @@
     <string name="registration_first_name_hint">First Name</string>
     <string name="registration_last_name_hint">Last Name</string>
     <string name="registration_username_hint">Username</string>
-    <string name="registration_page_title">Registration page</string>
+    <string name="registration_page_title">Registration Page</string>
     <string name="unregistered_description">Not yet registered? Sign up here!</string>
     <string name="registered_description">Already Registered? Log In Here!</string>
     <string name="login_page_title">Log In Page</string>
     <string name="login_email_hint">Email Address</string>
     <string name="login_password_hint">Password</string>
+    <string name="login_name_hint">First Name</string>
     <string name="register">Register</string>
     <string name="login">Log In</string>
     <string name="continue_as_guest">Or, Continue as Guest</string>
+    <string name="you_are_signed_in">You are Logged in, Continue!</string>
+    <string name="clear_cache">Clear Local Cache</string>
+    <string name="login_option_title">Log In As?</string>
+    <string name="patient_login_option">Patient</string>
+    <string name="student_login_option">Student</string>
 
     <!-- Home Page -->
     <string name="signed_in_user">Signed In User: %s</string>
     <string name="welcome">Asthma Application App</string>
+
+    <!-- Main Page -->
+    <string name="welcome_user">Welcome, %s</string>
+    <string name="log_out">Log Out</string>
+    <string name="learning_card">Learn Here!</string>
+    <string name="patient_card">Patients</string>
+    <string name="student_card">Students</string>
+    <string name="resources_card">Resources</string>
+    <string name="returned_user">Returned User!</string>
+    <string name="guest_user">Guest User!</string>
+    <string name="quiz_card">Quizzes/Exams</string>
+    <string name="review_card">Review</string>
+    <string name="redirect_home">Home</string>
+    <string name="guest_user_tip">Select an Option to Continue. For the Best Experience, Log in to Access All Available Features!</string>
+
+    <!-- Subpages -->
+    <string name="learning_page_title">Let\'s Learn!</string>
+    <string name="patients_page_title">Welcome, Patient %s</string>
+    <string name="quizzes_exam_page_title">Think You\'re Ready?</string>
+    <string name="reviews_page_title">Let\'s Review!</string>
+
+    <!-- Learning page -->
+    <string name="learning_base_page_title">Select an Option to Continue.\nAlthough, it is best to go in Order!</string>
+    <string name="section_one">Section 1:\nBasic Information</string>
+    <string name="section_two">Section 2:\nDiagnosis</string>
+    <string name="section_three">Section 3:\nPathophysiology</string>
+    <string name="section_four">Section 4:\nStudies</string>
+    <string name="section_five">Section 5:\nAvoidance</string>
+    <string name="section_one_part_one">Common symptoms are coughing, shortness of breath, wheezing, and chest tightness (or pain). Asthma may lead to a medical emergency. It is important to know the signs of a severe asthma episode (or asthma attack).</string>
+
+    <!-- Patients Page -->
+    <string name="guest_user_warning">You are a guest user!</string>
+
+    <!-- Warning Messages -->
+    <string name="guest_user_access_warning">You Need to be Signed in/A Student/A Patient to Access this Feature!</string>
+    <string name="review_validation_warning">You Must Finish Reading/Must be Signed In/A Student to Gain Access!</string>
+    <string name="patient_access_warning">You are a Patient! Access to Learning/Patients Only!</string>
+
+    <!-- Section One -->
+    <string name="section_one_introduction">Asthma Information</string>
+    <string name="section_one_introduction_description">More than 25 million people in the U.S. have asthma. 1 It is a long-term disease that causes your airways to become swollen and inflamed, making it hard to breathe. There is no cure for asthma, but it can be managed and controlled.
+    The best way to manage asthma is to avoid triggers, take medications to prevent symptoms, and prepare to treat asthma episodes if they occur. AAFA has a lot of information on our site to help you learn more about asthma. Also consider joining AAFA’s online asthma support community, a local support group, or a regional AAFA chapter if one is in your area.</string>
+    <string name="section_one_title_One">What is Asthma?</string>
+    <string name="section_one_description_One">A condition in which a person\'s airways become inflamed, narrow and swell, and produce extra mucus, which makes it difficult to breathe.</string>
+    <string name="section_one_title_Two">What are the Symptoms of Asthma?</string>
+    <string name="section_one_description_Two">Common symptoms are coughing, shortness of breath, wheezing, and chest tightness (or pain). Asthma may lead to a medical emergency. It is important to know the signs of a severe asthma episode (or asthma attack).</string>
+    <string name="section_one_title_Three">How do Doctors Diagnose Asthma?</string>
+    <string name="section_one_description_Three">A doctor may use a few different ways to look for asthma. These include:\n\n\u2022Taking a detailed medical history\n
+        \u2022A physical exam\n
+        \u2022Lung function tests\n
+        \u2022Chest or sinus X-ray\n
+        \u2022Blood tests to look for certain markers\n
+        \nAllergy tests-The doctor will look at the results from these tests. They will then decide what type of asthma you have. They will develop a treatment plan based on the type and severity of your symptoms. If you have moderate to severe persistent asthma, AAFA recommends you see an allergist or pulmonologist if possible. Allergists treat allergies, asthma, and immune disorders. Pulmonologists treat asthma and other lung or respiratory diseases.
+    </string>
+    <string name="section_one_title_Four">What is the Treatment for Asthma?</string>
+    <string name="section_one_description_Four">You and your doctor will come up with a plan to treat your asthma. It often involves a blend of medication and avoiding your asthma triggers. An asthma action plan is an important tool to help you know when and how to treat your asthma symptoms.</string>
+    <string name="section_one_title_Five">What Triggers Asthma?</string>
+    <string name="section_one_description_Five">Asthma symptoms can appear when you are exposed to a trigger. A trigger is something you are sensitive to that makes your airways become inflamed. This causes swelling, mucus production, and narrowing in your airways. Common asthma triggers are pollen, air pollution, animal allergens, scents/fragrances, certain gases, extreme weather changes, smoke, dust mites, stress, and exercise.</string>
+    <string name="section_one_title_Six">How do I prevent Asthma Episodes?</string>
+    <string name="section_one_description_Six">The best way to prevent an asthma episode, or attack, is to follow your treatment plan. Learn your triggers and avoid or reduce your exposure to them. Take your allergy and asthma medicines when you should. Use your quick-acting medicine as soon as you start to notice symptoms.\n
+        \nMany people live healthy lives with asthma if it’s managed well. With a good treatment plan and guidance from your doctor, you can still do much of what you enjoy. For example, many professional athletes have asthma.</string>
+    <string name="section_one_title_Seven">Asthma Facts and Figures</string>
+    <string name="section_one_description_Seven">More people than ever before have asthma — about 25 million people in the U.S. have asthma1. It is one of the most common and costly diseases. AAFA tracks other important data such as who is most at risk of asthma, how many asthma emergency room visits happen, how many deaths from asthma happen, and how many missed school days are due to asthma.</string>
+    <string name="section_one_references">Section 1 References</string>
+    <string name="section_one_references_description">Centers for Disease Control: \nhttp://www.cdc.gov/asthma/default.htm. \n(Retrieved June 13, 2019)</string>
+
+    <!-- Section Two -->
+    <string name="section_two_title_one">Diagnosing Asthma</string>
+    <string name="section_two_description_one">To diagnose asthma, your doctor will discuss your personal and medical history with you. They will also perform a physical exam. You may need a lung function test (also known as a pulmonary function test), which can be done easily in the clinic. You may need other tests, such as a blood tests or chest and sinus X-ray. If you or your child are having problems breathing on a regular basis, don’t wait! Visit a doctor (or other health care provider like a nurse practitioner) immediately.</string>
+    <string name="section_two_title_two">How Do Doctors Diagnose Asthma?</string>
+    <string name="section_two_description_two">Personal and medical history: Your doctor will ask questions to understand your symptoms and their causes. Bring notes to help you answer your doctor’s questions. Be ready to answer questions about your family history of asthma and allergies, the medicines you take, and your lifestyle. Be ready to share current physical issues, conditions, and concerns. This also includes all previous medical conditions.\n\n
+        For example, if you have a history of allergies or eczema, you have a higher chance of having asthma. In addition, a family history of asthma, allergies, or eczema increases your chance of having asthma, too. This information can help your doctor make a diagnosis.\n\n
+        Tell your doctor about any home or work exposure to environmental factors that can worsen asthma. For example, these might include pet dander, pollen, dust mites, mold, cockroaches, and specific foods in some people. Environmental irritants including cleaning chemicals and tobacco smoke can cause asthma.\n\n
+        The doctor may also ask if you get chest symptoms when you:\n\n
+        \u2022Get a head cold\n
+        \u2022ExerciseUse specific medicines (such as NSAIDs)\n
+        \u2022Are under increased amounts of stress</string>
+    <string name="section_two_title_three">Physical Exam Diagnosis</string>
+    <string name="section_two_description_three">Your doctor will do a physical exam to look for signs of asthma or other related conditions. They will look at your ears, eyes, nose, throat, skin, and listen to your chest and lungs. They will measure your height and weight to assess your overall health and use it with your lung function tests.\n\nThey will also use a device called a pulse oximeter. It goes on your finger and measures the level of oxygen in your blood. You may also need an X-ray of your lungs or sinuses.</string>
+    <string name="section_two_title_four">Lung Function Test Diagnosis</string>
+    <string name="section_two_description_four">To confirm asthma, your doctor may have you take one or more breathing tests known as lung function tests. (These are also called pulmonary function tests.) Lung function tests detect how well you inhale (breathe in) and exhale (breathe out) air from your lungs. These tests measure your breathing.\n\n
+        Lung function tests are often done before and after inhaling a medicine known as a bronchodilator [brahn-ko-DIE-ah-lay-tor]. This medicine opens your airways. If your lung function improves a lot with use of a bronchodilator, you probably have asthma. Your doctor may prescribe a trial with asthma medicine to see if it helps.\n\n
+        Common lung function tests used to assess your airways include:\n\n
+        \u2022Spirometry: A type of lung function test that measures how much you breathe in and out and how fast you breathe out.\n
+        \u2022FeNO test (exhaled nitric oxide): A test that helps assess inflammation in the airways.\n
+        \u2022Bronchial provocation or “trigger” tests: Tests that measure if your lungs are sensitive to certain irritants or triggers.</string>
+    <string name="section_two_title_five">Allergy Test Diagnosis</string>
+    <string name="section_two_description_five">A visit with an allergy specialist may be beneficial. Most people with asthma have allergies that trigger or worsen their asthma.\n\n
+        Blood tests: Your doctor may order blood tests to check your immune system. They will check the levels of a white blood cell called eosinophils and an antibody called immunoglobulin E (IgE). If your levels are high, this may be a sign of severe asthma.</string>
+    <string name="section_two_title_six">Checking Other Conditions</string>
+    <string name="section_two_description_six">If your doctor thinks you have something other than asthma or related to asthma, they may run other tests. These might include a chest X-ray, acid reflux test, sinus X-rays, or other specialized tests. Your doctor may also perform allergy tests (blood or skin tests). Allergy tests are not used to find out if you have asthma. But if you have allergies, they may be triggering your asthma.\n\n
+        There are other conditions that have similar symptoms to asthma.\n\n
+        Your health care provider may also assess you for conditions such as:\n\n
+        \u2022Abnormal airways\n
+        \u2022Acid reflux\n
+        \u2022Allergies\n
+        \u2022Cystic fibrosis (usually diagnosed at an early age)\n
+        \u2022Chronic obstructive pulmonary disease (COPD; diagnosed in adults)\n
+        \u2022Pneumonia or bronchitis\n
+        \u2022Immune disorders\n
+        \u2022Nasal polyps</string>
+    <string name="section_two_title_seven">Different Types of Asthma</string>
+    <string name="section_two_description_seven">There are four levels of asthma, based on the severity of your asthma. How often you have symptoms, and your lung function determines your asthma level. Your doctor will ask you questions such as:\n\n
+        \u2022How often do you have symptoms?\n
+        \u2022How often do you wake up at night from coughing?\n
+        \u2022How often do you have trouble breathing?\n
+        \u2022Do you have trouble doing your daily normal activities including exercise?\n
+        \u2022How often do you use a quick-relief (rescue) inhaler?\n
+        \u2022How often have you had to go to emergency room or be admitted to the hospital for management of asthma symptoms?\n\n
+        The answers to these questions help figure out the severity of your asthma. There are different treatment options if your asthma is intermittent (occasional) or persistent (happens regularly).\n\n
+        \u2022Intermittent asthma: You have symptoms less than two times a week and wake up less than two nights a month. You use quick-relief medicine (like albuterol) two or fewer days per week. You can do all your normal activities. Your lung function is normal.\n
+        \u2022Mild persistent asthma: You have symptoms two or more days a week and wake up three to four nights a month. You do not have daily symptoms. You use quick-relief medicine more than two days out of the week. Your symptoms affect some of your daily activities. Your lung function is mostly normal.\n
+        \u2022Moderate persistent asthma: You have symptoms at least every day and wake up one or more nights a week. You need your quick-relief medicine daily. Your symptoms limit some of your daily normal activities. There is some decrease in your lung function.\n
+        \u2022Severe persistent asthma: You have symptoms during the day and wake up every night due to asthma. You need your quick-relief medicine several times a day for asthma symptoms. Your symptoms put extreme limitations on your daily activities. There are significant decreases in your lung function.\n\n
+        You may also hear about different types of asthma from your doctor or others. These names may describe what is causing the asthma. Here are some types of asthma:\n\n
+        \u2022Allergic asthma is triggered by allergens, such as pet dander, mold, dust mites, and pollen.
+        \u2022Eosinophilic [EE-oh-sin-oh-FILL-ick] asthma is caused by high levels of white blood cells called eosinophils [EE-oh-sin-oh-FILLS] in the airways. Almost 70% of severe asthma is in this category.\n
+        \u2022Exercise-induced asthma happens when the airways constrict and airflow gets obstructed (blocked) during or after exercise. Breathing in cold, dry air is a trigger for this type of asthma.\n
+        \u2022Cough variant asthma is a type of asthma where the main symptom is a chronic, recurring cough. People with this type of asthma may still have other asthma symptoms like wheezing and shortness of breath, but it happens less often.\n
+        \u2022Nighttime (nocturnal asthma) is when asthma symptoms wake you up at night, possibly due to changes in hormones that happen while you sleep. Almost 30 to 70% of people with asthma report nighttime asthma symptoms at least once a month.\n
+        \u2022Occupational (work-related) asthma is caused by inhaling allergens, chemicals, and irritants while working.\n\n
+        Type 2 (Allergic) Inflammation:\n\n
+        Type 2 inflammation is an allergic immune response involved in some types of asthma, such as allergic asthma and eosinophilic asthma.\n\n
+        \u2022With type 2 inflammation, your immune system responds to a trigger by releasing substances like IgE antibodies. Too much IgE can trigger inflammation (swelling) of the airways in your lungs, making it harder to breathe. This is allergic asthma.\n\n
+        \u2022People with type 2 inflammation may also have a lot of white blood cells called eosinophils. These cells can cause swelling and inflammation in the airways too. This is eosinophilic asthma.\n\n
+        \u2022Type 2 inflammation also plays a role in eczema (atopic dermatitis) and nasal polyps.</string>
+    <string name="section_two_title_eight">Diagnosing Asthma in Children</string>
+    <string name="section_two_description_eight">Diagnosing asthma in children under age 5 is a little different. It involves a careful process of history taking, physical exam, and diagnostic studies. Children this age usually are not given a breathing test. Instead, the doctor asks about certain signs and symptoms of asthma (especially cough, wheezing, disruption of school activities and exercise, symptoms at night and common triggers). The doctor may prescribe a bronchodilator if they think your child might have asthma. If the bronchodilator helps reduce your child’s symptoms, that is a sign that your child may have asthma.</string>
+    <string name="section_two_reference">Section 2 References</string>
+    <string name="section_two_reference_description">AAFA ORG:\n https://aafa.org/asthma/asthma-diagnosis/</string>
+
+    <!-- Section Three -->
+    <string name="section_three_title_one">Pathophysiology</string>
+    <string name="section_three_description_one">The 2007 Expert Panel Report 3 (EPR-3) of the National Asthma Education and Prevention Program (NAEPP) noted several key changes in the understanding of the pathophysiology of asthma:\n\n
+        \u2022The critical role of inflammation has been further substantiated, but evidence is emerging for considerable variability in the pattern of inflammation, thus indicating phenotypic differences that may influence treatment responses\n\n
+        \u2022Of the environmental factors, allergic reactions remain important. Evidence also suggests a key and expanding role for viral respiratory infections in these processes\n\n
+        \u2022The onset of asthma for most patients begins early in life, with the pattern of disease persistence determined by early, recognizable risk factors including atopic disease, recurrent wheezing, and a parental history of asthma\n\n
+        \u2022Current asthma treatment with anti-inflammatory therapy does not appear to prevent progression of the underlying disease severity\n\n
+        \u2022The pathophysiology of asthma is complex and involves the following components:\n\n
+        \u2022Airway inflammation\n\n
+        \u2022Intermittent airflow obstruction\n\n
+        \u2022Bronchial hyperresponsiveness</string>
+    <string name="section_three_title_two">Airway Inflammation</string>
+    <string name="section_three_description_two">The mechanism of inflammation in asthma may be acute, subacute, or chronic, and the presence of airway edema and mucus secretion also contributes to airflow obstruction and bronchial reactivity. Varying degrees of mononuclear cell and eosinophil infiltration, mucus hypersecretion, desquamation of the epithelium, smooth muscle hyperplasia, and airway remodeling are present.
+        \n\nSome of the principal cells identified in airway inflammation include mast cells, eosinophils, epithelial cells, macrophages, and activated T lymphocytes. T lymphocytes play an important role in the regulation of airway inflammation through the release of numerous cytokines. Other constituent airway cells, such as fibroblasts, endothelial cells, and epithelial cells, contribute to the chronicity of the disease. Other factors, such as adhesion molecules (eg, selectins, integrins), are critical in directing the inflammatory changes in the airway. Finally, cell-derived mediators influence smooth muscle tone and produce structural changes and remodeling of the airway.
+        \n\nThe presence of airway hyperresponsiveness or bronchial hyperreactivity in asthma is an exaggerated response to numerous exogenous and endogenous stimuli. The mechanisms involved include direct stimulation of airway smooth muscle and indirect stimulation by pharmacologically active substances from mediator-secreting cells such as mast cells or nonmyelinated sensory neurons. The degree of airway hyperresponsiveness generally correlates with the clinical severity of asthma.
+        \n\nA study by Balzar et al reported changes in airway resident mast cell populations from a large group of subjects with asthma and normal control subjects. [5] A greater proportion of chymase-positive mast cells in the airways and increased prostaglandin D2 levels were identified as important predictors of severe asthma as compared with other steroid-treated subjects with asthma.
+        \n\nChronic inflammation of the airways is associated with increased bronchial hyperresponsiveness, which leads to bronchospasm and typical symptoms of wheezing, shortness of breath, and coughing after exposure to allergens, environmental irritants, viruses, cold air, or exercise. In some patients with chronic asthma, airflow limitation may be only partially reversible because of airway remodeling (hypertrophy and hyperplasia of smooth muscle, angiogenesis, and subepithelial fibrosis) that occurs with chronic untreated disease.
+        \n\nAirway inflammation in asthma may represent a loss of normal balance between two "opposing" populations of Th lymphocytes. Two types of Th lymphocytes have been characterized: Th1 and Th2. Th1 cells produce interleukin (IL)-2 and IFN-α, which are critical in cellular defense mechanisms in response to infection. Th2, in contrast, generates a family of cytokines (IL-4, IL-5, IL-6, IL-9, and IL-13) that can mediate allergic inflammation. A study by Gauvreau et al found that IL-13 has a role in allergen-induced airway responses. [6]
+        \n\nThe current "hygiene hypothesis" of asthma illustrates how this cytokine imbalance may explain some of the dramatic increases in asthma prevalence in westernized countries. [7] This hypothesis is based on the concept that the immune system of the newborn is skewed toward Th2 cytokine generation (mediators of allergic inflammation). Following birth, environmental stimuli such as infections activate Th1 responses and bring the Th1/Th2 relationship to an appropriate balance.  However, unequivocal support for the "hypgiene hypothesis" has not been demonstrated. [8]</string>
+    <string name="section_three_title_three">Airflow Obstruction</string>
+    <string name="section_three_description_three">Airflow obstruction can be caused by a variety of changes, including acute bronchoconstriction, airway edema, chronic mucous plug formation, and airway remodeling. Acute bronchoconstriction is the consequence of immunoglobulin E-dependent mediator release upon exposure to aeroallergens and is the primary component of the early asthmatic response. Airway edema occurs 6-24 hours following an allergen challenge and is referred to as the late asthmatic response. Chronic mucous plug formation consists of an exudate of serum proteins and cell debris that may take weeks to resolve. Airway remodeling is associated with structural changes due to long-standing inflammation and may profoundly affect the extent of reversibility of airway obstruction. [9]
+        \n\nAirway obstruction causes increased resistance to airflow and decreased expiratory flow rates. These changes lead to a decreased ability to expel air and may result in hyperinflation. The resulting overdistention helps maintain airway patency, thereby improving expiratory flow; however, it also alters pulmonary mechanics and increases the work of breathing.</string>
+    <string name="section_three_title_four">Bronchial Hyperresponsiveness</string>
+    <string name="section_three_description_four">Hyperinflation compensates for the airflow obstruction, but this compensation is limited when the tidal volume approaches the volume of the pulmonary dead space; the result is alveolar hypoventilation. Uneven changes in airflow resistance, the resulting uneven distribution of air, and alterations in circulation from increased intra-alveolar pressure due to hyperinflation all lead to ventilation-perfusion mismatch. Vasoconstriction due to alveolar hypoxia also contributes to this mismatch. Vasoconstriction is also considered an adaptive response to ventilation/perfusion mismatch.
+        \n\nIn the early stages, when ventilation-perfusion mismatch results in hypoxia, hypercarbia is prevented by the ready diffusion of carbon dioxide across alveolar capillary membranes. Thus, patients with asthma who are in the early stages of an acute episode have hypoxemia in the absence of carbon dioxide retention. Hyperventilation triggered by the hypoxic drive also causes a decrease in PaCO2. An increase in alveolar ventilation in the early stages of an acute exacerbation prevents hypercarbia. With worsening obstruction and increasing ventilation-perfusion mismatch, carbon dioxide retention occurs. In the early stages of an acute episode, respiratory alkalosis results from hyperventilation. Later, the increased work of breathing, increased oxygen consumption, and increased cardiac output result in metabolic acidosis. Respiratory failure leads to respiratory acidosis due to retention of carbon dioxide as alveolar ventilation decreases.</string>
+    <string name="section_three_reference">Section 3 Reference</string>
+    <string name="section_three_reference_description">E-Medicine (Medscape):\nhttps://emedicine.medscape.com/article/296301-overview#a4</string>
+
+    <!-- Section Four -->
+    <string name="section_four_title_one">Sorting and Expression Profiling of Airway Cells From Humans (The SEARCH Study)</string>
+    <string name="section_four_description_one">Primary Outcome Measures:\n
+        1. Measure the genomic location of enhancers in genes previously found to be differentially expressed in asthma vs health using H3K27ac ChIP-seq and ATAC-seq on airway epithelial brushings. [ Time Frame: Between 1-12 weeks ]
+        \nWe previously identified changes in epithelial gene expression in individuals with asthma. To identify candidate enhancers that account for these changes, we will use Drop-seq, ChIPseq and ATAC-seq to analyze freshly isolated airway epithelial cells from healthy controls and from well-characterized subjects with asthma.\n\n
+        2. Assessment of persistence of signatures of airway inflammation [ Time Frame: 1-12 weeks and at 10-14 months ]
+        Perform epithelial brush gene expression profiling and sputum induction on longitudinal samples obtained at 12 months after the initial bronchoscopy, to assess stability of type-2 and non-type-2 pathways that are dysregulated in asthma. (Achieved via the PISA sub-study)\n\n
+        Secondary Outcome Measures:\n
+        1.Measure gene expression by RNA sequencing in both airway brushes and BAL cells for assessment of non-type-2 pathways differentially expressed in asthma vs health. [ Time Frame: Between 1-12 weeks ]
+        \nPerform bronchoalveolar lavage (BAL) cell flow cytometry and epithelial brush gene expression profiling to look for non-type-2 pathways that are dysregulated in asthma.</string>
+    <string name="section_four_title_two">Preventing Asthma in High Risk Kids (PARK)</string>
+    <string name="section_four_description_two">Primary Outcome Measures:\n
+        1. Active asthma diagnosis [ Time Frame: Final 12 months during 2 year observation period off study drug ]
+        questionnaire\n
+        2. Asthma severity [ Time Frame: Final 12 months during 2 year observation period off study drug ]
+        questionnaire\n\n
+        Secondary Outcome Measures:\n
+        1. Number of positive new allergic sensitization [ Time Frame: Final 12 months during 2 year observation period off study drug ]
+        skin prick test\n
+        2. decrease in number of wheezing episodes [ Time Frame: Final 12 months during 2 year observation period off study drug ]
+        questionnaires
+    </string>
+    <string name="section_four_title_three">Lung-Resident Memory Th2 Cells in Asthma</string>
+    <string name="section_four_description_three">Primary Outcome Measures:\n
+        1. The phenotype of Th2-Trm recovered from the airway mucosa [ Time Frame: This is a single time point study with all information obtained at the time of bronchoscopy defined as Day 0. ]\n
+        -The investigators will determine the phenotype of Th2-Trm recovered from the airway mucosa of humans with asthma via flow cytometry to define the phenotype of human Th2-Trm. The T cells will be recovered from airway bronchial brushing samples of patients with allergic asthma and allergy to an indoor allergen, and the investigators will obtain comparative samples from nonallergic healthy control subjects.\n
+        2. The transcriptional profile of Th2-Trm recovered from the airway mucosa [ Time Frame: This is a single time point study with all information obtained at the time of bronchoscopy defined as Day 0. ]\n
+        -The investigators will determine the transcriptional profile of Th2-Trm recovered from the airway mucosa of humans with asthma via single-cell RNA-seq analysis to define the phenotype of human Th2-Trm. The T cells will be recovered from airway bronchial brushing samples of patients with allergic asthma and allergy to an indoor allergen, and the investigators will obtain comparative samples from nonallergic healthy control subjects.
+    </string>
+    <string name="section_four_reference">Section 4 Reference</string>
+    <string name="section_four_reference_description">NIH (National Institute of Allergy and Infectious Diseases:\n
+    https://www.niaid.nih.gov/clinical-trials/asthma-studies</string>
+
+    <string name="section_five_title_one">Medical Conditions</string>
+    <string name="section_five_description_one">Respiratory Infections, such as a cold, flu or sinus infection, are the most common causes of asthma symptoms leading to asthma flare-ups. Frequent hand washing and avoiding people who are sick will help reduce your exposure to cold and flu. But, the best way to prevent influenza is to get a flu vaccine every year. Medical conditions such as acid reflux can also worsen asthma symptoms.
+        \n\nTRIGGER EXAMPLES:\n
+        \u2022Respiratory infections (colds, flu, sinus infections)\n
+        \u2022Pregnancy hormones\n
+        \u2022Acid reflux</string>
+    <string name="section_five_title_two">Food &amp; Medicines</string>
+    <string name="section_five_description_two">Asthma can be triggered by food allergies and medicines. Discuss any over-the-counter or prescription medicines you take such as aspirin, fever-reducers or anti-inflammatories with your healthcare provider, along with any alternative therapies or herbal remedies that may impact your asthma.
+        \n\nTRIGGER EXAMPLES:\n
+        \u2022Common food allergies (peanuts and shellfish)\n
+        \u2022Aspirin\n
+        \u2022Non-steroidal anti-inflammatory drugs</string>
+    <string name="section_five_title_three">Smoke</string>
+    <string name="section_five_description_three">All types of smoke can make it hard to breathe, including smoke from cigarettes, wood-burning fireplaces and burning leaves. If you smoke, you should make a plan to quit. If you don\'t smoke, but live with someone who does, discuss ways to avoid or limit your exposure to tobacco smoke. The American Lung Association offers many ways to help smokers quit. Contact the American Lung Association Lung HelpLine at 1-800-586-4872 to speak with a smoking cessation counselor.
+        \n\nTRIGGER EXAMPLES:\n
+        \u2022Cigarette, cigar or pipe smoke\n
+        \u2022Fireplace, campfire or leaf-burning smoke</string>
+    <string name="section_five_title_four">Weather, Pollen &amp; Air Pollution</string>
+    <string name="section_five_description_four">Changes in the season can bring on an asthma episode due to increased pollen in the air. Limit your time outdoors during high pollen times of the year such as spring and fall. Also, extreme temperatures (hot and cold) can trigger asthma symptoms. Prepare for the weather before you leave your home by checking the pollen count and air quality index.
+        \n\nTRIGGER EXAMPLES:\n
+        \u2022Cold, windy or stormy weather\n
+        \u2022Sudden or extreme temperature changes\n
+        \u2022High humidity\n
+        \u2022Weeds, trees and grass\n
+        \u2022Air pollution, smog, vehicle exhaust and fumes</string>
+    <string name="section_five_title_five">Animals</string>
+    <string name="section_five_description_five">Dander and saliva from animals with fur or feathers can be an allergen for some and can cause asthma symptoms. Reduce your exposure to pet allergens by vacuuming and damp dusting weekly. Try to keep your pets out of the bedroom or other rooms where you spend a lot of time. You might also consider bathing and changing clothes after playing with furred pets.
+        \n\nTRIGGER EXAMPLES:\n
+        \u2022Birds\n
+        \u2022Cats, dogs, ferrets, hamsters, Guinea pigs, bunnies or mice</string>
+    <string name="section_five_title_six">Pests</string>
+    <string name="section_five_description_six">Pests in the home, workplace or school can impact your asthma. To reduce your exposure, wash bedding regularly, fix leaks, store garbage outside, vacuum and dust weekly. If you\'re allergic to dust mites, use allergen-proof pillows and mattress covers.
+        \n\nTRIGGER EXAMPLES:\n
+        \u2022Dust mites\n
+        \u2022Cockroaches\n
+        \u2022Rodents such as mice and rats</string>
+    <string name="section_five_title_seven">Mold</string>
+    <string name="section_five_description_seven">Mold is an allergen that can trigger asthma symptoms. You can reduce your exposure to mold by cleaning visible mold, throwing away moldy items, running a dehumidifier and using the exhaust fan when taking a shower. Clean mold with mild soap, hot water and a strong brush.</string>
+    <string name="section_five_title_eight">Exercise</string>
+    <string name="section_five_description_eight">Staying active is very important to your overall health and wellbeing, especially for those with asthma. If exercise causes your asthma symptoms, use your quick-relief medicine 15 to 30 minutes before physical activity if prescribed. Remember to monitor the air quality if you plan to exercise outside.
+        \n\nTRIGGER EXAMPLES:\n
+        \u2022Walking, climbing stairs\n
+        \u2022Intense exercise\n
+        \u2022Sports\n
+        \u2022Swimming</string>
+    <string name="section_five_title_nine">Emotions</string>
+    <string name="section_five_description_nine">Every day comes with its ups and down emotionally. It\'s important to remember that strong emotions can increase rapid breathing and trigger asthma symptoms. Stress, both personal and work-related, can be a major trigger as well.
+        \n\nTRIGGER EXAMPLES:\n
+        \u2022Laughing or crying too hard\n
+        \u2022Feeling stressed or anxious\n
+        \u2022Anger\n
+        \u2022Fear\n
+        \u2022Yelling</string>
+    <string name="section_five_title_ten">Strong Odor</string>
+    <string name="section_five_description_ten">Scents from perfumes, deodorants and cleaning supplies can affect a person with asthma. When possible, choose cleaning and personal care products that are odor- and fragrance-free.
+        \n\nTRIGGER EXAMPLES:\n
+        \u2022Cleaning products
+        \u2022Gas Stoves
+        \u2022Scented candles and incense
+        \u2022Hairspray
+        \u2022Air fresheners
+        \u2022Personal care products</string>
+    <string name="section_five_reference">Reference</string>
+    <string name="section_five_reference_description">American Lung Association:\nhttps://www.lung.org/lung-health-diseases/lung-disease-lookup/asthma/managing-asthma/reduce-asthma-triggers </string>
+
+    <!-- Section Page Actions -->
+    <string name="action_next_section">Swipe Left/Right to Navigate</string>
+    <string name="action_finish">Click Here Finish Reading!</string>
 
 </resources>
