@@ -25,6 +25,9 @@
     <string name="continue_as_guest">Or, Continue as Guest</string>
     <string name="you_are_signed_in">You are Logged in, Continue!</string>
     <string name="clear_cache">Clear Local Cache</string>
+    <string name="login_option_title">Log In As?</string>
+    <string name="patient_login_option">Patient</string>
+    <string name="student_login_option">Student</string>
 
     <!-- Home Page -->
     <string name="signed_in_user">Signed In User: %s</string>
@@ -63,8 +66,9 @@
     <string name="guest_user_warning">You are a guest user!</string>
 
     <!-- Warning Messages -->
-    <string name="guest_user_access_warning">You Need to be Signed in to Access this Feature!</string>
-    <string name="review_validation_warning">You Must Finish Reading/Must be Signed In to Gain Access!</string>
+    <string name="guest_user_access_warning">You Need to be Signed in/A Student/A Patient to Access this Feature!</string>
+    <string name="review_validation_warning">You Must Finish Reading/Must be Signed In/A Student to Gain Access!</string>
+    <string name="patient_access_warning">You are a Patient! Access to Learning/Patients Only!</string>
 
     <!-- Section One -->
     <string name="section_one_introduction">Asthma Information</string>
@@ -80,7 +84,7 @@
         \u2022Lung function tests\n
         \u2022Chest or sinus X-ray\n
         \u2022Blood tests to look for certain markers\n
-        \nAllergy testsThe doctor will look at the results from these tests. They will then decide what type of asthma you have. They will develop a treatment plan based on the type and severity of your symptoms. If you have moderate to severe persistent asthma, AAFA recommends you see an allergist or pulmonologist if possible. Allergists treat allergies, asthma, and immune disorders. Pulmonologists treat asthma and other lung or respiratory diseases.
+        \nAllergy tests-The doctor will look at the results from these tests. They will then decide what type of asthma you have. They will develop a treatment plan based on the type and severity of your symptoms. If you have moderate to severe persistent asthma, AAFA recommends you see an allergist or pulmonologist if possible. Allergists treat allergies, asthma, and immune disorders. Pulmonologists treat asthma and other lung or respiratory diseases.
     </string>
     <string name="section_one_title_Four">What is the Treatment for Asthma?</string>
     <string name="section_one_description_Four">You and your doctor will come up with a plan to treat your asthma. It often involves a blend of medication and avoiding your asthma triggers. An asthma action plan is an important tool to help you know when and how to treat your asthma symptoms.</string>
@@ -186,6 +190,104 @@
         \n\nIn the early stages, when ventilation-perfusion mismatch results in hypoxia, hypercarbia is prevented by the ready diffusion of carbon dioxide across alveolar capillary membranes. Thus, patients with asthma who are in the early stages of an acute episode have hypoxemia in the absence of carbon dioxide retention. Hyperventilation triggered by the hypoxic drive also causes a decrease in PaCO2. An increase in alveolar ventilation in the early stages of an acute exacerbation prevents hypercarbia. With worsening obstruction and increasing ventilation-perfusion mismatch, carbon dioxide retention occurs. In the early stages of an acute episode, respiratory alkalosis results from hyperventilation. Later, the increased work of breathing, increased oxygen consumption, and increased cardiac output result in metabolic acidosis. Respiratory failure leads to respiratory acidosis due to retention of carbon dioxide as alveolar ventilation decreases.</string>
     <string name="section_three_reference">Section 3 Reference</string>
     <string name="section_three_reference_description">E-Medicine (Medscape):\nhttps://emedicine.medscape.com/article/296301-overview#a4</string>
+
+    <!-- Section Four -->
+    <string name="section_four_title_one">Sorting and Expression Profiling of Airway Cells From Humans (The SEARCH Study)</string>
+    <string name="section_four_description_one">Primary Outcome Measures:\n
+        1. Measure the genomic location of enhancers in genes previously found to be differentially expressed in asthma vs health using H3K27ac ChIP-seq and ATAC-seq on airway epithelial brushings. [ Time Frame: Between 1-12 weeks ]
+        \nWe previously identified changes in epithelial gene expression in individuals with asthma. To identify candidate enhancers that account for these changes, we will use Drop-seq, ChIPseq and ATAC-seq to analyze freshly isolated airway epithelial cells from healthy controls and from well-characterized subjects with asthma.\n\n
+        2. Assessment of persistence of signatures of airway inflammation [ Time Frame: 1-12 weeks and at 10-14 months ]
+        Perform epithelial brush gene expression profiling and sputum induction on longitudinal samples obtained at 12 months after the initial bronchoscopy, to assess stability of type-2 and non-type-2 pathways that are dysregulated in asthma. (Achieved via the PISA sub-study)\n\n
+        Secondary Outcome Measures:\n
+        1.Measure gene expression by RNA sequencing in both airway brushes and BAL cells for assessment of non-type-2 pathways differentially expressed in asthma vs health. [ Time Frame: Between 1-12 weeks ]
+        \nPerform bronchoalveolar lavage (BAL) cell flow cytometry and epithelial brush gene expression profiling to look for non-type-2 pathways that are dysregulated in asthma.</string>
+    <string name="section_four_title_two">Preventing Asthma in High Risk Kids (PARK)</string>
+    <string name="section_four_description_two">Primary Outcome Measures:\n
+        1. Active asthma diagnosis [ Time Frame: Final 12 months during 2 year observation period off study drug ]
+        questionnaire\n
+        2. Asthma severity [ Time Frame: Final 12 months during 2 year observation period off study drug ]
+        questionnaire\n\n
+        Secondary Outcome Measures:\n
+        1. Number of positive new allergic sensitization [ Time Frame: Final 12 months during 2 year observation period off study drug ]
+        skin prick test\n
+        2. decrease in number of wheezing episodes [ Time Frame: Final 12 months during 2 year observation period off study drug ]
+        questionnaires
+    </string>
+    <string name="section_four_title_three">Lung-Resident Memory Th2 Cells in Asthma</string>
+    <string name="section_four_description_three">Primary Outcome Measures:\n
+        1. The phenotype of Th2-Trm recovered from the airway mucosa [ Time Frame: This is a single time point study with all information obtained at the time of bronchoscopy defined as Day 0. ]\n
+        -The investigators will determine the phenotype of Th2-Trm recovered from the airway mucosa of humans with asthma via flow cytometry to define the phenotype of human Th2-Trm. The T cells will be recovered from airway bronchial brushing samples of patients with allergic asthma and allergy to an indoor allergen, and the investigators will obtain comparative samples from nonallergic healthy control subjects.\n
+        2. The transcriptional profile of Th2-Trm recovered from the airway mucosa [ Time Frame: This is a single time point study with all information obtained at the time of bronchoscopy defined as Day 0. ]\n
+        -The investigators will determine the transcriptional profile of Th2-Trm recovered from the airway mucosa of humans with asthma via single-cell RNA-seq analysis to define the phenotype of human Th2-Trm. The T cells will be recovered from airway bronchial brushing samples of patients with allergic asthma and allergy to an indoor allergen, and the investigators will obtain comparative samples from nonallergic healthy control subjects.
+    </string>
+    <string name="section_four_reference">Section 4 Reference</string>
+    <string name="section_four_reference_description">NIH (National Institute of Allergy and Infectious Diseases:\n
+    https://www.niaid.nih.gov/clinical-trials/asthma-studies</string>
+
+    <string name="section_five_title_one">Medical Conditions</string>
+    <string name="section_five_description_one">Respiratory Infections, such as a cold, flu or sinus infection, are the most common causes of asthma symptoms leading to asthma flare-ups. Frequent hand washing and avoiding people who are sick will help reduce your exposure to cold and flu. But, the best way to prevent influenza is to get a flu vaccine every year. Medical conditions such as acid reflux can also worsen asthma symptoms.
+        \n\nTRIGGER EXAMPLES:\n
+        \u2022Respiratory infections (colds, flu, sinus infections)\n
+        \u2022Pregnancy hormones\n
+        \u2022Acid reflux</string>
+    <string name="section_five_title_two">Food &amp; Medicines</string>
+    <string name="section_five_description_two">Asthma can be triggered by food allergies and medicines. Discuss any over-the-counter or prescription medicines you take such as aspirin, fever-reducers or anti-inflammatories with your healthcare provider, along with any alternative therapies or herbal remedies that may impact your asthma.
+        \n\nTRIGGER EXAMPLES:\n
+        \u2022Common food allergies (peanuts and shellfish)\n
+        \u2022Aspirin\n
+        \u2022Non-steroidal anti-inflammatory drugs</string>
+    <string name="section_five_title_three">Smoke</string>
+    <string name="section_five_description_three">All types of smoke can make it hard to breathe, including smoke from cigarettes, wood-burning fireplaces and burning leaves. If you smoke, you should make a plan to quit. If you don\'t smoke, but live with someone who does, discuss ways to avoid or limit your exposure to tobacco smoke. The American Lung Association offers many ways to help smokers quit. Contact the American Lung Association Lung HelpLine at 1-800-586-4872 to speak with a smoking cessation counselor.
+        \n\nTRIGGER EXAMPLES:\n
+        \u2022Cigarette, cigar or pipe smoke\n
+        \u2022Fireplace, campfire or leaf-burning smoke</string>
+    <string name="section_five_title_four">Weather, Pollen &amp; Air Pollution</string>
+    <string name="section_five_description_four">Changes in the season can bring on an asthma episode due to increased pollen in the air. Limit your time outdoors during high pollen times of the year such as spring and fall. Also, extreme temperatures (hot and cold) can trigger asthma symptoms. Prepare for the weather before you leave your home by checking the pollen count and air quality index.
+        \n\nTRIGGER EXAMPLES:\n
+        \u2022Cold, windy or stormy weather\n
+        \u2022Sudden or extreme temperature changes\n
+        \u2022High humidity\n
+        \u2022Weeds, trees and grass\n
+        \u2022Air pollution, smog, vehicle exhaust and fumes</string>
+    <string name="section_five_title_five">Animals</string>
+    <string name="section_five_description_five">Dander and saliva from animals with fur or feathers can be an allergen for some and can cause asthma symptoms. Reduce your exposure to pet allergens by vacuuming and damp dusting weekly. Try to keep your pets out of the bedroom or other rooms where you spend a lot of time. You might also consider bathing and changing clothes after playing with furred pets.
+        \n\nTRIGGER EXAMPLES:\n
+        \u2022Birds\n
+        \u2022Cats, dogs, ferrets, hamsters, Guinea pigs, bunnies or mice</string>
+    <string name="section_five_title_six">Pests</string>
+    <string name="section_five_description_six">Pests in the home, workplace or school can impact your asthma. To reduce your exposure, wash bedding regularly, fix leaks, store garbage outside, vacuum and dust weekly. If you\'re allergic to dust mites, use allergen-proof pillows and mattress covers.
+        \n\nTRIGGER EXAMPLES:\n
+        \u2022Dust mites\n
+        \u2022Cockroaches\n
+        \u2022Rodents such as mice and rats</string>
+    <string name="section_five_title_seven">Mold</string>
+    <string name="section_five_description_seven">Mold is an allergen that can trigger asthma symptoms. You can reduce your exposure to mold by cleaning visible mold, throwing away moldy items, running a dehumidifier and using the exhaust fan when taking a shower. Clean mold with mild soap, hot water and a strong brush.</string>
+    <string name="section_five_title_eight">Exercise</string>
+    <string name="section_five_description_eight">Staying active is very important to your overall health and wellbeing, especially for those with asthma. If exercise causes your asthma symptoms, use your quick-relief medicine 15 to 30 minutes before physical activity if prescribed. Remember to monitor the air quality if you plan to exercise outside.
+        \n\nTRIGGER EXAMPLES:\n
+        \u2022Walking, climbing stairs\n
+        \u2022Intense exercise\n
+        \u2022Sports\n
+        \u2022Swimming</string>
+    <string name="section_five_title_nine">Emotions</string>
+    <string name="section_five_description_nine">Every day comes with its ups and down emotionally. It\'s important to remember that strong emotions can increase rapid breathing and trigger asthma symptoms. Stress, both personal and work-related, can be a major trigger as well.
+        \n\nTRIGGER EXAMPLES:\n
+        \u2022Laughing or crying too hard\n
+        \u2022Feeling stressed or anxious\n
+        \u2022Anger\n
+        \u2022Fear\n
+        \u2022Yelling</string>
+    <string name="section_five_title_ten">Strong Odor</string>
+    <string name="section_five_description_ten">Scents from perfumes, deodorants and cleaning supplies can affect a person with asthma. When possible, choose cleaning and personal care products that are odor- and fragrance-free.
+        \n\nTRIGGER EXAMPLES:\n
+        \u2022Cleaning products
+        \u2022Gas Stoves
+        \u2022Scented candles and incense
+        \u2022Hairspray
+        \u2022Air fresheners
+        \u2022Personal care products</string>
+    <string name="section_five_reference">Reference</string>
+    <string name="section_five_reference_description">American Lung Association:\nhttps://www.lung.org/lung-health-diseases/lung-disease-lookup/asthma/managing-asthma/reduce-asthma-triggers </string>
 
     <!-- Section Page Actions -->
     <string name="action_next_section">Swipe Left/Right to Navigate</string>

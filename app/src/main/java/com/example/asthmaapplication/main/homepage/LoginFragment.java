@@ -34,6 +34,9 @@ public class LoginFragment extends BaseFragment {
     FragmentTransaction transaction;
     TextWatcher watcher;
 
+    private final String student = "studentOption";
+    private final String patient = "patientOption";
+
     @Inject
     public LoginFragment() {
 
@@ -65,9 +68,7 @@ public class LoginFragment extends BaseFragment {
         manager = getFragmentManager();
         transaction = manager.beginTransaction();
 
-        binding.actionRegister.setOnClickListener(v -> {
-            launchRegistrationPage();
-        });
+        binding.actionRegister.setOnClickListener(v -> launchRegistrationPage());
 
         watcher = new TextWatcher() {
             @Override
@@ -90,11 +91,23 @@ public class LoginFragment extends BaseFragment {
                     viewModel.login(binding.emailLogin.getText().toString(),
                             binding.passwordLogin.getText().toString());
                     setUserNamePreferences(binding.nameLogin.getText().toString());
-                    resetLoginPage();
                     launchUserLoginSuccessful();
+                    resetLoginPage();
                 });
             }
         };
+
+            binding.loginOptionGroup.setOnCheckedChangeListener((group, checkedId) -> {
+                clearLoginOption();
+                if (checkedId == R.id.student_login) {
+                    setLoginOption(student);
+                }
+                else if (checkedId == R.id.patient_login) {
+                    setLoginOption(patient);
+                }
+                else
+                    setLoginOption(null);
+            });
 
         binding.emailLogin.addTextChangedListener(watcher);
         binding.passwordLogin.addTextChangedListener(watcher);

@@ -22,6 +22,8 @@ import com.example.asthmaapplication.main.mainpage.subpages.QuizzesExamsFragment
 import com.example.asthmaapplication.main.mainpage.subpages.ReviewsFragment;
 import com.example.asthmaapplication.main.utils.UIUtils;
 
+import java.util.Objects;
+
 import javax.inject.Inject;
 
 import dagger.hilt.android.AndroidEntryPoint;
@@ -33,6 +35,10 @@ public class MainFragment extends BaseFragment {
     FragmentMainBinding binding;
     FragmentManager manager;
     FragmentTransaction transaction;
+
+    private String loginOption;
+    private final String student = "studentOption";
+    private final String patient = "patientOption";
 
     @Inject
     public MainFragment() {
@@ -64,7 +70,6 @@ public class MainFragment extends BaseFragment {
 
         binding.learningCard.cardImage.setImageResource(R.drawable.ic_lung_normal);
         binding.learningCard.cardTitle.setText(R.string.learning_card);
-        binding.learningCard.getRoot().setOnClickListener(v -> launchLearningPage());
 
         binding.patientsCard.cardImage.setImageResource(R.drawable.ic_patient_icon);
         binding.patientsCard.cardTitle.setText(R.string.patient_card);
@@ -80,6 +85,7 @@ public class MainFragment extends BaseFragment {
         binding.actionLogout.setOnClickListener(userLogout -> {
             viewModel.logOut();
             clearUserName();
+            clearLoginOption();
             getActivity().finish();
         });
 
@@ -88,6 +94,7 @@ public class MainFragment extends BaseFragment {
     @Override
     public void onResume() {
         super.onResume();
+        loginOption = getUserLoginPreferences();
         validateUserAccess();
     }
 
@@ -104,18 +111,38 @@ public class MainFragment extends BaseFragment {
     }
 
     public void validateUserAccess() {
-        if (getUserName().isEmpty()) {
-            binding.patientsCard.cardHolder.setBackgroundColor(getResources().getColor(R.color.gray));
-            binding.quizCard.cardHolder.setBackgroundColor(getResources().getColor(R.color.gray));
-            binding.reviewCard.cardHolder.setBackgroundColor(getResources().getColor(R.color.gray));
-            binding.patientsCard.getRoot().setOnClickListener(v -> showSnackBar(new SnackBarMessage(getString(R.string.guest_user_access_warning))));
-            binding.quizCard.getRoot().setOnClickListener(v -> showSnackBar(new SnackBarMessage(getString(R.string.guest_user_access_warning))));
-            binding.reviewCard.getRoot().setOnClickListener(v -> showSnackBar(new SnackBarMessage(getString(R.string.review_validation_warning))));
+        if (loginOption.equals(student)) {
+            getStudentOption();
+        } else if (loginOption.equals(patient)) {
+            getPatientOption();
         } else {
-            binding.patientsCard.getRoot().setOnClickListener(v -> launchPatientsCard());
-            binding.quizCard.getRoot().setOnClickListener(v -> launchQuizPage());
-            binding.reviewCard.getRoot().setOnClickListener(v -> launchReviewsPage());
+            getDefaultOption();
         }
+    }
+
+    public void getStudentOption() {
+        binding.learningCard.getRoot().setOnClickListener(v -> launchLearningPage());
+        binding.patientsCard.getRoot().setOnClickListener(v -> launchPatientsCard());
+        binding.quizCard.getRoot().setOnClickListener(v -> launchQuizPage());
+        binding.reviewCard.getRoot().setOnClickListener(v -> launchReviewsPage());
+    }
+
+    public void getPatientOption() {
+        binding.quizCard.cardHolder.setBackgroundColor(getResources().getColor(R.color.gray));
+        binding.reviewCard.cardHolder.setBackgroundColor(getResources().getColor(R.color.gray));
+        binding.learningCard.getRoot().setOnClickListener(v -> launchLearningPage());
+        binding.patientsCard.getRoot().setOnClickListener(v -> launchPatientsCard());
+        binding.quizCard.getRoot().setOnClickListener(v -> showSnackBar(new SnackBarMessage(getString(R.string.patient_access_warning))));
+        binding.reviewCard.getRoot().setOnClickListener(v -> showSnackBar(new SnackBarMessage(getString(R.string.patient_access_warning))));
+    }
+
+    public void getDefaultOption() {
+        binding.patientsCard.cardHolder.setBackgroundColor(getResources().getColor(R.color.gray));
+        binding.quizCard.cardHolder.setBackgroundColor(getResources().getColor(R.color.gray));
+        binding.reviewCard.cardHolder.setBackgroundColor(getResources().getColor(R.color.gray));
+        binding.patientsCard.getRoot().setOnClickListener(v -> showSnackBar(new SnackBarMessage(getString(R.string.guest_user_access_warning))));
+        binding.quizCard.getRoot().setOnClickListener(v -> showSnackBar(new SnackBarMessage(getString(R.string.guest_user_access_warning))));
+        binding.reviewCard.getRoot().setOnClickListener(v -> showSnackBar(new SnackBarMessage(getString(R.string.review_validation_warning))));
     }
 
     public void launchLearningPage() {

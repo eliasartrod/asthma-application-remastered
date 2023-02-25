@@ -15,6 +15,7 @@ public abstract class BaseFragment extends Fragment {
     public static final String USER_NAME = "user.name";
     public static final String USER_RESULTS = "user.results";
     public static final String USER_READ = "user.read";
+    public static final String USER_LOGIN_PREFERENCES = "user.login.preferences";
 
     SharedPreferences preferences;
 
@@ -47,6 +48,10 @@ public abstract class BaseFragment extends Fragment {
         snackbar.show();
     }
 
+    /*
+    * Below are application preferences we set to save for the user.
+    * */
+
     public void getPreferences() {
         if (getContext() != null) {
             preferences = getContext().getSharedPreferences(USER_PREFS, Context.MODE_PRIVATE);
@@ -57,12 +62,24 @@ public abstract class BaseFragment extends Fragment {
         preferences.edit().putString(USER_NAME, userName).apply();
     }
 
+    public void setLoginOption(String userLoginPreferences) {
+        preferences.edit().putString(USER_LOGIN_PREFERENCES, userLoginPreferences).apply();
+    }
+
     public void clearUserName() {
         preferences.edit().putString(USER_NAME, null).apply();
     }
 
+    public void clearLoginOption() {
+        preferences.edit().putString(USER_LOGIN_PREFERENCES, null).apply();
+    }
+
     public String getUserName() {
         return preferences.getString(USER_NAME, "");
+    }
+
+    public String getUserLoginPreferences() {
+        return preferences.getString(USER_LOGIN_PREFERENCES, "");
     }
 
     public boolean getHasUserRead() {
