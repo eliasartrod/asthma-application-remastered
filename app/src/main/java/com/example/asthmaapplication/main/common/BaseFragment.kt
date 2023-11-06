@@ -1,41 +1,35 @@
-package com.example.asthmaapplication.main.common;
+package com.example.asthmaapplication.main.common
 
-import android.view.View;
+import android.view.View
+import androidx.fragment.app.Fragment
+import com.google.android.material.snackbar.Snackbar
 
-import androidx.fragment.app.Fragment;
+abstract class BaseFragment : Fragment() {
 
-import com.google.android.material.snackbar.Snackbar;
-
-import io.reactivex.disposables.CompositeDisposable;
-
-public abstract class BaseFragment extends Fragment {
-    protected CompositeDisposable fragmentDisposable = new CompositeDisposable();
-
-    public void setActionBarTitle(int resId){
-        ((BaseActivity) getActivity()).setActionBarTitle(resId);
+    fun setActionBarTitle(resId: Int) {
+        (activity as BaseActivity?)?.setActionBarTitle(resId)
     }
 
-    public void setActionBarTitle(String title){
-        ((BaseActivity) getActivity()).setActionBarTitle(title);
-    }
-
-    public void showSnackBar(Event<SnackBarMessage> event) {
-        SnackBarMessage message = event.getContentIfNotHandled();
-        if (message != null) {
-            showSnackBar(message);
+    fun setActionBarTitle(title: String?) {
+        if (title != null) {
+            (activity as BaseActivity?)?.setActionBarTitle(title)
         }
     }
 
-    public void showSnackBar(SnackBarMessage message) {
-        String snkMessage = null;
-        if (message.getMessage() != null) {
-            snkMessage = message.getMessage();
+    fun showSnackBar(event: Event<SnackBarMessage>?) {
+        val message = event?.contentIfNotHandled
+        message?.let { showSnackBar(it) }
+    }
+
+    fun showSnackBar(message: SnackBarMessage) {
+        val snkMessage = if (message.message != null) {
+            message.message
         } else {
-            snkMessage = getString(message.getResId(), message.getFormattedMessages().toArray());
+            getString(message.resId, *message.formattedMessages.toTypedArray())
         }
-        Snackbar snackbar = Snackbar.make(getRoot(), snkMessage, Snackbar.LENGTH_LONG);
-        snackbar.show();
+        val snackbar = Snackbar.make(getRoot()!!, snkMessage!!, Snackbar.LENGTH_LONG)
+        snackbar.show()
     }
 
-    public abstract View getRoot();
+    abstract fun getRoot(): View?
 }

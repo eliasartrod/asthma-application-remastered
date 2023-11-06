@@ -21,6 +21,8 @@ class HomePageFragment : BaseFragment() {
 
     private val _viewModel: HomePageViewModel by viewModels()
 
+    private var _currentUser: String? = null
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -32,13 +34,30 @@ class HomePageFragment : BaseFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        UIUtils.addUnderlineFlag(binding.actionHomePageRedirect)
         (activity as BaseActivity?)?.showBackButton(false)
+        UIUtils.addUnderlineFlag(binding.actionContinue)
         setActionBarTitle()
+        setupListeners()
 
+    }
+
+    override fun onResume() {
+        super.onResume()
+        _currentUser = _viewModel.getCurrentUser()
+        setupListeners()
+    }
+
+    private fun setupListeners() {
         binding.actionLogin.setOnClickListener { launchLoginPage() }
         binding.actionRegister.setOnClickListener { launchRegistrationPage() }
-        binding.actionHomePageRedirect.setOnClickListener { launchHomePage() }
+
+        if (_currentUser.isNullOrEmpty()) {
+            binding.actionContinue.text = getString(R.string.continue_as_guest)
+            binding.actionContinue.setOnClickListener { launchHomePage() }
+        } else {
+            binding.actionContinue.text = getString(R.string.you_are_signed_in)
+            binding.actionContinue.setOnClickListener { launchHomePage() }
+        }
     }
 
     private fun launchHomePage() {

@@ -13,8 +13,8 @@ import com.example.asthmaapplication.R
 import com.example.asthmaapplication.databinding.FragmentLoginBinding
 import com.example.asthmaapplication.main.common.BaseActivity
 import com.example.asthmaapplication.main.common.BaseFragment
+import com.example.asthmaapplication.main.common.Constants
 import com.example.asthmaapplication.main.common.Event
-import com.example.asthmaapplication.main.common.SnackBarMessage
 import com.example.asthmaapplication.main.mainpage.MainActivity
 import com.example.asthmaapplication.main.utils.ActivityUtils
 import com.example.asthmaapplication.main.utils.UIUtils
@@ -26,9 +26,8 @@ class LoginFragment: BaseFragment() {
     private lateinit var watcher: TextWatcher
 
     private val _viewModel: HomePageViewModel by viewModels()
-
-    private val student = "studentOption"
-    private val patient = "patientOption"
+    private var _currentUser: String? = null
+    private var _userType: String? = null
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -40,24 +39,54 @@ class LoginFragment: BaseFragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view!!, savedInstanceState)
+        super.onViewCreated(view, savedInstanceState)
         setActionBarTitle()
-        (activity as BaseActivity?)?.showBackButton(true)
-        UIUtils.addUnderlineFlag(_binding.actionRegister)
+        setupUi()
 
         _viewModel.snackBar.observe(viewLifecycleOwner) { showSnackBar(it) }
+        _viewModel.loginSuccess.observe(viewLifecycleOwner) { launchMainPage(it) }
+    }
 
-        _binding.actionLogin.isEnabled = false
-        _binding.actionRegister.setOnClickListener { launchRegistrationPage() }
-
+    override fun onResume() {
+        super.onResume()
+        _currentUser = _viewModel.getCurrentUser()
         setupListeners()
+    }
 
-        _binding.emailLogin.addTextChangedListener(watcher)
-        _binding.passwordLogin.addTextChangedListener(watcher)
-        _binding.nameLogin.addTextChangedListener(watcher)
+    private fun setupUi() {
+        (activity as BaseActivity?)?.showBackButton(true)
+        UIUtils.addUnderlineFlag(_binding.actionRegister)
+        UIUtils.addUnderlineFlag(_binding.actionContinue)
     }
 
     private fun setupListeners() {
+        _binding.actionLogin.isEnabled = false
+        _binding.actionRegister.setOnClickListener { launchRegistrationPage() }
+
+        if (!_currentUser.isNullOrEmpty()) {
+            _binding.actionContinue.setOnClickListener { launchMainPage() }
+        } else {
+            _binding.actionContinue.text = getString(R.string.continue_as_guest)
+            _binding.actionContinue.setOnClickListener {
+                _viewModel.clearCurrentUser()
+                launchMainPage()
+            }
+        }
+
+        _binding.loginOptionGroup.setOnCheckedChangeListener{ _, checkedType ->
+            _userType = when (checkedType) {
+                R.id.student_login -> {
+                    Constants.STUDENT_OPTION
+                }
+                R.id.patient_login -> {
+                    Constants.PATIENT_OPTION
+                }
+                else -> {
+                    null
+                }
+            }
+        }
+
         watcher = object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {}
             override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {}
@@ -66,17 +95,20 @@ class LoginFragment: BaseFragment() {
                         !TextUtils.isEmpty(_binding.passwordLogin.text.toString()) &&
                         !TextUtils.isEmpty(_binding.nameLogin.text.toString())
                 _binding.actionLogin.isEnabled = allowLogin
+
                 _binding.actionLogin.setOnClickListener {
                     _viewModel.login(
                         _binding.emailLogin.text.toString(),
                         _binding.passwordLogin.text.toString(),
-                        _binding.nameLogin.text.toString()
+                        _binding.nameLogin.text.toString(),
+                        _userType
                     )
-                    launchUserLoginSuccessful()
-                    resetLoginPage()
                 }
             }
         }
+        _binding.emailLogin.addTextChangedListener(watcher)
+        _binding.passwordLogin.addTextChangedListener(watcher)
+        _binding.nameLogin.addTextChangedListener(watcher)
     }
 
     private fun resetLoginPage() {
@@ -85,7 +117,16 @@ class LoginFragment: BaseFragment() {
         _binding.nameLogin.text = null
     }
 
-    private fun launchUserLoginSuccessful() {
+    private fun launchMainPage(event: Event<Boolean>) {
+        event.contentIfNotHandled?.let {
+            if (it) {
+                launchMainPage()
+                resetLoginPage()
+            }
+        }
+    }
+
+    private fun launchMainPage() {
         val intent = Intent(context, MainActivity::class.java)
         startActivity(intent)
     }
@@ -105,6 +146,6 @@ class LoginFragment: BaseFragment() {
     }
 
     override fun getRoot(): View {
-        return _binding!!.root
+        return _binding.root
     }
 }

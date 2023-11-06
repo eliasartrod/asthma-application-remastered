@@ -1,7 +1,6 @@
 package com.example.asthmaapplication.main.mainpage
 
 import dagger.hilt.android.AndroidEntryPoint
-import javax.inject.Inject
 import com.example.asthmaapplication.main.common.BaseFragment
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,6 +9,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import com.example.asthmaapplication.R
 import com.example.asthmaapplication.databinding.FragmentMainBinding
+import com.example.asthmaapplication.main.common.Constants
 import com.example.asthmaapplication.main.utils.UIUtils
 import com.example.asthmaapplication.main.common.SnackBarMessage
 import com.example.asthmaapplication.main.mainpage.subpages.LearningBaseFragment
@@ -24,10 +24,8 @@ class MainFragment: BaseFragment() {
 
     private val _viewModel: MainViewModel by viewModels()
 
-    private val loginOption: String? = null
-    private val student = "studentOption"
-    private val patient = "patientOption"
-    private var userName: String? = null
+    private var _loginOption: String? = null
+    private var _userName: String? = null
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -40,6 +38,7 @@ class MainFragment: BaseFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        _loginOption = _viewModel.userType
 
         _binding.learningCard.cardImage.setImageResource(R.drawable.ic_lung_normal)
         _binding.learningCard.cardTitle.setText(R.string.learning_card)
@@ -63,25 +62,25 @@ class MainFragment: BaseFragment() {
     }
 
     private fun setActionBarTitle() {
-        userName = _viewModel.userName
+        _userName = _viewModel.userName
 
-        if (userName.isNullOrEmpty()) {
+        if (_userName.isNullOrEmpty()) {
             _binding.actionLogout.text = getString(R.string.redirect_home)
             _binding.mainTitleDescription.text = getString(R.string.guest_user_tip)
             setActionBarTitle(getString(R.string.welcome_user, getString(R.string.guest_user)))
         } else {
             _binding.mainTitleDescription.text = getText(R.string.main_page_title)
             _binding.actionLogout.text = getString(R.string.log_out)
-            setActionBarTitle(getString(R.string.welcome_user, userName))
+            setActionBarTitle(getString(R.string.welcome_user, _userName))
         }
     }
 
     private fun validateUserAccess() {
-        when (loginOption) {
-            student -> {
+        when (_loginOption) {
+            Constants.STUDENT_OPTION -> {
                 setStudentAccess()
             }
-            patient -> {
+            Constants.PATIENT_OPTION -> {
                 setPatientAccess()
             }
             else -> {
@@ -102,7 +101,8 @@ class MainFragment: BaseFragment() {
         _binding.reviewCard.cardHolder.setBackgroundColor(resources.getColor(R.color.gray))
         _binding.learningCard.root.setOnClickListener { launchLearningPage() }
         _binding.patientsCard.root.setOnClickListener { launchPatientsCard() }
-        setAccessWarnings(getString(R.string.patient_access_warning))
+        _binding.reviewCard.root.setOnClickListener { setAccessWarnings(getString(R.string.patient_access_warning)) }
+        _binding.quizCard.root.setOnClickListener { setAccessWarnings(getString(R.string.patient_access_warning)) }
     }
 
     private fun setDefaultAccess() {
@@ -112,7 +112,7 @@ class MainFragment: BaseFragment() {
         _binding.reviewCard.cardHolder.setBackgroundColor(resources.getColor(R.color.gray))
         _binding.patientsCard.root.setOnClickListener { setAccessWarnings(getString(R.string.guest_user_access_warning)) }
         _binding.quizCard.root.setOnClickListener { setAccessWarnings(getString(R.string.guest_user_access_warning)) }
-        _binding.reviewCard.root.setOnClickListener { setAccessWarnings(getString(R.string.review_validation_warning)) }
+        _binding.reviewCard.root.setOnClickListener { setAccessWarnings(getString(R.string.guest_user_access_warning)) }
     }
 
     private fun setAccessWarnings(warningMessage: String) {

@@ -13,8 +13,10 @@ class MainViewModel @Inject constructor(
 ) : ViewModel() {
 
     val userName: String = _appPreferences.userName
+    val userType: String = _appPreferences.userType
 
     fun logOut() {
         _appPreferences.userName = null
+        _appPreferences.userType = null
     }
 }

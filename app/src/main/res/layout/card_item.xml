@@ -28,7 +28,7 @@
             android:layout_margin="0dp"
             android:elevation="30dp"
             android:orientation="vertical"
-            android:background="@color/button_color">
+            android:background="@color/main_theme_dark">
 
             <FrameLayout
                 android:layout_width="match_parent"

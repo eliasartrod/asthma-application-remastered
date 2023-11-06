@@ -1,82 +1,117 @@
-package com.example.asthmaapplication.main.mainpage.subpages.learningpages;
+package com.example.asthmaapplication.main.mainpage.subpages.learningpages
 
-import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-
-import androidx.annotation.Nullable;
-import androidx.lifecycle.ViewModelProvider;
-import androidx.recyclerview.widget.LinearLayoutManager;
-
-import com.example.asthmaapplication.R;
-import com.example.asthmaapplication.databinding.FragmentSectionTwoBinding;
-import com.example.asthmaapplication.main.adapter.AsthmaInfoAdapter;
-import com.example.asthmaapplication.main.common.BaseFragment;
-import com.example.asthmaapplication.main.mainpage.MainViewModel;
-import com.example.asthmaapplication.main.model.AsthmaInfoModel;
-
-import java.util.ArrayList;
-
-import javax.inject.Inject;
-
-import dagger.hilt.android.AndroidEntryPoint;
-import io.reactivex.annotations.NonNull;
+import dagger.hilt.android.AndroidEntryPoint
+import com.example.asthmaapplication.main.common.BaseFragment
+import com.example.asthmaapplication.main.adapter.AsthmaInfoAdapter
+import com.example.asthmaapplication.main.model.AsthmaInfoModel
+import android.view.LayoutInflater
+import android.view.ViewGroup
+import android.os.Bundle
+import android.view.View
+import com.example.asthmaapplication.R
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.asthmaapplication.databinding.FragmentSectionTwoBinding
+import java.util.ArrayList
 
 @AndroidEntryPoint
-public class SectionTwoFragment extends BaseFragment {
-    FragmentSectionTwoBinding binding;
-    AsthmaInfoAdapter adapter;
-    ArrayList<AsthmaInfoModel> asthmaInfoModels = new ArrayList<>();
-
-    @Nullable
-    @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        binding = FragmentSectionTwoBinding.inflate(inflater, container, false);
-        return binding.getRoot();
+class SectionTwoFragment : BaseFragment() {
+    private lateinit var _binding: FragmentSectionTwoBinding
+    private var _adapter: AsthmaInfoAdapter? = null
+    private var asthmaInfoModels = ArrayList<AsthmaInfoModel>()
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        _binding = FragmentSectionTwoBinding.inflate(inflater, container, false)
+        return _binding.root
     }
 
-    @Override
-    public void onViewCreated(@Nullable View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-
-        setActionBarTitle();
-        createSectionTwoInfo();
-        setupAdapter();
-
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view!!, savedInstanceState)
+        setActionBarTitle()
+        createSectionTwoInfo()
+        setupAdapter()
     }
 
-    @Override
-    public void onResume() {
-        super.onResume();
+    private fun setActionBarTitle() {
+        setActionBarTitle(getString(R.string.learning_page_title))
     }
 
-    public void setActionBarTitle() {
-        setActionBarTitle(getString(R.string.learning_page_title));
+    private fun createSectionTwoInfo() {
+        asthmaInfoModels.add(
+            AsthmaInfoModel(
+                getString(R.string.section_two_title_one),
+                getString(R.string.section_two_description_one),
+                R.drawable.ic_lung_normal
+            )
+        )
+        asthmaInfoModels.add(
+            AsthmaInfoModel(
+                getString(R.string.section_two_title_two),
+                getString(R.string.section_two_description_two),
+                R.drawable.ic_doctor
+            )
+        )
+        asthmaInfoModels.add(
+            AsthmaInfoModel(
+                getString(R.string.section_two_title_three),
+                getString(R.string.section_two_description_three),
+                R.drawable.ic_exam_male
+            )
+        )
+        asthmaInfoModels.add(
+            AsthmaInfoModel(
+                getString(R.string.section_two_title_four),
+                getString(R.string.section_two_description_four),
+                R.drawable.ic_heartbeat
+            )
+        )
+        asthmaInfoModels.add(
+            AsthmaInfoModel(
+                getString(R.string.section_two_title_five),
+                getString(R.string.section_two_description_five),
+                R.drawable.ic_allergy
+            )
+        )
+        asthmaInfoModels.add(
+            AsthmaInfoModel(
+                getString(R.string.section_two_title_six),
+                getString(R.string.section_two_description_six),
+                R.drawable.ic_exam_female
+            )
+        )
+        asthmaInfoModels.add(
+            AsthmaInfoModel(
+                getString(R.string.section_two_title_seven),
+                getString(R.string.section_two_description_seven),
+                R.drawable.ic_lung_misc
+            )
+        )
+        asthmaInfoModels.add(
+            AsthmaInfoModel(
+                getString(R.string.section_two_title_eight),
+                getString(R.string.section_two_description_eight),
+                R.drawable.ic_asthma_children
+            )
+        )
+        asthmaInfoModels.add(
+            AsthmaInfoModel(
+                getString(R.string.section_two_reference),
+                getString(R.string.section_two_reference_description),
+                R.drawable.ic_references
+            )
+        )
     }
 
-    public void createSectionTwoInfo() {
-        asthmaInfoModels.add(new AsthmaInfoModel(getString(R.string.section_two_title_one), getString(R.string.section_two_description_one), R.drawable.ic_lung_normal));
-        asthmaInfoModels.add(new AsthmaInfoModel(getString(R.string.section_two_title_two), getString(R.string.section_two_description_two), R.drawable.ic_doctor));
-        asthmaInfoModels.add(new AsthmaInfoModel(getString(R.string.section_two_title_three), getString(R.string.section_two_description_three), R.drawable.ic_exam_male));
-        asthmaInfoModels.add(new AsthmaInfoModel(getString(R.string.section_two_title_four), getString(R.string.section_two_description_four), R.drawable.ic_heartbeat));
-        asthmaInfoModels.add(new AsthmaInfoModel(getString(R.string.section_two_title_five), getString(R.string.section_two_description_five), R.drawable.ic_allergy));
-        asthmaInfoModels.add(new AsthmaInfoModel(getString(R.string.section_two_title_six), getString(R.string.section_two_description_six), R.drawable.ic_exam_female));
-        asthmaInfoModels.add(new AsthmaInfoModel(getString(R.string.section_two_title_seven), getString(R.string.section_two_description_seven), R.drawable.ic_lung_misc));
-        asthmaInfoModels.add(new AsthmaInfoModel(getString(R.string.section_two_title_eight), getString(R.string.section_two_description_eight), R.drawable.ic_asthma_children));
-        asthmaInfoModels.add(new AsthmaInfoModel(getString(R.string.section_two_reference), getString(R.string.section_two_reference_description), R.drawable.ic_references));
-
+    private fun setupAdapter() {
+        _binding.sectionTitle.text = getString(R.string.section_two)
+        _adapter = AsthmaInfoAdapter(context, asthmaInfoModels)
+        _binding.recyclerView.layoutManager = LinearLayoutManager(context)
+        _binding.recyclerView.adapter = _adapter
     }
 
-    public void setupAdapter() {
-        binding.sectionTitle.setText(getString(R.string.section_two));
-        adapter = new AsthmaInfoAdapter(getContext(), asthmaInfoModels);
-        binding.recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        binding.recyclerView.setAdapter(adapter);
-    }
-
-    @Override
-    public View getRoot() {
-        return binding.getRoot();
+    override fun getRoot(): View {
+        return _binding.root
     }
 }

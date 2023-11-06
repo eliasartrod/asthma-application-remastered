@@ -142,7 +142,7 @@
         android:layout_height="wrap_content"
         android:background="@drawable/ic_rectangle_stroke"
         android:padding="@dimen/doubleSpacing"
-        android:backgroundTint="@color/button_color"
+        android:backgroundTint="@color/main_theme_dark"
         android:layout_marginEnd="25dp"
         android:layout_marginTop="15dp"
         android:text="@string/patient_login_option" />
@@ -153,12 +153,26 @@
         android:layout_height="wrap_content"
         android:background="@drawable/ic_rectangle_stroke"
         android:padding="@dimen/doubleSpacing"
-        android:backgroundTint="@color/button_color"
+        android:backgroundTint="@color/main_theme_dark"
         android:layout_marginStart="25dp"
         android:layout_marginTop="15dp"
         android:text="@string/student_login_option" />
 
     </RadioGroup>
+
+    <TextView
+        android:id="@+id/action_continue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="25dp"
+        android:text="@string/you_are_signed_in"
+        android:textAlignment="center"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toTopOf="@id/action_register"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
 
     <TextView
         android:id="@+id/action_register"

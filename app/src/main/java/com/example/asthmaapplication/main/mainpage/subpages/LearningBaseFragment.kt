@@ -1,6 +1,5 @@
 package com.example.asthmaapplication.main.mainpage.subpages
 
-import javax.inject.Inject
 import com.example.asthmaapplication.main.common.BaseFragment
 import com.example.asthmaapplication.main.mainpage.MainViewModel
 import android.os.Bundle
@@ -12,6 +11,8 @@ import android.content.Intent
 import android.view.View
 import androidx.fragment.app.viewModels
 import com.example.asthmaapplication.databinding.FragmentLearningBaseBinding
+import com.example.asthmaapplication.main.common.Constants
+import com.example.asthmaapplication.main.common.SnackBarMessage
 import com.example.asthmaapplication.main.mainpage.MainFragment
 import com.example.asthmaapplication.main.mainpage.subpages.learningpages.LearningFragmentActivity
 import com.example.asthmaapplication.main.mainpage.subpages.learningpages.LearningFragment
@@ -19,10 +20,12 @@ import com.example.asthmaapplication.main.utils.ActivityUtils
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class LearningBaseFragment @Inject constructor() : BaseFragment() {
+class LearningBaseFragment: BaseFragment() {
     private lateinit var _binding: FragmentLearningBaseBinding
 
     private val _viewModel: MainViewModel by viewModels()
+
+    private var _loginOption: String? = null
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -34,14 +37,12 @@ class LearningBaseFragment @Inject constructor() : BaseFragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view!!, savedInstanceState)
+        super.onViewCreated(view, savedInstanceState)
+        _loginOption = _viewModel.userType
+
         setActionBarTitle()
         setupUI()
-    }
-
-    override fun onResume() {
-        super.onResume()
-        // getReadingPreferences();
+        validateReviewAccess()
     }
 
     private fun setActionBarTitle() {
@@ -107,17 +108,35 @@ class LearningBaseFragment @Inject constructor() : BaseFragment() {
         startActivity(intent)
     }
 
-    private fun launchReviewsPage() {
-        val fragment = ReviewsFragment()
-        ActivityUtils.addFragmentWithBackStack(
-            parentFragmentManager,
-            fragment,
-            R.id.fragment_container,
-            "reviews_page"
-        )
+    private fun validateReviewAccess() {
+        when (_loginOption) {
+            Constants.STUDENT_OPTION -> {
+                _binding.reviewCard.root.setOnClickListener {
+                    val fragment = ReviewsFragment()
+                    ActivityUtils.addFragmentWithBackStack(
+                        parentFragmentManager,
+                        fragment,
+                        R.id.fragment_container,
+                        "reviews_page"
+                    )
+                }
+            }
+            Constants.PATIENT_OPTION -> {
+                _binding.reviewCard.cardHolder.setBackgroundColor(resources.getColor(R.color.gray))
+                _binding.reviewCard.root.setOnClickListener { setAccessWarnings(getString(R.string.patient_access_warning)) }
+            }
+            else -> {
+                _binding.reviewCard.cardHolder.setBackgroundColor(resources.getColor(R.color.gray))
+                _binding.reviewCard.root.setOnClickListener { setAccessWarnings(getString(R.string.guest_user_access_warning)) }
+            }
+        }
+    }
+
+    private fun setAccessWarnings(warningMessage: String) {
+        showSnackBar(SnackBarMessage(warningMessage))
     }
 
     override fun getRoot(): View {
-        return _binding!!.root
+        return _binding.root
     }
 }

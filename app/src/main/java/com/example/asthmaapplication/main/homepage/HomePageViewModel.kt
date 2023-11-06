@@ -22,14 +22,17 @@ class HomePageViewModel @Inject constructor(
     private val _loading = MutableLiveData<Event<Boolean>>()
     private val _snackBar = MutableLiveData<Event<SnackBarMessage>>()
     private val _registrationSuccess = MutableLiveData<Event<Boolean>>()
-    private val dbHelper = UserAccountDataBaseHelper(_context)
-    private val db: SQLiteDatabase = dbHelper.writableDatabase
+    private val _loginSuccess = MutableLiveData<Event<Boolean>>()
+    private val _dbHelper = UserAccountDataBaseHelper(_context)
+    private val _db: SQLiteDatabase = _dbHelper.writableDatabase
 
     val loading: LiveData<Event<Boolean>> = _loading
     val snackBar: LiveData<Event<SnackBarMessage>> = _snackBar
     val registrationSuccess: LiveData<Event<Boolean>> = _registrationSuccess
+    val loginSuccess: LiveData<Event<Boolean>> = _loginSuccess
 
-    fun login(emailAddress: String?, password: String?, name: String?) {
+    fun login(emailAddress: String?, password: String?, name: String?, userType: String?) {
+        _appPreferences.userType = userType
         // Check if the user exists in the database
         if (emailAddress?.let { ifUserExists(it) } == true) {
             // Retrieve the stored password for the given email
@@ -39,15 +42,17 @@ class HomePageViewModel @Inject constructor(
             if (password == storedPassword) {
                 // Successful login
                 _snackBar.value = Event(SnackBarMessage(R.string.successful_login))
-
+                _loginSuccess.value = Event(true)
                 _appPreferences.userName = name
             } else {
                 // Incorrect password
                 _snackBar.value = Event(SnackBarMessage(R.string.failed_login_wrong_password))
+                _loginSuccess.value = Event(false)
             }
         } else {
             // User doesn't exist
             _snackBar.value = Event(SnackBarMessage(R.string.failed_login_user_non_existent))
+            _loginSuccess.value = Event(false)
         }
     }
 
@@ -67,11 +72,22 @@ class HomePageViewModel @Inject constructor(
         }
     }
 
+    fun clearCurrentUser() {
+        if (!getCurrentUser().isNullOrEmpty()) {
+            _appPreferences.userName = null
+            _appPreferences.userType = null
+        }
+    }
+
+    fun getCurrentUser(): String? {
+        return _appPreferences.userName
+    }
+
     private fun getUserPassword(emailAddress: String): String {
         val columns = arrayOf("password")
         val selection = "email = ?"
         val selectionArgs = arrayOf(emailAddress)
-        val cursor: Cursor = db.query("user_accounts", columns, selection, selectionArgs, null, null, null)
+        val cursor: Cursor = _db.query("user_accounts", columns, selection, selectionArgs, null, null, null)
 
         val passwordIndex = cursor.getColumnIndex("password")
 
@@ -92,7 +108,7 @@ class HomePageViewModel @Inject constructor(
         val columns = arrayOf("email")
         val selection = "email = ?"
         val selectionArgs = arrayOf(emailAddress)
-        val cursor: Cursor = db.query("user_accounts", columns, selection, selectionArgs, null, null, null)
+        val cursor: Cursor = _db.query("user_accounts", columns, selection, selectionArgs, null, null, null)
         val userExists = cursor.count > 0
         cursor.close()
         return userExists
@@ -102,7 +118,7 @@ class HomePageViewModel @Inject constructor(
         val values = ContentValues()
         values.put("email", userAccountModel.emailAddress)
         values.put("password", userAccountModel.password)
-        db.insert("user_accounts", null, values)
+        _db.insert("user_accounts", null, values)
     }
 
 }
