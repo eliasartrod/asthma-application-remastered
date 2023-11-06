@@ -75,10 +75,6 @@ public class BaseActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void invalidateUser() {
-        appPreferences.setUserName(null);
-    }
-
     public void setActionBarTitle(String title) {
         if (getSupportActionBar() != null) {
             getSupportActionBar().setTitle(title);
