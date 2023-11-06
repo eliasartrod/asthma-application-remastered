@@ -1,63 +1,45 @@
-package com.example.asthmaapplication.main.mainpage.subpages;
+package com.example.asthmaapplication.main.mainpage.subpages
 
-import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
+import javax.inject.Inject
+import com.example.asthmaapplication.main.common.BaseFragment
+import com.example.asthmaapplication.main.mainpage.MainViewModel
+import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import com.example.asthmaapplication.R
+import com.example.asthmaapplication.databinding.FragmentQuizzesExamsBinding
+import dagger.hilt.android.AndroidEntryPoint
 
-import androidx.annotation.Nullable;
-import androidx.lifecycle.ViewModelProvider;
+@AndroidEntryPoint
+class QuizzesExamsFragment @Inject constructor() : BaseFragment() {
+    var viewModel: MainViewModel? = null
+    var binding: FragmentQuizzesExamsBinding? = null
 
-import com.example.asthmaapplication.R;
-import com.example.asthmaapplication.databinding.FragmentQuizzesExamsBinding;
-import com.example.asthmaapplication.main.common.BaseFragment;
-import com.example.asthmaapplication.main.mainpage.MainViewModel;
 
-import javax.inject.Inject;
-
-import io.reactivex.annotations.NonNull;
-
-public class QuizzesExamsFragment extends BaseFragment {
-    MainViewModel viewModel;
-    FragmentQuizzesExamsBinding binding;
-
-    @Inject
-    public QuizzesExamsFragment() {
-
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        binding = FragmentQuizzesExamsBinding.inflate(inflater, container, false)
+        return binding!!.root
     }
 
-    @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        viewModel = new ViewModelProvider(this).get(MainViewModel.class);
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view!!, savedInstanceState)
+        setActionBarTitle()
     }
 
-    @Nullable
-    @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        binding = FragmentQuizzesExamsBinding.inflate(inflater, container, false);
-        return binding.getRoot();
+    override fun onResume() {
+        super.onResume()
     }
 
-    @Override
-    public void onViewCreated(@Nullable View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-
-        getPreferences();
-        setActionBarTitle();
+    fun setActionBarTitle() {
+        setActionBarTitle(getString(R.string.quizzes_exam_page_title))
     }
 
-    @Override
-    public void onResume() {
-        super.onResume();
-    }
-
-    public void setActionBarTitle() {
-        setActionBarTitle(getString(R.string.quizzes_exam_page_title));
-    }
-
-    @Override
-    public View getRoot() {
-        return binding.getRoot();
+    override fun getRoot(): View {
+        return binding!!.root
     }
 }

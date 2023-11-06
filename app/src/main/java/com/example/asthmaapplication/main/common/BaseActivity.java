@@ -1,6 +1,5 @@
 package com.example.asthmaapplication.main.common;
 
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MenuItem;
 
@@ -12,12 +11,15 @@ import androidx.fragment.app.FragmentManager;
 
 import com.example.asthmaapplication.databinding.ActivityToolbarBinding;
 
+import javax.inject.Inject;
+
 import dagger.hilt.android.AndroidEntryPoint;
 import io.reactivex.disposables.CompositeDisposable;
 
 @AndroidEntryPoint
 public class BaseActivity extends AppCompatActivity {
-    SharedPreferences preferences;
+    @Inject
+    AppPreferences appPreferences;
 
     CompositeDisposable compositeDisposable = new CompositeDisposable();
 
@@ -28,8 +30,6 @@ public class BaseActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityToolbarBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-
-        getPreferences();
 
         Toolbar toolbar = binding.toolbar;
         setSupportActionBar(toolbar);
@@ -53,27 +53,6 @@ public class BaseActivity extends AppCompatActivity {
         super.onDestroy();
     }
 
-    public void getPreferences() {
-        preferences = getApplicationContext().getSharedPreferences("my.prefs", MODE_PRIVATE);
-    }
-
-    public void setActionBarTitle(String title) {
-        if (getSupportActionBar() != null) {
-            getSupportActionBar().setTitle(title);
-        }
-    }
-
-    public void setActionBarTitle(int resId) {
-        if (getSupportActionBar() != null) {
-            getSupportActionBar().setTitle(resId);
-        }
-    }
-
-    public void showBackButton(boolean show) {
-        if (getSupportActionBar() != null) {
-            getSupportActionBar().setDisplayHomeAsUpEnabled(show);
-        }
-    }
 
     @Override
     public void onBackPressed() {
@@ -94,5 +73,27 @@ public class BaseActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void invalidateUser() {
+        appPreferences.setUserName(null);
+    }
+
+    public void setActionBarTitle(String title) {
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setTitle(title);
+        }
+    }
+
+    public void setActionBarTitle(int resId) {
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setTitle(resId);
+        }
+    }
+
+    public void showBackButton(boolean show) {
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setDisplayHomeAsUpEnabled(show);
+        }
     }
 }

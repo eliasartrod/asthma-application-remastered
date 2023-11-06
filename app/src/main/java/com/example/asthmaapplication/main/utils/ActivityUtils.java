@@ -27,6 +27,15 @@ public class ActivityUtils {
         ft.commit();
     }
 
+    public static void replaceFragment(FragmentManager fragmentManager,
+                                       Fragment fragment,
+                                       int frameId){
+        FragmentTransaction ft = fragmentManager.beginTransaction();
+        ft.replace(frameId, fragment);
+        ft.commit();
+
+    }
+
     /**
      * Creates a fresh stack of fragments using tag as the "name" of the root fragment
      *

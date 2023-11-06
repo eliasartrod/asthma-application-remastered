@@ -1,155 +1,123 @@
-package com.example.asthmaapplication.main.mainpage.subpages;
+package com.example.asthmaapplication.main.mainpage.subpages
 
-import android.content.Intent;
-import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
+import javax.inject.Inject
+import com.example.asthmaapplication.main.common.BaseFragment
+import com.example.asthmaapplication.main.mainpage.MainViewModel
+import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.ViewGroup
+import com.example.asthmaapplication.R
+import com.example.asthmaapplication.main.utils.UIUtils
+import android.content.Intent
+import android.view.View
+import androidx.fragment.app.viewModels
+import com.example.asthmaapplication.databinding.FragmentLearningBaseBinding
+import com.example.asthmaapplication.main.mainpage.MainFragment
+import com.example.asthmaapplication.main.mainpage.subpages.learningpages.LearningFragmentActivity
+import com.example.asthmaapplication.main.mainpage.subpages.learningpages.LearningFragment
+import com.example.asthmaapplication.main.utils.ActivityUtils
+import dagger.hilt.android.AndroidEntryPoint
 
-import androidx.annotation.Nullable;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
-import androidx.lifecycle.ViewModelProvider;
+@AndroidEntryPoint
+class LearningBaseFragment @Inject constructor() : BaseFragment() {
+    private lateinit var _binding: FragmentLearningBaseBinding
 
-import com.example.asthmaapplication.R;
-import com.example.asthmaapplication.databinding.FragmentLearningBaseBinding;
-import com.example.asthmaapplication.main.common.BaseFragment;
-import com.example.asthmaapplication.main.common.SnackBarMessage;
-import com.example.asthmaapplication.main.mainpage.MainViewModel;
-import com.example.asthmaapplication.main.mainpage.subpages.learningpages.LearningFragment;
-import com.example.asthmaapplication.main.mainpage.subpages.learningpages.LearningFragmentActivity;
-import com.example.asthmaapplication.main.utils.UIUtils;
+    private val _viewModel: MainViewModel by viewModels()
 
-import javax.inject.Inject;
-
-import io.reactivex.annotations.NonNull;
-
-public class LearningBaseFragment extends BaseFragment {
-    MainViewModel viewModel;
-    FragmentLearningBaseBinding binding;
-    FragmentManager manager;
-    FragmentTransaction transaction;
-
-    @Inject
-    public LearningBaseFragment() {
-
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        _binding = FragmentLearningBaseBinding.inflate(inflater, container, false)
+        return _binding.root
     }
 
-    @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        viewModel = new ViewModelProvider(this).get(MainViewModel.class);
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view!!, savedInstanceState)
+        setActionBarTitle()
+        setupUI()
     }
 
-    @Nullable
-    @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        binding = FragmentLearningBaseBinding.inflate(inflater, container, false);
-        return binding.getRoot();
+    override fun onResume() {
+        super.onResume()
+        // getReadingPreferences();
     }
 
-    @Override
-    public void onViewCreated(@Nullable View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-
-        getPreferences();
-        setActionBarTitle();
-        setupUI();
-
-        manager = getFragmentManager();
-        transaction = manager.beginTransaction();
-
+    private fun setActionBarTitle() {
+        setActionBarTitle(getString(R.string.learning_page_title))
     }
 
-    @Override
-    public void onResume() {
-        super.onResume();
-        getReadingPreferences();
-    }
-
-    public void setActionBarTitle() {
-        setActionBarTitle(getString(R.string.learning_page_title));
-    }
-
-    public void setupUI() {
-        UIUtils.addUnderlineFlag(binding.actionHomePageRedirect);
-        binding.actionHomePageRedirect.setOnClickListener(v -> manager.popBackStack());
-
-        binding.sectionOneCard.cardImage.setImageResource(R.drawable.ic_inhaler);
-        binding.sectionOneCard.cardTitle.setText(R.string.section_one);
-        binding.sectionOneCard.getRoot().setOnClickListener(v -> launchSectionOnePage());
-
-        binding.sectionTwoCard.cardImage.setImageResource(R.drawable.ic_lung_abnormal);
-        binding.sectionTwoCard.cardTitle.setText(R.string.section_two);
-        binding.sectionTwoCard.getRoot().setOnClickListener(v -> launchSectionTwoPage());
-
-        binding.sectionThreeCard.cardImage.setImageResource(R.drawable.ic_board_charts);
-        binding.sectionThreeCard.cardTitle.setText(R.string.section_three);
-        binding.sectionThreeCard.getRoot().setOnClickListener(v -> launchSectionThreePage());
-
-        binding.sectionFourCard.cardImage.setImageResource(R.drawable.ic_clinical_studies);
-        binding.sectionFourCard.cardTitle.setText(R.string.section_four);
-        binding.sectionFourCard.getRoot().setOnClickListener(v -> launchSectionFourPage());
-
-        binding.sectionFiveCard.cardImage.setImageResource(R.drawable.ic_guidance);
-        binding.sectionFiveCard.cardTitle.setText(R.string.section_five);
-        binding.sectionFiveCard.getRoot().setOnClickListener(v -> launchSectionFivePage());
-
-        binding.reviewCard.cardImage.setImageResource(R.drawable.ic_review_icon);
-        binding.reviewCard.cardTitle.setText(R.string.review_card);
-    }
-
-    public void getReadingPreferences() {
-        if (!getUserName().isEmpty()) {
-            binding.reviewCard.cardHolder.setBackgroundColor(getResources().getColor(R.color.button_color));
-            binding.reviewCard.getRoot().setOnClickListener(v -> launchReviewsPage());
-        } else {
-            binding.reviewCard.cardHolder.setBackgroundColor(getResources().getColor(R.color.gray));
-            binding.reviewCard.getRoot().setOnClickListener(v ->
-                    showSnackBar(new SnackBarMessage(getString(R.string.review_validation_warning))));
+    private fun setupUI() {
+        UIUtils.addUnderlineFlag(_binding.actionHomePageRedirect)
+        _binding.actionHomePageRedirect.setOnClickListener {
+            ActivityUtils.addFragmentWithBackStack(
+                parentFragmentManager,
+                MainFragment(),
+                R.id.fragment_container,
+                null
+            )
         }
+        _binding.sectionOneCard.cardImage.setImageResource(R.drawable.ic_inhaler)
+        _binding.sectionOneCard.cardTitle.setText(R.string.section_one)
+        _binding.sectionOneCard.root.setOnClickListener { launchSectionOnePage() }
+        _binding.sectionTwoCard.cardImage.setImageResource(R.drawable.ic_lung_abnormal)
+        _binding.sectionTwoCard.cardTitle.setText(R.string.section_two)
+        _binding.sectionTwoCard.root.setOnClickListener { launchSectionTwoPage() }
+        _binding.sectionThreeCard.cardImage.setImageResource(R.drawable.ic_board_charts)
+        _binding.sectionThreeCard.cardTitle.setText(R.string.section_three)
+        _binding.sectionThreeCard.root.setOnClickListener { launchSectionThreePage() }
+        _binding.sectionFourCard.cardImage.setImageResource(R.drawable.ic_clinical_studies)
+        _binding.sectionFourCard.cardTitle.setText(R.string.section_four)
+        _binding.sectionFourCard.root.setOnClickListener { launchSectionFourPage() }
+        _binding.sectionFiveCard.cardImage.setImageResource(R.drawable.ic_guidance)
+        _binding.sectionFiveCard.cardTitle.setText(R.string.section_five)
+        _binding.sectionFiveCard.root.setOnClickListener { launchSectionFivePage() }
+        _binding.reviewCard.cardImage.setImageResource(R.drawable.ic_review_icon)
+        _binding.reviewCard.cardTitle.setText(R.string.review_card)
     }
 
-    public void launchSectionOnePage() {
-        Intent intent = new Intent(getContext(), LearningFragmentActivity.class);
-        intent.putExtra(LearningFragment.FRAGMENT_POSITION, 0);
-        startActivity(intent);
+    private fun launchSectionOnePage() {
+        val intent = Intent(context, LearningFragmentActivity::class.java)
+        intent.putExtra(LearningFragment.FRAGMENT_POSITION, 0)
+        startActivity(intent)
     }
 
-    public void launchSectionTwoPage() {
-        Intent intent = new Intent(getContext(), LearningFragmentActivity.class);
-        intent.putExtra(LearningFragment.FRAGMENT_POSITION, 1);
-        startActivity(intent);
+    private fun launchSectionTwoPage() {
+        val intent = Intent(context, LearningFragmentActivity::class.java)
+        intent.putExtra(LearningFragment.FRAGMENT_POSITION, 1)
+        startActivity(intent)
     }
 
-    public void launchSectionThreePage() {
-        Intent intent = new Intent(getContext(), LearningFragmentActivity.class);
-        intent.putExtra(LearningFragment.FRAGMENT_POSITION, 2);
-        startActivity(intent);
+    private fun launchSectionThreePage() {
+        val intent = Intent(context, LearningFragmentActivity::class.java)
+        intent.putExtra(LearningFragment.FRAGMENT_POSITION, 2)
+        startActivity(intent)
     }
 
-    public void launchSectionFourPage() {
-        Intent intent = new Intent(getContext(), LearningFragmentActivity.class);
-        intent.putExtra(LearningFragment.FRAGMENT_POSITION, 3);
-        startActivity(intent);
+    private fun launchSectionFourPage() {
+        val intent = Intent(context, LearningFragmentActivity::class.java)
+        intent.putExtra(LearningFragment.FRAGMENT_POSITION, 3)
+        startActivity(intent)
     }
 
-    public void launchSectionFivePage() {
-        Intent intent = new Intent(getContext(), LearningFragmentActivity.class);
-        intent.putExtra(LearningFragment.FRAGMENT_POSITION, 4);
-        startActivity(intent);
+    private fun launchSectionFivePage() {
+        val intent = Intent(context, LearningFragmentActivity::class.java)
+        intent.putExtra(LearningFragment.FRAGMENT_POSITION, 4)
+        startActivity(intent)
     }
 
-    public void launchReviewsPage() {
-        ReviewsFragment fragment = new ReviewsFragment();
-        transaction.addToBackStack(null)
-                .replace(R.id.fragment_container, fragment)
-                .commit();
+    private fun launchReviewsPage() {
+        val fragment = ReviewsFragment()
+        ActivityUtils.addFragmentWithBackStack(
+            parentFragmentManager,
+            fragment,
+            R.id.fragment_container,
+            "reviews_page"
+        )
     }
 
-
-    @Override
-    public View getRoot() {
-        return binding.getRoot();
+    override fun getRoot(): View {
+        return _binding!!.root
     }
 }

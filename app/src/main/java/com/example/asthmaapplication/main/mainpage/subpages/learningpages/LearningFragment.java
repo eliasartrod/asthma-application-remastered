@@ -1,7 +1,5 @@
 package com.example.asthmaapplication.main.mainpage.subpages.learningpages;
 
-import android.content.Context;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,13 +7,11 @@ import android.view.ViewGroup;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModelProvider;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 
 import com.example.asthmaapplication.R;
 import com.example.asthmaapplication.databinding.FragmentLearningBinding;
 import com.example.asthmaapplication.main.common.BaseFragment;
-import com.example.asthmaapplication.main.mainpage.MainViewModel;
 import com.google.android.material.tabs.TabLayoutMediator;
 
 import org.jetbrains.annotations.NotNull;
@@ -26,19 +22,11 @@ import io.reactivex.annotations.NonNull;
 
 public class LearningFragment extends BaseFragment {
     public static final String FRAGMENT_POSITION = "fragment.position";
-    MainViewModel viewModel;
     FragmentLearningBinding binding;
-    SharedPreferences preferences;
 
     @Inject
     public LearningFragment() {
 
-    }
-
-    @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        viewModel = new ViewModelProvider(this).get(MainViewModel.class);
     }
 
     @Nullable
@@ -52,7 +40,6 @@ public class LearningFragment extends BaseFragment {
     public void onViewCreated(@Nullable View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        getPreferences();
         setActionBarTitle();
         setTabLayouts();
     }

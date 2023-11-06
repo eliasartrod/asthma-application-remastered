@@ -28,6 +28,9 @@
     <string name="login_option_title">Log In As?</string>
     <string name="patient_login_option">Patient</string>
     <string name="student_login_option">Student</string>
+    <string name="successful_login">Login Successful!</string>
+    <string name="failed_login_wrong_password">Invalid Password!</string>
+    <string name="failed_login_user_non_existent">User Does Not Exist! Please Register!</string>
 
     <!-- Home Page -->
     <string name="signed_in_user">Signed In User: %s</string>
@@ -69,6 +72,8 @@
     <string name="guest_user_access_warning">You Need to be Signed in/A Student/A Patient to Access this Feature!</string>
     <string name="review_validation_warning">You Must Finish Reading/Must be Signed In/A Student to Gain Access!</string>
     <string name="patient_access_warning">You are a Patient! Access to Learning/Patients Only!</string>
+    <string name="duplicate_user">User already exists!</string>
+    <string name="registration_success">User registration successful!</string>
 
     <!-- Section One -->
     <string name="section_one_introduction">Asthma Information</string>

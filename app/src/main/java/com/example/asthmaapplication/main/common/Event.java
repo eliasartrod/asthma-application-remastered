@@ -1,14 +1,24 @@
 package com.example.asthmaapplication.main.common;
 
+import android.os.Bundle;
+
 import androidx.lifecycle.Observer;
 
 public class Event<T> {
-
+    Bundle extra;
     private T content;
     private boolean hasBeenHandled = false;
 
     public Event(T content) {
         this.content = content;
+    }
+
+    public void setExtra(Bundle extra) {
+        this.extra = extra;
+    }
+
+    public Bundle getExtra() {
+        return this.extra;
     }
 
     public T getContentIfNotHandled() {
@@ -25,8 +35,6 @@ public class Event<T> {
     }
 
     public static class EventObserver<T> implements Observer<Event<? extends T>> {
-
-
         private EventUnhandledContent<T> content;
 
         public EventObserver(EventUnhandledContent<T> content) {

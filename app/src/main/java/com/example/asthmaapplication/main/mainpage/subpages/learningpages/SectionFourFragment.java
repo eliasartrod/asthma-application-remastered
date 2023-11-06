@@ -26,20 +26,8 @@ import io.reactivex.annotations.NonNull;
 @AndroidEntryPoint
 public class SectionFourFragment extends BaseFragment {
     FragmentSectionFourBinding binding;
-    MainViewModel viewModel;
     AsthmaInfoAdapter adapter;
     ArrayList<AsthmaInfoModel> asthmaInfoModels = new ArrayList<>();
-
-    @Inject
-    public SectionFourFragment() {
-
-    }
-
-    @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        viewModel = new ViewModelProvider(this).get(MainViewModel.class);
-    }
 
     @Nullable
     @Override
@@ -52,7 +40,6 @@ public class SectionFourFragment extends BaseFragment {
     public void onViewCreated(@Nullable View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        getPreferences();
         setActionBarTitle();
         createSectionFourInfo();
         setupAdapter();
