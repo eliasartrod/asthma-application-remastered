@@ -123,7 +123,7 @@ class SectionFiveFragment : BaseFragment() {
 
     private fun setupAdapter() {
         _binding.sectionTitle.text = getString(R.string.section_five)
-        _adapter = AsthmaInfoAdapter(context, asthmaInfoModels)
+        _adapter = AsthmaInfoAdapter(asthmaInfoModels)
         _binding.recyclerView.layoutManager = LinearLayoutManager(context)
         _binding.recyclerView.adapter = _adapter
     }

@@ -1,19 +1,19 @@
-package com.example.asthmaapplication.main.mainpage.subpages
+package com.example.asthmaapplication.main.mainpage.subpages.learningbasepages
 
-import javax.inject.Inject
 import com.example.asthmaapplication.main.common.BaseFragment
 import com.example.asthmaapplication.main.mainpage.MainViewModel
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.viewModels
 import com.example.asthmaapplication.R
 import com.example.asthmaapplication.databinding.FragmentReviewsBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class ReviewsFragment @Inject constructor() : BaseFragment() {
-    var viewModel: MainViewModel? = null
+class ReviewsFragment: BaseFragment() {
+    private val _viewModel: MainViewModel by viewModels()
     var binding: FragmentReviewsBinding? = null
 
     override fun onCreateView(

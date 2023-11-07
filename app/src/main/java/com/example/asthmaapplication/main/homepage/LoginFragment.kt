@@ -64,6 +64,7 @@ class LoginFragment: BaseFragment() {
         _binding.actionRegister.setOnClickListener { launchRegistrationPage() }
 
         if (!_currentUser.isNullOrEmpty()) {
+            _binding.actionContinue.text = getString(R.string.you_are_signed_in)
             _binding.actionContinue.setOnClickListener { launchMainPage() }
         } else {
             _binding.actionContinue.text = getString(R.string.continue_as_guest)

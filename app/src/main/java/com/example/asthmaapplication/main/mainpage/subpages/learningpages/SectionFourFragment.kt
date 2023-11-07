@@ -71,7 +71,7 @@ class SectionFourFragment : BaseFragment() {
 
     private fun setupAdapter() {
         _binding.sectionTitle.text = getString(R.string.section_four)
-        _adapter = AsthmaInfoAdapter(context, asthmaInfoModels)
+        _adapter = AsthmaInfoAdapter(asthmaInfoModels)
         _binding.recyclerView.layoutManager = LinearLayoutManager(context)
         _binding.recyclerView.adapter = _adapter
     }

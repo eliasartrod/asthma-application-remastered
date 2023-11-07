@@ -1,4 +1,4 @@
-package com.example.asthmaapplication.main.mainpage.subpages
+package com.example.asthmaapplication.main.mainpage.subpages.learningbasepages
 
 import com.example.asthmaapplication.main.common.BaseFragment
 import com.example.asthmaapplication.main.mainpage.MainViewModel

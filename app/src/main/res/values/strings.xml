@@ -69,7 +69,7 @@
     <string name="guest_user_warning">You are a guest user!</string>
 
     <!-- Warning Messages -->
-    <string name="guest_user_access_warning">You Need to be Signed in/A Student/A Patient to Access this Feature!</string>
+    <string name="guest_user_access_warning">You Need to be Signed in as: /A Student/A Patient to Access this Feature!</string>
     <string name="review_validation_warning">You Must Finish Reading/Must be Signed In/A Student to Gain Access!</string>
     <string name="patient_access_warning">You are a Patient! Access to Learning/Patients Only!</string>
     <string name="duplicate_user">User already exists!</string>

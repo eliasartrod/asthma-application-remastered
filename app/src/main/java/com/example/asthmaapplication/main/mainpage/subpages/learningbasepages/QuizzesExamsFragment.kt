@@ -1,4 +1,4 @@
-package com.example.asthmaapplication.main.mainpage.subpages
+package com.example.asthmaapplication.main.mainpage.subpages.learningbasepages
 
 import javax.inject.Inject
 import com.example.asthmaapplication.main.common.BaseFragment
@@ -7,20 +7,22 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.asthmaapplication.databinding.FragmentPatientsBinding
+import com.example.asthmaapplication.R
+import com.example.asthmaapplication.databinding.FragmentQuizzesExamsBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class PatientsFragment @Inject constructor() : BaseFragment() {
+class QuizzesExamsFragment @Inject constructor() : BaseFragment() {
     var viewModel: MainViewModel? = null
-    var binding: FragmentPatientsBinding? = null
+    var binding: FragmentQuizzesExamsBinding? = null
+
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentPatientsBinding.inflate(inflater, container, false)
+        binding = FragmentQuizzesExamsBinding.inflate(inflater, container, false)
         return binding!!.root
     }
 
@@ -33,7 +35,10 @@ class PatientsFragment @Inject constructor() : BaseFragment() {
         super.onResume()
     }
 
-    fun setActionBarTitle() {}
+    fun setActionBarTitle() {
+        setActionBarTitle(getString(R.string.quizzes_exam_page_title))
+    }
+
     override fun getRoot(): View {
         return binding!!.root
     }

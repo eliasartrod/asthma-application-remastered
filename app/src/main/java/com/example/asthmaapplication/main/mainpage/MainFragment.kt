@@ -12,10 +12,10 @@ import com.example.asthmaapplication.databinding.FragmentMainBinding
 import com.example.asthmaapplication.main.common.Constants
 import com.example.asthmaapplication.main.utils.UIUtils
 import com.example.asthmaapplication.main.common.SnackBarMessage
-import com.example.asthmaapplication.main.mainpage.subpages.LearningBaseFragment
-import com.example.asthmaapplication.main.mainpage.subpages.PatientsFragment
-import com.example.asthmaapplication.main.mainpage.subpages.ReviewsFragment
-import com.example.asthmaapplication.main.mainpage.subpages.QuizzesExamsFragment
+import com.example.asthmaapplication.main.mainpage.subpages.learningbasepages.LearningBaseFragment
+import com.example.asthmaapplication.main.mainpage.subpages.learningbasepages.PatientsFragment
+import com.example.asthmaapplication.main.mainpage.subpages.learningbasepages.ReviewsFragment
+import com.example.asthmaapplication.main.mainpage.subpages.learningbasepages.QuizzesExamsFragment
 import com.example.asthmaapplication.main.utils.ActivityUtils
 
 @AndroidEntryPoint
