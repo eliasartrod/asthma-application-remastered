@@ -58,7 +58,7 @@
                 android:fontFamily="sans-serif-black"
                 android:textAlignment="center"
                 android:textColor="@color/black"
-                android:textSize="12sp"
+                android:textSize="10sp"
                 android:textStyle="bold" />
 
         </LinearLayout>

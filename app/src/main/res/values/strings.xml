@@ -36,6 +36,20 @@
     <string name="signed_in_user">Signed In User: %s</string>
     <string name="welcome">Asthma Application App</string>
 
+    <!-- Menu Strings -->
+    <string name="my_profile">My Profile</string>
+
+    <!-- My Profile -->
+    <string name="my_profile_name">Name: %s</string>
+    <string name="my_profile_user_type">User Type: %s</string>
+    <string name="my_profile_student">Student</string>
+    <string name="my_profile_patient">Patient</string>
+    <string name="my_profile_default">Guest/Default User</string>
+    <string name="my_profile_access_type">Access: %s</string>
+    <string name="my_profile_student_access">Learning, Reviews, Patients and Quizzes</string>
+    <string name="my_profile_patient_access">Learning, and Patients</string>
+    <string name="my_profile_default_access">Learning</string>
+
     <!-- Main Page -->
     <string name="welcome_user">Welcome, %s</string>
     <string name="log_out">Log Out</string>

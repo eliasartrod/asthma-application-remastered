@@ -3,15 +3,17 @@ package com.example.asthmaapplication.main.mainpage
 import dagger.hilt.android.AndroidEntryPoint
 import com.example.asthmaapplication.main.common.BaseFragment
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
+import androidx.core.view.MenuHost
+import androidx.core.view.MenuProvider
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.Lifecycle
 import com.example.asthmaapplication.R
 import com.example.asthmaapplication.databinding.FragmentMainBinding
 import com.example.asthmaapplication.main.common.Constants
 import com.example.asthmaapplication.main.utils.UIUtils
 import com.example.asthmaapplication.main.common.SnackBarMessage
+import com.example.asthmaapplication.main.mainpage.myprofile.MyProfileFragment
 import com.example.asthmaapplication.main.mainpage.subpages.learningbasepages.LearningBaseFragment
 import com.example.asthmaapplication.main.mainpage.subpages.learningbasepages.PatientsFragment
 import com.example.asthmaapplication.main.mainpage.subpages.learningbasepages.ReviewsFragment
@@ -27,6 +29,8 @@ class MainFragment: BaseFragment() {
     private var _loginOption: String? = null
     private var _userName: String? = null
 
+    private val _myProfileFragment = MyProfileFragment()
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -38,8 +42,27 @@ class MainFragment: BaseFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        _loginOption = _viewModel.userType
+        setupUi()
+        setupListeners()
+        setupMenu()
+    }
 
+    override fun onResume() {
+        super.onResume()
+        _loginOption = _viewModel.userType
+        setActionBarTitle()
+        validateUserAccess()
+    }
+
+    private fun setupListeners() {
+        _binding.actionLogout.setOnClickListener {
+            _viewModel.logOut()
+            activity?.finish()
+        }
+    }
+
+    private fun setupUi() {
+        UIUtils.addUnderlineFlag(_binding.actionLogout)
         _binding.learningCard.cardImage.setImageResource(R.drawable.ic_lung_normal)
         _binding.learningCard.cardTitle.setText(R.string.learning_card)
         _binding.patientsCard.cardImage.setImageResource(R.drawable.ic_patient_icon)
@@ -48,17 +71,28 @@ class MainFragment: BaseFragment() {
         _binding.quizCard.cardTitle.setText(R.string.quiz_card)
         _binding.reviewCard.cardImage.setImageResource(R.drawable.ic_review_icon)
         _binding.reviewCard.cardTitle.setText(R.string.review_card)
-        UIUtils.addUnderlineFlag(_binding.actionLogout)
-        _binding.actionLogout.setOnClickListener {
-            _viewModel.logOut()
-            activity?.finish()
-        }
     }
 
-    override fun onResume() {
-        super.onResume()
-        setActionBarTitle()
-        validateUserAccess()
+    private fun setupMenu() {
+        (requireActivity() as MenuHost).addMenuProvider(object : MenuProvider {
+            override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
+                menuInflater.inflate(R.menu.my_profile_menu, menu)
+            }
+
+            override fun onMenuItemSelected(item: MenuItem): Boolean {
+                if (item.itemId == R.id.action_my_profile) {
+                    ActivityUtils.addFragmentWithBackStack(
+                        parentFragmentManager,
+                        _myProfileFragment,
+                        R.id.fragment_container,
+                        "my_profile"
+                    )
+                    return true
+                }
+                return false
+            }
+        }, viewLifecycleOwner, Lifecycle.State.RESUMED)
+
     }
 
     private fun setActionBarTitle() {
