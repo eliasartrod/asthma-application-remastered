@@ -6,12 +6,7 @@ import android.text.SpannableString;
 import android.text.style.UnderlineSpan;
 import android.widget.TextView;
 
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
 public class UIUtils {
-    private static Pattern entryPattern = Pattern.compile("\\b(ALTER|CREATE|DELETE|DROP|EXEC(UTE)?|INSERT( +INTO)?|MERGE|SELECT|UPDATE|UNION( +ALL)?)\\b", Pattern.CASE_INSENSITIVE);
-
     public static float[] getFloatArrayFromARGB(String argb) {
         int iColor = Color.parseColor(argb);
         int red = (iColor & 0xFF0000) / 0xFFFF;
@@ -23,11 +18,6 @@ public class UIUtils {
                 0, 0, 0, 0, blue,
                 0, 0, 0, 1, 0,
         };
-    }
-
-    public static boolean isValidEntry(String entry) {
-        Matcher matcher = entryPattern.matcher(entry);
-        return !matcher.find();
     }
 
     public static void addStrikeThrough(TextView textView) {

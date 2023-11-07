@@ -10,7 +10,7 @@ class MyProfileViewModel @Inject constructor(
     private val _appPreferences: AppPreferences
 ): ViewModel(){
 
-    val userName: String = _appPreferences.userName
-    val userType: String = _appPreferences.userType
+    val userName: String? = _appPreferences.userName
+    val userType: String? = _appPreferences.userType
 
 }

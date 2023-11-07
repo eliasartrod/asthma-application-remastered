@@ -21,9 +21,9 @@ class AsthmaInfoAdapter(
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val model = asthmaInfoModels[position]
-        holder.binding.title.text = model.getTitle()
-        holder.binding.description.text = model.getDescription()
-        holder.binding.imageView.setImageResource(model.getImageview())
+        holder.binding.title.text = model.title
+        holder.binding.description.text = model.description
+        holder.binding.imageView.setImageResource(model.imageview)
         holder.binding.actionExpand.setOnClickListener {
             if (position == previousPosition) {
                 notifyItemChanged(position)

@@ -1,36 +1,22 @@
-package com.example.asthmaapplication.main.common;
+package com.example.asthmaapplication.main.common
 
-import android.content.SharedPreferences;
+import android.content.SharedPreferences
+import com.google.gson.Gson
 
-import com.google.gson.Gson;
+class AppPreferences(private val preferences: SharedPreferences, private val gson: Gson) {
+    var userName: String?
+        get() = preferences.getString(PREF_USER_NAME, "")
+        set(name) {
+            preferences.edit().putString(PREF_USER_NAME, name).apply()
+        }
+    var userType: String?
+        get() = preferences.getString(PREF_USER_TYPE, "")
+        set(type) {
+            preferences.edit().putString(PREF_USER_TYPE, type).apply()
+        }
 
-public class AppPreferences {
-    public static String PREF_USER_NAME = "pref.user.name";
-    public static String PREF_USER_TYPE = "pref.user.type";
-
-    private final SharedPreferences preferences;
-    private final Gson gson;
-
-    public AppPreferences(SharedPreferences preferences, Gson gson) {
-        this.preferences = preferences;
-        this.gson = gson;
+    companion object {
+        var PREF_USER_NAME = "pref.user.name"
+        var PREF_USER_TYPE = "pref.user.type"
     }
-
-
-    public void setUserName(String name) {
-        preferences.edit().putString(PREF_USER_NAME, name).apply();
-    }
-
-    public void setUserType(String type) {
-        preferences.edit().putString(PREF_USER_TYPE, type).apply();
-    }
-
-    public String getUserName() {
-        return preferences.getString(PREF_USER_NAME, "");
-    }
-
-    public String getUserType() {
-        return preferences.getString(PREF_USER_TYPE, "");
-    }
-
 }
