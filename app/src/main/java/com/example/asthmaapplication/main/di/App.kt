@@ -1,35 +1,28 @@
-package com.example.asthmaapplication.main.di;
+package com.example.asthmaapplication.main.di
 
-import android.app.Application;
-import android.content.Context;
-
-import com.example.asthmaapplication.main.common.AppPreferences;
-
-import javax.inject.Inject;
-
-import dagger.hilt.android.HiltAndroidApp;
-import io.reactivex.disposables.CompositeDisposable;
+import dagger.hilt.android.HiltAndroidApp
+import android.app.Application
+import android.content.Context
+import javax.inject.Inject
+import com.example.asthmaapplication.main.common.AppPreferences
+import io.reactivex.disposables.CompositeDisposable
 
 @HiltAndroidApp
-public class App extends Application {
+class App : Application() {
     @Inject
-    AppPreferences appPrefs;
+    lateinit var appPrefs: AppPreferences
 
-    CompositeDisposable disposable = new CompositeDisposable();
-
-    @Override
-    public void onCreate() {
-        super.onCreate();
+    var disposable = CompositeDisposable()
+    override fun onCreate() {
+        super.onCreate()
     }
 
-    @Override
-    public void onTerminate() {
-        super.onTerminate();
-        disposable.dispose();
+    override fun onTerminate() {
+        super.onTerminate()
+        disposable.dispose()
     }
 
-    @Override
-    protected void attachBaseContext(Context base) {
-        super.attachBaseContext(base);
+    override fun attachBaseContext(base: Context) {
+        super.attachBaseContext(base)
     }
 }

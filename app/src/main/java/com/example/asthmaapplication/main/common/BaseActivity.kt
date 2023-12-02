@@ -1,95 +1,75 @@
-package com.example.asthmaapplication.main.common;
+package com.example.asthmaapplication.main.common
 
-import android.os.Bundle;
-import android.view.MenuItem;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-import androidx.fragment.app.FragmentManager;
-
-import com.example.asthmaapplication.databinding.ActivityToolbarBinding;
-
-import javax.inject.Inject;
-
-import dagger.hilt.android.AndroidEntryPoint;
-import io.reactivex.disposables.CompositeDisposable;
+import android.R
+import dagger.hilt.android.AndroidEntryPoint
+import androidx.appcompat.app.AppCompatActivity
+import io.reactivex.disposables.CompositeDisposable
+import android.os.Bundle
+import android.view.MenuItem
+import androidx.appcompat.widget.Toolbar
+import com.example.asthmaapplication.databinding.ActivityToolbarBinding
 
 @AndroidEntryPoint
-public class BaseActivity extends AppCompatActivity {
-    @Inject
-    AppPreferences appPreferences;
+open class BaseActivity : AppCompatActivity() {
 
-    CompositeDisposable compositeDisposable = new CompositeDisposable();
-
-    ActivityToolbarBinding binding;
-
-    @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        binding = ActivityToolbarBinding.inflate(getLayoutInflater());
-        setContentView(binding.getRoot());
-
-        Toolbar toolbar = binding.toolbar;
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setHomeButtonEnabled(true);
+    var compositeDisposable = CompositeDisposable()
+    var binding: ActivityToolbarBinding? = null
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        binding = ActivityToolbarBinding.inflate(layoutInflater)
+        setContentView(binding!!.root)
+        val toolbar: Toolbar = binding!!.toolbar
+        setSupportActionBar(toolbar)
+        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+        supportActionBar!!.setHomeButtonEnabled(true)
     }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
+    override fun onResume() {
+        super.onResume()
     }
 
-    @Override
-    protected void onPause() {
-        super.onPause();
-        compositeDisposable.clear();
+    override fun onPause() {
+        super.onPause()
+        compositeDisposable.clear()
     }
 
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
+    override fun onDestroy() {
+        super.onDestroy()
     }
 
-
-    @Override
-    public void onBackPressed() {
-        FragmentManager fm = getSupportFragmentManager();
-        if (fm.getBackStackEntryCount() > 0) {
-            fm.popBackStack();
+    override fun onBackPressed() {
+        val fm = supportFragmentManager
+        if (fm.backStackEntryCount > 0) {
+            fm.popBackStack()
         } else {
-            super.onBackPressed();
+            super.onBackPressed()
         }
     }
 
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        int id = item.getItemId();
-
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        val id = item.itemId
         if (id == android.R.id.home) {
-            onBackPressed();  return true;
+            onBackPressed()
+            return true
         }
-
-        return super.onOptionsItemSelected(item);
+        return super.onOptionsItemSelected(item)
     }
 
-    public void setActionBarTitle(String title) {
-        if (getSupportActionBar() != null) {
-            getSupportActionBar().setTitle(title);
-        }
-    }
-
-    public void setActionBarTitle(int resId) {
-        if (getSupportActionBar() != null) {
-            getSupportActionBar().setTitle(resId);
+    fun setActionBarTitle(title: String?) {
+        if (supportActionBar != null) {
+            supportActionBar!!.title = title
         }
     }
 
-    public void showBackButton(boolean show) {
-        if (getSupportActionBar() != null) {
-            getSupportActionBar().setDisplayHomeAsUpEnabled(show);
+    fun setActionBarTitle(resId: Int) {
+        if (supportActionBar != null) {
+            supportActionBar!!.setTitle(resId)
+        }
+    }
+
+    fun showBackButton(show: Boolean) {
+        if (supportActionBar != null) {
+            supportActionBar!!.setDisplayHomeAsUpEnabled(show)
         }
     }
 }

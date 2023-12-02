@@ -1,39 +1,38 @@
-package com.example.asthmaapplication.main.utils;
-import android.animation.Animator;
-import android.app.Activity;
-import android.bluetooth.BluetoothAdapter;
-import android.content.Context;
+package com.example.asthmaapplication.main.utils
 
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
-import androidx.recyclerview.widget.RecyclerView;
+import android.animation.Animator
+import androidx.recyclerview.widget.RecyclerView
+import android.view.animation.LayoutAnimationController
+import android.app.Activity
+import android.content.Context
+import android.view.WindowManager
+import android.widget.EditText
+import android.text.TextWatcher
+import android.view.View
+import android.view.inputmethod.InputMethodManager
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
+import java.util.*
 
-import android.text.TextWatcher;
-import android.view.View;
-import android.view.WindowManager;
-import android.view.animation.LayoutAnimationController;
-import android.view.inputmethod.InputMethodManager;
-import android.widget.EditText;
-
-import org.jetbrains.annotations.NotNull;
-
-public class ActivityUtils {
-    public static void addFragment(FragmentManager fragmentManager,
-                                   Fragment fragment,
-                                   int frameId) {
-        FragmentTransaction ft = fragmentManager.beginTransaction();
-        ft.add(frameId, fragment);
-        ft.commit();
+object ActivityUtils {
+    fun addFragment(
+        fragmentManager: FragmentManager,
+        fragment: Fragment?,
+        frameId: Int
+    ) {
+        val ft = fragmentManager.beginTransaction()
+        ft.add(frameId, fragment!!)
+        ft.commit()
     }
 
-    public static void replaceFragment(FragmentManager fragmentManager,
-                                       Fragment fragment,
-                                       int frameId){
-        FragmentTransaction ft = fragmentManager.beginTransaction();
-        ft.replace(frameId, fragment);
-        ft.commit();
-
+    fun replaceFragment(
+        fragmentManager: FragmentManager,
+        fragment: Fragment?,
+        frameId: Int
+    ) {
+        val ft = fragmentManager.beginTransaction()
+        ft.replace(frameId, fragment!!)
+        ft.commit()
     }
 
     /**
@@ -44,16 +43,17 @@ public class ActivityUtils {
      * @param frameId
      * @param tag             root name
      */
-    public static void addFragmentWithBackStack(FragmentManager fragmentManager,
-                                                Fragment fragment,
-                                                int frameId,
-                                                String tag) {
-        fragmentManager.popBackStack(tag, FragmentManager.POP_BACK_STACK_INCLUSIVE);
+    fun addFragmentWithBackStack(
+        fragmentManager: FragmentManager,
+        fragment: Fragment?,
+        frameId: Int,
+        tag: String?
+    ) {
+        fragmentManager.popBackStack(tag, FragmentManager.POP_BACK_STACK_INCLUSIVE)
         fragmentManager.beginTransaction()
-                .replace(frameId, fragment)
-                .addToBackStack(tag)
-                .commit();
-
+            .replace(frameId, fragment!!)
+            .addToBackStack(tag)
+            .commit()
     }
 
     /**
@@ -64,89 +64,74 @@ public class ActivityUtils {
      * @param fragment
      * @param frameId
      */
-    public static void addFragmentOnTop(FragmentManager fragmentManager,
-                                        Fragment fragment,
-                                        int frameId) {
+    fun addFragmentOnTop(
+        fragmentManager: FragmentManager,
+        fragment: Fragment?,
+        frameId: Int
+    ) {
         fragmentManager.beginTransaction()
-                .replace(frameId, fragment)
-                .addToBackStack(null)
-                .commit();
-
+            .replace(frameId, fragment!!)
+            .addToBackStack(null)
+            .commit()
     }
 
 
-    public static void runLayoutAnimation(final RecyclerView recyclerView, LayoutAnimationController controller) {
-        final Context context = recyclerView.getContext();
-
-        recyclerView.setLayoutAnimation(controller);
-        recyclerView.getAdapter().notifyDataSetChanged();
-        recyclerView.scheduleLayoutAnimation();
+    fun runLayoutAnimation(recyclerView: RecyclerView, controller: LayoutAnimationController?) {
+        val context = recyclerView.context
+        recyclerView.layoutAnimation = controller
+        recyclerView.adapter!!.notifyDataSetChanged()
+        recyclerView.scheduleLayoutAnimation()
     }
 
-    public static void showKeyboard(Activity activity) {
-        activity.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE);
+    fun showKeyboard(activity: Activity) {
+        activity.window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE)
     }
 
-    public static void hideKeyboard(@NotNull Activity activity) {
-        if (activity.getCurrentFocus() != null) {
-            InputMethodManager imm = (InputMethodManager) activity.getSystemService(Context.INPUT_METHOD_SERVICE);
-            imm.hideSoftInputFromWindow(activity.getCurrentFocus().getWindowToken(), 0);
+    fun hideKeyboard(activity: Activity) {
+        if (activity.currentFocus != null) {
+            val imm = activity.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+            imm.hideSoftInputFromWindow(activity.currentFocus!!.windowToken, 0)
         } else {
-            activity.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
+            activity.window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN)
         }
     }
 
-    public static void showKeyboard(Activity activity, View view) {
-        InputMethodManager imm = (InputMethodManager) activity.getSystemService(Context.INPUT_METHOD_SERVICE);
-        imm.showSoftInput(view, InputMethodManager.SHOW_IMPLICIT);
+    fun showKeyboard(activity: Activity, view: View?) {
+        val imm = activity.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        imm.showSoftInput(view, InputMethodManager.SHOW_IMPLICIT)
     }
 
-    public static void uppercaseEditText(EditText target, String text, TextWatcher watcher) {
-        int selection = target.getSelectionStart();
-        target.removeTextChangedListener(watcher);
-        target.setText(text.toUpperCase());
-        target.setSelection(selection);
-        target.addTextChangedListener(watcher);
+    fun uppercaseEditText(target: EditText, text: String, watcher: TextWatcher?) {
+        val selection = target.selectionStart
+        target.removeTextChangedListener(watcher)
+        target.setText(text.uppercase(Locale.getDefault()))
+        target.setSelection(selection)
+        target.addTextChangedListener(watcher)
     }
 
-    public static void fadeView(View view, boolean show) {
-        float startAlpha = show ? 0f : 1f;
-        float endAlpha = show ? 1f : 0f;
-        long animationDuration = 500;
-
-        Animator.AnimatorListener listener = null;
-
+    fun fadeView(view: View, show: Boolean) {
+        val startAlpha = if (show) 0f else 1f
+        val endAlpha = if (show) 1f else 0f
+        val animationDuration: Long = 500
+        var listener: Animator.AnimatorListener? = null
         if (show) {
-            view.setVisibility(View.VISIBLE);
+            view.visibility = View.VISIBLE
         } else {
-            listener = new Animator.AnimatorListener() {
-                @Override
-                public void onAnimationStart(Animator animator) {
-
+            listener = object : Animator.AnimatorListener {
+                override fun onAnimationStart(animator: Animator) {}
+                override fun onAnimationEnd(animator: Animator) {
+                    view.visibility = View.INVISIBLE
                 }
 
-                @Override
-                public void onAnimationEnd(Animator animator) {
-                    view.setVisibility(View.INVISIBLE);
-                }
-
-                @Override
-                public void onAnimationCancel(Animator animator) {
-
-                }
-
-                @Override
-                public void onAnimationRepeat(Animator animator) {
-
-                }
-            };
-
+                override fun onAnimationCancel(animator: Animator) {}
+                override fun onAnimationRepeat(animator: Animator) {}
+            }
         }
-        view.setAlpha(startAlpha);
+        view.alpha = startAlpha
         view.animate()
-                .alpha(endAlpha)
-                .setDuration(animationDuration)
-                .setListener(listener);
+            .alpha(endAlpha)
+            .setDuration(animationDuration)
+            .setListener(listener)
     }
 
 }

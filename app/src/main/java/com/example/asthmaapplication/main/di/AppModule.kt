@@ -1,38 +1,35 @@
-package com.example.asthmaapplication.main.di;
+package com.example.asthmaapplication.main.di
 
-import android.app.Application;
-import android.content.Context;
-import android.preference.PreferenceManager;
-
-import com.example.asthmaapplication.main.common.AppPreferences;
-import com.google.gson.Gson;
-
-import javax.inject.Singleton;
-
-import dagger.Module;
-import dagger.Provides;
-import dagger.hilt.InstallIn;
-import dagger.hilt.android.qualifiers.ApplicationContext;
-import dagger.hilt.components.SingletonComponent;
+import dagger.hilt.InstallIn
+import dagger.hilt.components.SingletonComponent
+import javax.inject.Singleton
+import android.app.Application
+import android.content.Context
+import com.google.gson.Gson
+import dagger.hilt.android.qualifiers.ApplicationContext
+import com.example.asthmaapplication.main.common.AppPreferences
+import android.preference.PreferenceManager
+import dagger.Module
+import dagger.Provides
 
 @Module
-@InstallIn(SingletonComponent.class)
-public class AppModule {
-
+@InstallIn(SingletonComponent::class)
+class AppModule {
     @Provides
     @Singleton
-    public static AppPreferences providesPreferences(@ApplicationContext Context context, Gson gson) {
-        return new AppPreferences(PreferenceManager.getDefaultSharedPreferences(context), gson);
+    fun providesPreferences(@ApplicationContext context: Context?, gson: Gson?): AppPreferences {
+        return AppPreferences(PreferenceManager.getDefaultSharedPreferences(context), gson!!)
     }
 
     @Provides
     @Singleton
-    public Context provideContext(Application application) {
-        return application.getApplicationContext();
+    fun provideContext(application: Application): Context {
+        return application.applicationContext
     }
 
+
     @Provides
-    public Gson provideGson() {
-        return new Gson();
+    fun provideGson(): Gson {
+        return Gson()
     }
 }

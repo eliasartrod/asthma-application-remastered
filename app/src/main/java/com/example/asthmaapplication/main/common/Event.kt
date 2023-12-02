@@ -1,58 +1,37 @@
-package com.example.asthmaapplication.main.common;
+package com.example.asthmaapplication.main.common
 
-import android.os.Bundle;
+import android.os.Bundle
+import androidx.lifecycle.Observer
 
-import androidx.lifecycle.Observer;
+class Event<T>(private val content: T) {
+    var extra: Bundle? = null
+    private var hasBeenHandled = false
 
-public class Event<T> {
-    Bundle extra;
-    private T content;
-    private boolean hasBeenHandled = false;
-
-    public Event(T content) {
-        this.content = content;
-    }
-
-    public void setExtra(Bundle extra) {
-        this.extra = extra;
-    }
-
-    public Bundle getExtra() {
-        return this.extra;
-    }
-
-    public T getContentIfNotHandled() {
-        if (hasBeenHandled) {
-            return null;
+    val contentIfNotHandled: T?
+        get() = if (hasBeenHandled) {
+            null
         } else {
-            hasBeenHandled = true;
-            return content;
-        }
-    }
-
-    public T peekContent() {
-        return content;
-    }
-
-    public static class EventObserver<T> implements Observer<Event<? extends T>> {
-        private EventUnhandledContent<T> content;
-
-        public EventObserver(EventUnhandledContent<T> content) {
-            this.content = content;
+            hasBeenHandled = true
+            content
         }
 
-        @Override
-        public void onChanged(Event<? extends T> event) {
-            if (event != null) {
-                T result = event.getContentIfNotHandled();
+    fun peekContent(): T {
+        return content
+    }
+
+    abstract class EventObserver<T>(private val content: EventUnhandledContent<T>?) :
+        Observer<Event<out T>?> {
+        override fun onChanged(value: Event<out T>?) {
+            if (value != null) {
+                val result = value.contentIfNotHandled
                 if (result != null && content != null) {
-                    content.onEventUnhandledContent(result);
+                    content.onEventUnhandledContent(result)
                 }
             }
         }
     }
 
-    public interface EventUnhandledContent<T> {
-        void onEventUnhandledContent(T t);
+    interface EventUnhandledContent<T> {
+        fun onEventUnhandledContent(t: T)
     }
 }

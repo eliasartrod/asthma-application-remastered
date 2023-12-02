@@ -1,34 +1,23 @@
-package com.example.asthmaapplication.main.common;
+package com.example.asthmaapplication.main.common
 
-import java.util.ArrayList;
+import java.util.ArrayList
 
-public class SnackBarMessage {
+class SnackBarMessage {
+    var resId = 0
+        private set
+    var message: String? = null
+        private set
+    val formattedMessages = ArrayList<String>()
 
-    private int resId;
-    private String message;
-    private ArrayList<String> formattedMessages = new ArrayList<>();
-
-    public SnackBarMessage(int resId) {
-        this.resId = resId;
+    constructor(resId: Int) {
+        this.resId = resId
     }
 
-    public SnackBarMessage(String message) {
-        this.message = message;
+    constructor(message: String?) {
+        this.message = message
     }
 
-    public int getResId() {
-        return resId;
-    }
-
-    public ArrayList<String> getFormattedMessages() {
-        return formattedMessages;
-    }
-
-    public void addFormattedMessage(String formattedMessage) {
-        formattedMessages.add(formattedMessage);
-    }
-
-    public String getMessage() {
-        return message;
+    fun addFormattedMessage(formattedMessage: String) {
+        formattedMessages.add(formattedMessage)
     }
 }
