@@ -1,13 +1,12 @@
 package com.example.asthmaapplication.main.common
 
-import android.R
 import dagger.hilt.android.AndroidEntryPoint
 import androidx.appcompat.app.AppCompatActivity
 import io.reactivex.disposables.CompositeDisposable
 import android.os.Bundle
 import android.view.MenuItem
 import androidx.appcompat.widget.Toolbar
-import com.example.asthmaapplication.databinding.ActivityToolbarBinding
+import com.example.inventory.databinding.ActivityToolbarBinding
 
 @AndroidEntryPoint
 open class BaseActivity : AppCompatActivity() {

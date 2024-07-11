@@ -1,9 +1,9 @@
 package com.example.asthmaapplication.main.homepage
 
 import android.os.Bundle
-import com.example.asthmaapplication.R
 import com.example.asthmaapplication.main.common.BaseActivity
 import com.example.asthmaapplication.main.utils.ActivityUtils
+import com.example.inventory.R
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

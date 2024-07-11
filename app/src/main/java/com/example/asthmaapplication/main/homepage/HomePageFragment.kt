@@ -6,13 +6,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
-import com.example.asthmaapplication.R
-import com.example.asthmaapplication.databinding.FragmentHomeBinding
 import com.example.asthmaapplication.main.common.BaseActivity
 import com.example.asthmaapplication.main.common.BaseFragment
 import com.example.asthmaapplication.main.mainpage.MainActivity
 import com.example.asthmaapplication.main.utils.ActivityUtils
 import com.example.asthmaapplication.main.utils.UIUtils
+import com.example.inventory.R
+import com.example.inventory.databinding.FragmentHomeBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

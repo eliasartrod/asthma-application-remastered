@@ -8,8 +8,6 @@ import androidx.core.view.MenuHost
 import androidx.core.view.MenuProvider
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
-import com.example.asthmaapplication.R
-import com.example.asthmaapplication.databinding.FragmentMainBinding
 import com.example.asthmaapplication.main.common.Constants
 import com.example.asthmaapplication.main.utils.UIUtils
 import com.example.asthmaapplication.main.common.SnackBarMessage
@@ -19,6 +17,8 @@ import com.example.asthmaapplication.main.mainpage.subpages.learningbasepages.Pa
 import com.example.asthmaapplication.main.mainpage.subpages.learningbasepages.ReviewsFragment
 import com.example.asthmaapplication.main.mainpage.subpages.learningbasepages.QuizzesExamsFragment
 import com.example.asthmaapplication.main.utils.ActivityUtils
+import com.example.inventory.R
+import com.example.inventory.databinding.FragmentMainBinding
 
 @AndroidEntryPoint
 class MainFragment: BaseFragment() {

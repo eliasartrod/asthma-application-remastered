@@ -6,11 +6,11 @@ plugins {
 }
 
 android {
-    namespace 'com.example.asthmaapplication'
+    namespace 'com.example.inventory'
     compileSdk 34
 
     defaultConfig {
-        applicationId "com.example.asthmaapplication"
+        applicationId "com.example.inventory"
         minSdk 26
         targetSdk 34
         versionCode 1

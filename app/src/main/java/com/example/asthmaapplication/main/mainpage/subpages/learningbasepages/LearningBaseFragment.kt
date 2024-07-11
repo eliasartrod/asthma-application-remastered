@@ -5,18 +5,18 @@ import com.example.asthmaapplication.main.mainpage.MainViewModel
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import com.example.asthmaapplication.R
 import com.example.asthmaapplication.main.utils.UIUtils
 import android.content.Intent
 import android.view.View
 import androidx.fragment.app.viewModels
-import com.example.asthmaapplication.databinding.FragmentLearningBaseBinding
 import com.example.asthmaapplication.main.common.Constants
 import com.example.asthmaapplication.main.common.SnackBarMessage
 import com.example.asthmaapplication.main.mainpage.MainFragment
 import com.example.asthmaapplication.main.mainpage.subpages.learningpages.LearningFragmentActivity
 import com.example.asthmaapplication.main.mainpage.subpages.learningpages.LearningFragment
 import com.example.asthmaapplication.main.utils.ActivityUtils
+import com.example.inventory.R
+import com.example.inventory.databinding.FragmentLearningBaseBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

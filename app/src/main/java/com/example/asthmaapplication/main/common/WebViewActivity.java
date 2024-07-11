@@ -5,7 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.webkit.WebView;
 
-import com.example.asthmaapplication.databinding.ActivityWebviewBinding;
+import com.example.inventory.databinding.ActivityWebviewBinding;
 
 public class WebViewActivity extends BaseActivity{
     private static final String URL = "url.argument";

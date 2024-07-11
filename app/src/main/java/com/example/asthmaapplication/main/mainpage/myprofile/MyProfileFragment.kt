@@ -5,10 +5,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
-import com.example.asthmaapplication.R
-import com.example.asthmaapplication.databinding.FragmentMyProfileBinding
 import com.example.asthmaapplication.main.common.BaseFragment
 import com.example.asthmaapplication.main.common.Constants
+import com.example.inventory.R
+import com.example.inventory.databinding.FragmentMyProfileBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

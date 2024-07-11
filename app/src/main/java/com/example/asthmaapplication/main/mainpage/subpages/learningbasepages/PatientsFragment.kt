@@ -7,7 +7,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.asthmaapplication.databinding.FragmentPatientsBinding
+import com.example.inventory.databinding.FragmentPatientsBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

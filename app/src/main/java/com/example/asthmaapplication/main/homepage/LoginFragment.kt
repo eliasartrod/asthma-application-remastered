@@ -9,8 +9,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
-import com.example.asthmaapplication.R
-import com.example.asthmaapplication.databinding.FragmentLoginBinding
 import com.example.asthmaapplication.main.common.BaseActivity
 import com.example.asthmaapplication.main.common.BaseFragment
 import com.example.asthmaapplication.main.common.Constants
@@ -18,6 +16,8 @@ import com.example.asthmaapplication.main.common.Event
 import com.example.asthmaapplication.main.mainpage.MainActivity
 import com.example.asthmaapplication.main.utils.ActivityUtils
 import com.example.asthmaapplication.main.utils.UIUtils
+import com.example.inventory.R
+import com.example.inventory.databinding.FragmentLoginBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

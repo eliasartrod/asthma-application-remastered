@@ -8,9 +8,9 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import com.google.android.material.tabs.TabLayoutMediator
 import com.google.android.material.tabs.TabLayout
-import com.example.asthmaapplication.R
 import androidx.viewpager2.adapter.FragmentStateAdapter
-import com.example.asthmaapplication.databinding.FragmentLearningBinding
+import com.example.inventory.R
+import com.example.inventory.databinding.FragmentLearningBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

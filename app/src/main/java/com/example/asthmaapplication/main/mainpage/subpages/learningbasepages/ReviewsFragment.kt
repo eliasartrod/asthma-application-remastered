@@ -7,8 +7,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
-import com.example.asthmaapplication.R
-import com.example.asthmaapplication.databinding.FragmentReviewsBinding
+import com.example.inventory.R
+import com.example.inventory.databinding.FragmentReviewsBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

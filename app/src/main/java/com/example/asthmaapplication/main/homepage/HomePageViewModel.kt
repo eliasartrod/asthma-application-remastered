@@ -6,12 +6,12 @@ import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import androidx.lifecycle.*
-import com.example.asthmaapplication.R
 import com.example.asthmaapplication.main.common.AppPreferences
 import com.example.asthmaapplication.main.common.Event
 import com.example.asthmaapplication.main.common.SnackBarMessage
 import com.example.asthmaapplication.main.database.UserAccountDataBaseHelper
 import com.example.asthmaapplication.main.model.UserAccountModel
+import com.example.inventory.R
 import javax.inject.Inject
 
 @HiltViewModel

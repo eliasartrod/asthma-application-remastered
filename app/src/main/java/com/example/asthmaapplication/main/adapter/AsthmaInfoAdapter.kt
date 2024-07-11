@@ -5,8 +5,8 @@ import androidx.recyclerview.widget.RecyclerView
 import android.view.ViewGroup
 import android.view.LayoutInflater
 import android.view.View
-import com.example.asthmaapplication.R
-import com.example.asthmaapplication.databinding.CardItemLearningBinding
+import com.example.inventory.R
+import com.example.inventory.databinding.CardItemLearningBinding
 import java.util.ArrayList
 
 class AsthmaInfoAdapter(

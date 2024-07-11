@@ -9,9 +9,9 @@ import android.view.ViewGroup
 import android.os.Bundle
 import android.view.View
 import com.example.asthmaapplication.main.utils.UIUtils
-import com.example.asthmaapplication.R
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.asthmaapplication.databinding.FragmentSectionFiveBinding
+import com.example.inventory.R
+import com.example.inventory.databinding.FragmentSectionFiveBinding
 import java.util.ArrayList
 
 @AndroidEntryPoint

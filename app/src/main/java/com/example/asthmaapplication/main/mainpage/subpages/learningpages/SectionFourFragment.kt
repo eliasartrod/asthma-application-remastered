@@ -8,9 +8,9 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.os.Bundle
 import android.view.View
-import com.example.asthmaapplication.R
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.asthmaapplication.databinding.FragmentSectionFourBinding
+import com.example.inventory.R
+import com.example.inventory.databinding.FragmentSectionFourBinding
 import java.util.ArrayList
 
 @AndroidEntryPoint

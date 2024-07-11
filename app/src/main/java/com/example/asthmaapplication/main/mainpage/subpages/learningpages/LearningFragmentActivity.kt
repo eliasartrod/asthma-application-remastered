@@ -4,7 +4,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import com.example.asthmaapplication.main.common.BaseActivity
 import android.os.Bundle
 import com.example.asthmaapplication.main.utils.ActivityUtils
-import com.example.asthmaapplication.R
+import com.example.inventory.R
 
 @AndroidEntryPoint
 class LearningFragmentActivity : BaseActivity() {

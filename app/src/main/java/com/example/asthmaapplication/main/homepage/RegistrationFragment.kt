@@ -11,11 +11,11 @@ import android.text.Editable
 import android.text.TextUtils
 import android.view.View
 import androidx.fragment.app.viewModels
-import com.example.asthmaapplication.R
-import com.example.asthmaapplication.databinding.FragmentRegistrationBinding
 import com.example.asthmaapplication.main.common.BaseActivity
 import com.example.asthmaapplication.main.common.Event
 import com.example.asthmaapplication.main.utils.ActivityUtils
+import com.example.inventory.R
+import com.example.inventory.databinding.FragmentRegistrationBinding
 
 @AndroidEntryPoint
 class RegistrationFragment: BaseFragment() {
